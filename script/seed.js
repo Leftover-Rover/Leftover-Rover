@@ -1,13 +1,23 @@
 'use strict'
 
 const db = require('../server/db')
-const { User } = require('../server/db/models')
+const { User, Driver, Address } = require('../server/db/models')
 
 async function seed() {
   await db.sync({ force: true })
   console.log('db synced!')
 
   const users = await Promise.all([
+    User.create({
+      email: 'driver@driver.com',
+      password: '123',
+      phoneNumber: '1234567892'
+    }),
+    User.create({
+      email: 'customer@customer.com',
+      password: '123',
+      phoneNumber: '1234567893'
+    }),
     User.create({
       email: 'cody@email.com',
       password: '123',
@@ -19,6 +29,30 @@ async function seed() {
       phoneNumber: '1234567890'
     })
   ])
+
+  const drivers = await Promise.all([
+    Driver.create({
+      isActive: true,
+      carMake: 'Toyota',
+      carModel: 'Camry',
+      licensePlate: 'JDANS23S',
+      carColor: 'Red'
+    })
+  ])
+
+  const addresses = await Promise.all([
+    Address.create({
+      street1: '3838 N Fremont St',
+      city: 'Chicago',
+      state: 'IL',
+      zip: 60613,
+      lat: 41.952363,
+      lng: -87.652167
+    })
+  ])
+
+  await drivers[0].setUser(users[0])
+  await addresses[0].setUser(users[1])
 
   console.log(`seeded ${users.length} users`)
   console.log(`seeded successfully`)
