@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { render } from 'react-dom'
-import MapGL from 'react-map-gl'
+import MapGL, { Marker } from 'react-map-gl'
 
 const AppMap = () => {
   const MAPBOX_TOKEN =
