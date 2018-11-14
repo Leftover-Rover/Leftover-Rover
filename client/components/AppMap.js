@@ -3,6 +3,7 @@ import { render } from 'react-dom'
 import MapGL from 'react-map-gl'
 import { geolocated } from 'react-geolocated'
 
+
 class AppMap extends Component {
   constructor(props) {
     super(props)
