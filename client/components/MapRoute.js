@@ -9,10 +9,10 @@ mapboxgl.accessToken =
   'pk.eyJ1IjoiZ2FycmV0dGdyZWVuIiwiYSI6ImNqb2htMzU4ajAxOW0za3Q0ejFqdW84M3UifQ.ttT97UAbxDQqXw64WCIsNA'
 
 export default class Map extends React.Component {
-  componentDidMount() {
+  componentDidMount = () => {
     const { lng, lat, zoom } = {
-      lng: 144.9685,
-      lat: -37.8101,
+      lng: -87.6298,
+      lat: 41.8781,
       zoom: 13.4
     }
 
@@ -23,20 +23,39 @@ export default class Map extends React.Component {
       zoom
     })
 
-    const directions = new MapboxDirections({
+    this.directions = new MapboxDirections({
       accessToken: mapboxgl.accessToken,
       unit: 'metric',
-      profile: 'mapbox/cycling'
+      profile: 'mapbox/driving',
+      // interactive: false,
+      controls: {
+        inputs: false,
+        instructions: false
+      }
     })
 
-    map.addControl(directions, 'top-left')
+    map.addControl(this.directions, 'top-left')
+    // directions.setOrigin('405 W Superior St, Chicago IL 60654')
+    // directions.setDestination('3838 N Fremont St, Chicago IL 60613')
+  }
+
+  handleRoute = () => {
+    this.directions.setOrigin('405 W Superior St, Chicago IL 60654')
+    this.directions.setDestination('3838 N Fremont St, Chicago IL 60613')
   }
 
   render() {
     return (
-      <div className="map-wrapper">
-        <div ref={el => (this.mapContainer = el)} className="map" />
-      </div>
+      <React.Fragment>
+        <div>
+          <div ref={el => (this.mapContainer = el)} className="map" />
+        </div>
+        <span>
+          <button type="button" onClick={this.handleRoute}>
+            Press ME
+          </button>
+        </span>
+      </React.Fragment>
     )
   }
 }
