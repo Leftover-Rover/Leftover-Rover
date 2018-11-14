@@ -29,6 +29,12 @@ const Driver = db.define('driver', {
       max: 5
     },
     defaultValue: 5
+  },
+  currentLocationLat: {
+    type: Sequelize.DECIMAL(10, 6)
+  },
+  currentLocationLng: {
+    type: Sequelize.DECIMAL(10, 6)
   }
 })
 
