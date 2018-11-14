@@ -18,7 +18,7 @@ class Routes extends Component {
 
     return (
       <React.Fragment>
-        <AppMap />
+        {/* <AppMap /> */}
         <Switch>
           {/* Routes placed here are available to all visitors */}
           <Route path="/login" component={Login} />
