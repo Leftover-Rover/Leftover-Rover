@@ -15,11 +15,11 @@ const Order = db.define('order', {
     type: Sequelize.DATE
   },
   price: {
-    type: Sequelize.DECIMAL(10, 2),
+    type: Sequelize.INTEGER,
     validate: {
       min: 0
     },
-    defaultValue: 5
+    defaultValue: 500
   },
   deliveryNotes: {
     type: Sequelize.TEXT
