@@ -28,7 +28,12 @@ const User = db.define('user', {
     type: Sequelize.STRING
   },
   phoneNumber: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
+    allowNull: false,
+    unique: true,
+    validate: {
+      len: 10
+    }
   },
   imageUrl: {
     type: Sequelize.STRING
@@ -36,6 +41,9 @@ const User = db.define('user', {
   isAdmin: {
     type: Sequelize.BOOLEAN,
     defaultValue: false
+  },
+  paymentInfo: {
+    type: Sequelize.STRING
   }
 })
 

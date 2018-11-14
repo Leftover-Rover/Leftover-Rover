@@ -18,7 +18,8 @@ const Order = db.define('order', {
     type: Sequelize.DECIMAL(10, 2),
     validate: {
       min: 0
-    }
+    },
+    defaultValue: 5
   },
   deliveryNotes: {
     type: Sequelize.TEXT

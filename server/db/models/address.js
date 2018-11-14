@@ -6,13 +6,15 @@ const Address = db.define('address', {
     type: Sequelize.STRING
   },
   street1: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
+    allowNull: false
   },
   street2: {
     type: Sequelize.STRING
   },
   city: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
+    allowNull: false
   },
   state: {
     type: Sequelize.ENUM,
@@ -79,7 +81,11 @@ const Address = db.define('address', {
     ]
   },
   zip: {
-    type: Sequelize.INTEGER
+    type: Sequelize.INTEGER,
+    allowNull: false,
+    validate: {
+      len: 5
+    }
   },
   lat: {
     type: Sequelize.DECIMAL(10, 6)
