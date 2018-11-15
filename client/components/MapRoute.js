@@ -1,6 +1,7 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { postOrder } from '../store'
 import UserMap from './UserMap'
-import { geolocated } from 'react-geolocated'
 
 class Map extends React.Component {
   state = {
@@ -18,7 +19,14 @@ class Map extends React.Component {
     }
   }
 
-  handleRoute = () => {
+  handleBook = () => {
+    // These constants will take my lat/lng from my location for pickup location, I have hard coded them in the meantime.
+    const myLat = -87.6298
+    const myLng = 41.8781
+    this.props.postOrder(myLat, myLng)
+  }
+    
+    handleRoute = () => {
     this.setState({
       origin: '405 W Superior St. Chicago, IL 60654',
       destination: '3838 N Fremon St. Chicago, IL 60613'
@@ -32,10 +40,16 @@ class Map extends React.Component {
           <button type="button" onClick={this.handleRoute}>
             Press ME
           </button>
+          <button type="button" onClick={this.handleBook}>
+            Book me a Route!
+          </button>
         </span>
       </React.Fragment>
     )
   }
 }
 
-export default Map
+const mapDispatch = {
+  postOrder
+}
+export default connect(null, mapDispatch)(Map)
