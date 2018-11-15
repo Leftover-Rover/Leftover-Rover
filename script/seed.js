@@ -36,7 +36,9 @@ async function seed() {
       carMake: 'Toyota',
       carModel: 'Camry',
       licensePlate: 'JDANS23S',
-      carColor: 'Red'
+      carColor: 'Red',
+      currentLocationLat: 41.891083,
+      currentLocationLng: -87.624501
     })
   ])
 
