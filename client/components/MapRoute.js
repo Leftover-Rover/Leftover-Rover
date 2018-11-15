@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { postOrder } from '../store'
 import mapboxgl from 'mapbox-gl'
 import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions'
 
@@ -8,7 +10,7 @@ import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-direct
 mapboxgl.accessToken =
   'pk.eyJ1IjoiZ2FycmV0dGdyZWVuIiwiYSI6ImNqb2htMzU4ajAxOW0za3Q0ejFqdW84M3UifQ.ttT97UAbxDQqXw64WCIsNA'
 
-export default class Map extends React.Component {
+class Map extends React.Component {
   componentDidMount = () => {
     const { lng, lat, zoom } = {
       lng: -87.6298,
@@ -40,8 +42,21 @@ export default class Map extends React.Component {
   }
 
   handleRoute = () => {
+    const arr = [
+      '321 W Superior St, Chicago IL 60654',
+      '200 W Superior St, Chicago IL 60654'
+    ]
+    const idx = Math.random() > 0.5 ? 1 : 0
     this.directions.setOrigin('405 W Superior St, Chicago IL 60654')
-    this.directions.setDestination('3838 N Fremont St, Chicago IL 60613')
+    console.log(this.directions.actions.queryOrigin)
+    this.directions.setDestination(arr[idx])
+  }
+
+  handleBook = () => {
+    // These constants will take my lat/lng from my location for pickup location, I have hard coded them in the meantime.
+    const myLat = -87.6298
+    const myLng = 41.8781
+    this.props.postOrder(myLat, myLng)
   }
 
   render() {
@@ -54,8 +69,17 @@ export default class Map extends React.Component {
           <button type="button" onClick={this.handleRoute}>
             Press ME
           </button>
+          <button type="button" onClick={this.handleBook}>
+            Book me a Route!
+          </button>
         </span>
       </React.Fragment>
     )
   }
 }
+
+const mapDispatch = {
+  postOrder
+}
+
+export default connect(null, mapDispatch)(Map)
