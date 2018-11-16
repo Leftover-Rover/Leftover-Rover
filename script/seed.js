@@ -32,7 +32,7 @@ async function seed() {
 
   const drivers = await Promise.all([
     Driver.create({
-      isActive: true,
+      status: 'Searching',
       carMake: 'Toyota',
       carModel: 'Camry',
       licensePlate: 'JDANS23S',
