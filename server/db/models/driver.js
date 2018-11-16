@@ -2,13 +2,13 @@ const Sequelize = require('sequelize')
 const db = require('../db')
 
 const Driver = db.define('driver', {
-  status: {
-    type: Sequelize.ENUM,
-    values: ['Offline', 'Searching', 'Busy']
-  },
   isAvailable: {
     type: Sequelize.BOOLEAN,
-    defaultValue: true
+    defaultValue: false
+  },
+  isActive: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
   },
   carMake: {
     type: Sequelize.STRING,

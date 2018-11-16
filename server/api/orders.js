@@ -15,7 +15,8 @@ const idFinder = req => {
 const findDriver = async (myLat, myLng) => {
   const drivers = await Driver.findAll({
     where: {
-      status: 'Searching'
+      isAvailable: true,
+      isActive: true
     }
   })
   let closest = { driverId: 2, driverScore: Infinity }
@@ -27,28 +28,44 @@ const findDriver = async (myLat, myLng) => {
       closest.driverId = driver.id
     }
   })
-  // send request to driver and wait for their response
   return closest.driverId
 }
 
 // Route for creating an order when user requests a driver
 router.post('/', async (req, res, next) => {
-  // req.body = {startLocationLat, startLocationLng, dropOffLocationLat, dropOffLocationLng, deliveryNotes}
+  // req.body = {pickupLocationLat,
+  // pickupLocationLng,
+  // dropoffLocationLat,
+  // dropoffLocationLng,
+  // deliveryNotes}
   try {
     const { id } = idFinder(req)
     const driverId = await findDriver(
-      req.body.startLocationLat,
-      req.body.startLocationLng
+      req.body.pickupLocationLat,
+      req.body.pickupLocationLng
     )
     const driver = await Driver.findById(driverId)
     const orderData = {
       userId: id,
-      startLocationLat: driver.currentLocationLat,
-      startLocationLng: driver.currentLocationLng,
-      driverId
+      pickupLocationLat: req.body.pickupLocationLat,
+      pickupLocationLng: req.body.pickupLocationLng,
+      dropffLocationLat: req.body.dropoffLocationLat,
+      dropoffLocationLng: req.body.dropoffLocationLng,
+      deliveryNotes: req.body.deliveryNotes
     }
     const order = await Order.create(orderData)
-    await driver.update({ status: 'Busy' })
+
+    // Between here is where we would wait for driver to accept
+
+    await Promise.all([
+      driver.update({ isAvailable: false }),
+      order.update({
+        status: 'ToPickup',
+        startLocationLat: driver.currentLocationLat,
+        startLocationLng: driver.currentLocationLng
+      }),
+      order.setDriver(driver)
+    ])
     res.json(order)
   } catch (err) {
     next(err)
