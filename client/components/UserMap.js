@@ -45,8 +45,10 @@ export default class UserMap extends React.Component {
   }
 
   componentDidUpdate = () => {
-    this.directions.setOrigin(this.props.origin)
-    this.directions.setDestination(this.props.destination)
+    this.map.on('load', () => {
+      this.directions.setOrigin(this.props.origin)
+      this.directions.setDestination(this.props.destination)
+    })
     if (Array.isArray(this.props.markers)) {
       console.log(this.markers)
       this.props.markers.forEach(marker =>
