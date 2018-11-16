@@ -6,6 +6,10 @@ const Driver = db.define('driver', {
     type: Sequelize.ENUM,
     values: ['Offline', 'Searching', 'Busy']
   },
+  isAvailable: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: true
+  },
   carMake: {
     type: Sequelize.STRING,
     allowNull: false

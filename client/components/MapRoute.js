@@ -42,8 +42,10 @@ class Map extends React.Component {
     this.props.postOrder(myLat, myLng)
   }
 
+
   handleRoute = (origin, destination) => {
-    console.log('origin', origin, 'destination', destination)
+   
+
     this.setState({
       origin,
       destination
@@ -52,10 +54,8 @@ class Map extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <span>
-          {/* <button type="button" onClick={this.handleRoute} className="button">
-            Press ME
-          </button> */}
+
+        <span className="renderOverMap">
           <button type="button" onClick={this.handleBook} className="button">
             Book me a Route!
           </button>

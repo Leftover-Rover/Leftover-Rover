@@ -44,6 +44,12 @@ const User = db.define('user', {
   },
   paymentInfo: {
     type: Sequelize.STRING
+  },
+  defaultDeliveryLat: {
+    type: Sequelize.DECIMAL(10, 6)
+  },
+  defaultDeliveryLng: {
+    type: Sequelize.DECIMAL(10, 6)
   }
 })
 

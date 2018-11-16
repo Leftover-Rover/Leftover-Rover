@@ -8,8 +8,20 @@ const Order = db.define('order', {
   startLocationLng: {
     type: Sequelize.DECIMAL(10, 6)
   },
+  pickupLocationLat: {
+    type: Sequelize.DECIMAL(10, 6)
+  },
+  pickupLocationLng: {
+    type: Sequelize.DECIMAL(10, 6)
+  },
   pickupTime: {
     type: Sequelize.DATE
+  },
+  deliveryLocationLat: {
+    type: Sequelize.DECIMAL(10, 6)
+  },
+  deliveryLocationLng: {
+    type: Sequelize.DECIMAL(10, 6)
   },
   deliveryTime: {
     type: Sequelize.DATE
@@ -26,7 +38,7 @@ const Order = db.define('order', {
   },
   status: {
     type: Sequelize.ENUM,
-    values: ['Requested', 'Accepted', 'In Progress', 'Completed']
+    values: ['Requested', 'ToPickup', 'ToDropOff', 'Completed', 'Cancelled']
   }
 })
 
