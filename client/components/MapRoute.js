@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { postOrder } from '../store'
+import { postOrder, getMyLocation } from '../store'
 import UserMap from './UserMap'
+import { geolocated } from 'react-geolocated'
 
 class Map extends React.Component {
   state = {
@@ -11,6 +12,21 @@ class Map extends React.Component {
     centerLng: -87.6298
   }
   componentDidUpdate(prevProps) {
+    // const options = {
+    //   enableHighAccuracy: false,
+    //   timeout: 10000,
+    //   maximumAge: 3000
+    // }
+    setTimeout(
+      () =>
+        navigator.geolocation.getCurrentPosition(
+          this.props.getMyLocation,
+          err => console.log(err),
+          options
+        ),
+      2000
+    )
+
     if (this.props.coords !== prevProps.coords) {
       this.setState({
         centerLng: this.props.coords.longitude,
@@ -21,35 +37,53 @@ class Map extends React.Component {
 
   handleBook = () => {
     // These constants will take my lat/lng from my location for pickup location, I have hard coded them in the meantime.
-    const myLat = -87.6298
-    const myLng = 41.8781
+    const myLat = this.state.centerLat
+    const myLng = this.state.centerLng
     this.props.postOrder(myLat, myLng)
   }
-    
-    handleRoute = () => {
+
+  handleRoute = (origin, destination) => {
+    console.log('origin', origin, 'destination', destination)
     this.setState({
-      origin: '405 W Superior St. Chicago, IL 60654',
-      destination: '3838 N Fremon St. Chicago, IL 60613'
+      origin,
+      destination
     })
   }
   render() {
     return (
       <React.Fragment>
-        <UserMap {...this.state} />
         <span>
-          <button type="button" onClick={this.handleRoute}>
+          {/* <button type="button" onClick={this.handleRoute} className="button">
             Press ME
-          </button>
-          <button type="button" onClick={this.handleBook}>
+          </button> */}
+          <button type="button" onClick={this.handleBook} className="button">
             Book me a Route!
           </button>
         </span>
+        <UserMap {...this.state} {...this.props.myLocation} />
       </React.Fragment>
     )
   }
 }
 
 const mapDispatch = {
-  postOrder
+  postOrder,
+  getMyLocation
 }
-export default connect(null, mapDispatch)(Map)
+
+const mapState = state => {
+  return {
+    order: state.order,
+    myLocation: state.myLocation
+  }
+}
+
+export default connect(mapState, mapDispatch)(
+  geolocated({
+    positionOptions: {
+      enableHighAccuracy: false
+    },
+    watchPosition: true,
+    userDecisionTimeout: 9000
+  })(Map)
+)
