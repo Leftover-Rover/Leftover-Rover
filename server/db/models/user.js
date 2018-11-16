@@ -3,6 +3,9 @@ const Sequelize = require('sequelize')
 const db = require('../db')
 
 const User = db.define('user', {
+  name: {
+    type: Sequelize.STRING
+  },
   email: {
     type: Sequelize.STRING,
     unique: true,
@@ -29,7 +32,7 @@ const User = db.define('user', {
   },
   phoneNumber: {
     type: Sequelize.STRING,
-    allowNull: false,
+    allowNull: true,
     unique: true,
     validate: {
       len: 10
@@ -43,7 +46,8 @@ const User = db.define('user', {
     defaultValue: false
   },
   paymentInfo: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
+    defaultValue: ''
   },
   defaultDeliveryLat: {
     type: Sequelize.DECIMAL(10, 6)
