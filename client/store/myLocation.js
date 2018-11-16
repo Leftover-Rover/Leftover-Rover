@@ -12,7 +12,6 @@ const myLocation = {
 //ACTION CREATORS
 
 export const getMyLocation = pos => {
-  console.log('here', pos)
   return {
     type: MY_LOCATION,
     lat: pos.coords.latitude,

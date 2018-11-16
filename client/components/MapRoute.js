@@ -13,11 +13,11 @@ class Map extends React.Component {
   }
   componentDidUpdate(prevProps) {
     const options = {
-      enableHighAccuracy: true,
-      timeout: 5000,
-      maximumAge: 0
+      enableHighAccuracy: false,
+      timeout: 10000,
+      maximumAge: 3000
     }
-
+    console.log('here')
     navigator.geolocation.getCurrentPosition(
       this.props.getMyLocation,
       err => console.log(err),
