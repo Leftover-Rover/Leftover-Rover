@@ -20,16 +20,22 @@ const getOrder = order => ({ type: GET_ORDER, order })
  * THUNK CREATORS
  */
 export const postOrder = (
-  startLocationLat,
-  startLocationLng
+  pickupLocationLat,
+  pickupLocationLng,
+  dropoffLocationLat,
+  dropoffLocationLng,
+  deliveryNotes
 ) => async dispatch => {
   try {
     const res = await axios.post('/api/orders', {
-      startLocationLat,
-      startLocationLng
+      pickupLocationLat,
+      pickupLocationLng,
+      dropoffLocationLat,
+      dropoffLocationLng,
+      deliveryNotes
     })
     dispatch(getOrder(res.data))
-    return [startLocationLng, startLocationLat]
+    // return [myLocationLng, myLocationLat]
   } catch (err) {
     console.error(err)
   }
