@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { postOrder, getMyLocation } from '../store'
 import UserMap from './UserMap'
+import { Button, Grid } from 'semantic-ui-react'
 
 class Map extends React.Component {
   state = {
@@ -49,12 +50,29 @@ class Map extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <span className="renderOverMap">
-          <button type="button" onClick={this.handleBook} className="button">
-            Book me a Route!
-          </button>
-        </span>
-        <UserMap {...this.state} markers={this.markers} />
+        <Grid textAlign="center">
+          <Grid.Row
+            style={{
+              height: '85vh'
+            }}
+          >
+            <UserMap {...this.state} markers={this.markers} />
+          </Grid.Row>
+          <Grid.Row>
+            {/* We will need to add conditionals here for different control bar, or handle it similarly to UserMap */}
+            <Button
+              type="button"
+              onClick={this.handleBook}
+              size="large"
+              style={{
+                width: '90%',
+                margin: '1vw'
+              }}
+            >
+              Book me a Route!
+            </Button>
+          </Grid.Row>
+        </Grid>
       </React.Fragment>
     )
   }
