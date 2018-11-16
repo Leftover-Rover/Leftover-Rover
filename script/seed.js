@@ -9,6 +9,7 @@ async function seed() {
 
   const users = await Promise.all([
     User.create({
+      name: 'driver person',
       email: 'driver@driver.com',
       password: '123',
       phoneNumber: '1234567892',
@@ -16,6 +17,7 @@ async function seed() {
       defaultDeliveryLng: -87.708246
     }),
     User.create({
+      name: 'classic customer',
       email: 'customer@customer.com',
       password: '123',
       phoneNumber: '1234567893',
@@ -23,6 +25,7 @@ async function seed() {
       defaultDeliveryLng: -87.652167
     }),
     User.create({
+      name: 'admin cody',
       email: 'cody@email.com',
       password: '123',
       phoneNumber: '1234567891',
@@ -31,6 +34,7 @@ async function seed() {
       isAdmin: true
     }),
     User.create({
+      name: 'murph mcgee',
       email: 'murphy@email.com',
       password: '123',
       phoneNumber: '1234567890',

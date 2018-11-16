@@ -1,36 +1,81 @@
 import React from 'react'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import {auth} from '../store'
+import { auth } from '../store'
+import { Segment, Grid, Button, Icon } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
 /**
  * COMPONENT
  */
 const AuthForm = props => {
-  const {name, displayName, handleSubmit, error} = props
+  const { name, displayName, handleSubmit, error } = props
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} name={name}>
-        <div>
-          <label htmlFor="email">
-            <small>Email</small>
-          </label>
-          <input name="email" type="text" />
-        </div>
-        <div>
-          <label htmlFor="password">
-            <small>Password</small>
-          </label>
-          <input name="password" type="password" />
-        </div>
-        <div>
-          <button type="submit">{displayName}</button>
-        </div>
-        {error && error.response && <div> {error.response.data} </div>}
-      </form>
-      <a href="/auth/google">{displayName} with Google</a>
-    </div>
+    <Grid centered columns={2}>
+      <Grid.Column>
+        <Segment>
+          <h3
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              justifyItems: 'center',
+              flexDirection: 'column',
+              padding: '4px',
+              margin: '4px'
+            }}
+          >
+            Leftover Rover
+          </h3>
+          <form
+            onSubmit={handleSubmit}
+            name={name}
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              justifyItems: 'center',
+              flexDirection: 'column',
+              padding: '4px',
+              margin: '4px'
+            }}
+          >
+            <label htmlFor="email">
+              <small>Email</small>
+            </label>
+            <input name="email" type="text" />
+            <label htmlFor="password">
+              <small>Password</small>
+            </label>
+            <input name="password" type="password" />
+            <div />
+            <Button size="small" primary type="submit">
+              {displayName}
+            </Button>
+            {error && error.response && <div> {error.response.data} </div>}
+          </form>
+          <div />
+          <div />
+          <Button
+            size="small"
+            color="google plus"
+            as={Link}
+            to="/auth/google"
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              justifyItems: 'center',
+              flexDirection: 'column',
+              padding: '4px',
+              margin: '4px'
+            }}
+          >
+            <Icon name="google" /> GOOGLE{' '}
+          </Button>
+          <div />
+          {/* <a href="/auth/google">{displayName} with Google</a> */}
+        </Segment>
+      </Grid.Column>
+    </Grid>
   )
 }
 
