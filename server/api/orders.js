@@ -49,8 +49,8 @@ router.post('/', async (req, res, next) => {
       userId: id,
       pickupLocationLat: req.body.pickupLocationLat,
       pickupLocationLng: req.body.pickupLocationLng,
-      dropffLocationLat: req.body.dropoffLocationLat,
-      dropoffLocationLng: req.body.dropoffLocationLng,
+      deliveryLocationLat: req.body.dropoffLocationLat,
+      deliveryLocationLng: req.body.dropoffLocationLng,
       deliveryNotes: req.body.deliveryNotes
     }
     const order = await Order.create(orderData)

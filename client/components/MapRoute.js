@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { postOrder, getMyLocation } from '../store'
 import UserMap from './UserMap'
-import { geolocated } from 'react-geolocated'
 
 class Map extends React.Component {
   state = {
@@ -11,35 +10,27 @@ class Map extends React.Component {
     centerLat: 41.8781,
     centerLng: -87.6298
   }
-  componentDidUpdate(prevProps) {
-    // const options = {
-    //   enableHighAccuracy: false,
-    //   timeout: 10000,
-    //   maximumAge: 3000
-    // }
-    setTimeout(
-      () =>
-        navigator.geolocation.getCurrentPosition(
-          this.props.getMyLocation,
-          err => console.log(err)
-          // options
-        ),
-      2000
-    )
 
-    if (this.props.coords !== prevProps.coords) {
-      this.setState({
-        centerLng: this.props.coords.longitude,
-        centerLat: this.props.coords.latitude
-      })
+  componentDidMount() {
+    const options = {
+      timeout: 30000
     }
+    this.watch = navigator.geolocation.watchPosition(
+      this.props.getMyLocation,
+      err => console.log(err),
+      options
+    )
+  }
+
+  componentWillUnmount() {
+    navigator.geolocation.clearWatch(this.watch)
   }
 
   handleBook = () => {
     // These constants will take my lat/lng from my location for pickup location, I have hard coded them in the meantime.
     let newOrder = {
-      pickupLocationLat: this.state.centerLat,
-      pickupLocationLng: this.state.centerLng,
+      pickupLocationLat: this.props.myLocation.lat,
+      pickupLocationLng: this.props.myLocation.lng,
       dropoffLocationLat: this.props.user.defaultDeliveryLat,
       dropoffLocationLng: this.props.user.defaultDeliveryLng,
       deliveryNotes: ''
@@ -52,9 +43,10 @@ class Map extends React.Component {
       origin,
       destination
     })
+    this.markers = [] //adding arrays of [lat,lng] will draw markers on the map
   }
-  render() {
 
+  render() {
     return (
       <React.Fragment>
         <span className="renderOverMap">
@@ -62,7 +54,7 @@ class Map extends React.Component {
             Book me a Route!
           </button>
         </span>
-        <UserMap {...this.state} {...this.props.myLocation} />
+        <UserMap {...this.state} markers={this.markers} />
       </React.Fragment>
     )
   }
