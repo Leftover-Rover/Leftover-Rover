@@ -14,10 +14,9 @@ class Map extends React.Component {
   componentDidUpdate(prevProps) {
     const options = {
       enableHighAccuracy: false,
-      timeout: 10000,
+      timeout: 1000,
       maximumAge: 3000
     }
-    console.log('here')
     navigator.geolocation.getCurrentPosition(
       this.props.getMyLocation,
       err => console.log(err),
@@ -42,8 +41,8 @@ class Map extends React.Component {
   handleRoute = (origin, destination) => {
     console.log('origin', origin, 'destination', destination)
     this.setState({
-      origin, //: '405 W Superior St. Chicago, IL 60654',
-      destination //: '3838 N Fremon St. Chicago, IL 60613'
+      origin,
+      destination
     })
   }
   render() {
@@ -57,7 +56,7 @@ class Map extends React.Component {
             Book me a Route!
           </button>
         </span>
-        <UserMap {...this.state} />
+        <UserMap {...this.state} {...this.props.myLocation} />
       </React.Fragment>
     )
   }
@@ -69,7 +68,10 @@ const mapDispatch = {
 }
 
 const mapState = state => {
-  return { order: state.order }
+  return {
+    order: state.order,
+    myLocation: state.myLocation
+  }
 }
 
 export default connect(mapState, mapDispatch)(

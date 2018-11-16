@@ -51,6 +51,11 @@ export default class UserMap extends React.Component {
   componentDidUpdate = () => {
     this.directions.setOrigin(this.props.origin)
     this.directions.setDestination(this.props.destination)
+    if (this.props.lng) {
+      const marker = new mapboxgl.Marker()
+        .setLngLat([this.props.lng, this.props.lat])
+        .addTo(this.map)
+    }
   }
 
   render() {
