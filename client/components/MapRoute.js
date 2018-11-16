@@ -21,8 +21,8 @@ class Map extends React.Component {
       () =>
         navigator.geolocation.getCurrentPosition(
           this.props.getMyLocation,
-          err => console.log(err),
-          options
+          err => console.log(err)
+          // options
         ),
       2000
     )
@@ -47,10 +47,7 @@ class Map extends React.Component {
     this.props.postOrder(newOrder)
   }
 
-
   handleRoute = (origin, destination) => {
-
-
     this.setState({
       origin,
       destination
@@ -60,7 +57,6 @@ class Map extends React.Component {
 
     return (
       <React.Fragment>
-
         <span className="renderOverMap">
           <button type="button" onClick={this.handleBook} className="button">
             Book me a Route!
@@ -85,12 +81,4 @@ const mapState = state => {
   }
 }
 
-export default connect(mapState, mapDispatch)(
-  geolocated({
-    positionOptions: {
-      enableHighAccuracy: false
-    },
-    watchPosition: true,
-    userDecisionTimeout: 9000
-  })(Map)
-)
+export default connect(mapState, mapDispatch)(Map)
