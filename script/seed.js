@@ -1,7 +1,7 @@
 'use strict'
 
 const db = require('../server/db')
-const { User, Driver, Address } = require('../server/db/models')
+const { User, Driver, Order } = require('../server/db/models')
 
 async function seed() {
   await db.sync({ force: true })
@@ -11,22 +11,31 @@ async function seed() {
     User.create({
       email: 'driver@driver.com',
       password: '123',
-      phoneNumber: '1234567892'
+      phoneNumber: '1234567892',
+      defaultDeliveryLat: 41.92943,
+      defaultDeliveryLng: -87.708246
     }),
     User.create({
       email: 'customer@customer.com',
       password: '123',
-      phoneNumber: '1234567893'
+      phoneNumber: '1234567893',
+      defaultDeliveryLat: 41.952363,
+      defaultDeliveryLng: -87.652167
     }),
     User.create({
       email: 'cody@email.com',
       password: '123',
-      phoneNumber: '1234567891'
+      phoneNumber: '1234567891',
+      defaultDeliveryLat: 41.896044,
+      defaultDeliveryLng: -87.677849,
+      isAdmin: true
     }),
     User.create({
       email: 'murphy@email.com',
       password: '123',
-      phoneNumber: '1234567890'
+      phoneNumber: '1234567890',
+      defaultDeliveryLat: 41.952363,
+      defaultDeliveryLng: -87.652167
     })
   ])
 
@@ -38,23 +47,39 @@ async function seed() {
       licensePlate: 'JDANS23S',
       carColor: 'Red',
       currentLocationLat: 41.891083,
-      currentLocationLng: -87.624501
+      currentLocationLng: -87.624501,
+      status: 'Available'
     })
   ])
 
-  const addresses = await Promise.all([
-    Address.create({
-      street1: '3838 N Fremont St',
-      city: 'Chicago',
-      state: 'IL',
-      zip: 60613,
-      lat: 41.952363,
-      lng: -87.652167
+  await Promise.all([
+    Order.create({
+      startLocationLat: 41.948128,
+      startLocationLng: -87.656361,
+      status: 'toPickup'
+    }),
+    Order.create({
+      startLocationLat: 41.931624,
+      startLocationLng: -87.658919,
+      pickupLocationLat: 41.920361,
+      pickupLocationLng: -87.63305,
+      pickupTime: Date.now(),
+      status: 'toDropOff'
+    }),
+    Order.create({
+      startLocationLat: 41.931624,
+      startLocationLng: -87.658919,
+      pickupLocationLat: 41.920361,
+      pickupLocationLng: -87.63305,
+      pickupTime: Date.now(),
+      deliveryLocationLat: 41.920361,
+      deliveryLocationLng: -87.63305,
+      deliveryTime: Date.now(),
+      status: 'Completed'
     })
   ])
 
   await drivers[0].setUser(users[0])
-  await addresses[0].setUser(users[1])
 
   console.log(`seeded ${users.length} users`)
   console.log(`seeded successfully`)

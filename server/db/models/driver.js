@@ -35,6 +35,10 @@ const Driver = db.define('driver', {
   },
   currentLocationLng: {
     type: Sequelize.DECIMAL(10, 6)
+  },
+  status: {
+    type: Sequelize.ENUM,
+    values: ['Available', 'toPickup', 'toDropOff']
   }
 })
 
