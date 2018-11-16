@@ -12,15 +12,19 @@ class Map extends React.Component {
     centerLng: -87.6298
   }
   componentDidUpdate(prevProps) {
-    const options = {
-      enableHighAccuracy: false,
-      timeout: 1000,
-      maximumAge: 3000
-    }
-    navigator.geolocation.getCurrentPosition(
-      this.props.getMyLocation,
-      err => console.log(err),
-      options
+    // const options = {
+    //   enableHighAccuracy: false,
+    //   timeout: 10000,
+    //   maximumAge: 3000
+    // }
+    setTimeout(
+      () =>
+        navigator.geolocation.getCurrentPosition(
+          this.props.getMyLocation,
+          err => console.log(err),
+          options
+        ),
+      2000
     )
 
     if (this.props.coords !== prevProps.coords) {
