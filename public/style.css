@@ -28,9 +28,6 @@ form div {
 }
 
 .renderOverMap {
-  background-color: red;
-  height: 50px;
-  width: 50px;
   z-index: 1;
   position: absolute;
 }

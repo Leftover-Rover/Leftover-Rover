@@ -19,13 +19,13 @@ const getOrder = order => ({ type: GET_ORDER, order })
 /**
  * THUNK CREATORS
  */
-export const postOrder = (
+export const postOrder = ({
   pickupLocationLat,
   pickupLocationLng,
   dropoffLocationLat,
   dropoffLocationLng,
   deliveryNotes
-) => async dispatch => {
+}) => async dispatch => {
   try {
     const res = await axios.post('/api/orders', {
       pickupLocationLat,

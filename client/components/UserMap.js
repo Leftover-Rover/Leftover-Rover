@@ -17,8 +17,7 @@ export default class UserMap extends React.Component {
       container: this.mapContainer,
       style: 'mapbox://styles/mapbox/streets-v9',
       center: [lng, lat],
-      zoom,
-      hash: true
+      zoom
     })
 
     this.directions = new MapboxDirections({
@@ -30,12 +29,9 @@ export default class UserMap extends React.Component {
       }
     })
 
-    this.map.addControl(this.directions, 'top-left')
+    this.map.addControl(this.directions)
 
-    this.map.addControl(
-      new mapboxgl.NavigationControl({ showCompass: true }),
-      'bottom-left'
-    )
+    this.map.addControl(new mapboxgl.NavigationControl(), 'bottom-left')
 
     this.map.addControl(
       new mapboxgl.GeolocateControl({
@@ -51,10 +47,11 @@ export default class UserMap extends React.Component {
   componentDidUpdate = () => {
     this.directions.setOrigin(this.props.origin)
     this.directions.setDestination(this.props.destination)
-    if (this.props.lng) {
-      const marker = new mapboxgl.Marker()
-        .setLngLat([this.props.lng, this.props.lat])
-        .addTo(this.map)
+    if (Array.isArray(this.props.markers)) {
+      console.log(this.markers)
+      this.props.markers.forEach(marker =>
+        new mapboxgl.Marker().setLngLat(marker).addTo(this.map)
+      )
     }
   }
 
