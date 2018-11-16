@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter, Route, Switch } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { Login, Signup, UserHome, AppMap, MapRoute } from './components'
+import { Login, Signup, UserHome, Rover, Me } from './components'
 import { me } from './store'
 
 /**
@@ -14,20 +14,24 @@ class Routes extends Component {
   }
 
   render() {
-    const { isLoggedIn } = this.props
+    const { isLoggedIn } = { isLoggedIn: true } // this.props //to avtivate this change true to this.props
+    const { isDriver } = { isDriver: true } // this.props // we need to add the logic to check if it is a driver
 
     return (
       <React.Fragment>
         <Switch>
           {/* Routes placed here are available to all visitors */}
-          <Route path="/appmap" component={AppMap} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
-          <Route path="/route" component={MapRoute} />
           {isLoggedIn && (
             <Switch>
               {/* Routes placed here are only available after logging in */}
-              <Route path="/home" component={UserHome} />
+              <Route path="/me" component={Me} />
+              {isDriver && (
+                <Switch>
+                  <Route path="/rover" component={Rover} />
+                </Switch>
+              )}
             </Switch>
           )}
           {/* Displays our Login component as a fallback */}

@@ -6,5 +6,6 @@
 export { default as Navbar } from './navbar'
 export { default as UserHome } from './user-home'
 export { Login, Signup } from './auth-form'
-export { default as AppMap } from './AppMap'
+export { default as Rover } from './Rover'
+export { default as Me } from './Me'
 export { default as MapRoute } from './MapRoute'
