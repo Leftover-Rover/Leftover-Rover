@@ -42,21 +42,28 @@ async function seed() {
   const drivers = await Promise.all([
     Driver.create({
       isActive: true,
+      isAvailable: true,
       carMake: 'Toyota',
       carModel: 'Camry',
       licensePlate: 'JDANS23S',
       carColor: 'Red',
       currentLocationLat: 41.891083,
-      currentLocationLng: -87.624501,
-      status: 'Available'
+      currentLocationLng: -87.624501
     })
   ])
 
   await Promise.all([
     Order.create({
+      pickupLocationLat: 41.948128,
+      pickupLocationLng: -87.656361,
+      status: 'Requested'
+    }),
+    Order.create({
       startLocationLat: 41.948128,
       startLocationLng: -87.656361,
-      status: 'toPickup'
+      pickupLocationLat: 41.920361,
+      pickupLocationLng: -87.63305,
+      status: 'ToPickup'
     }),
     Order.create({
       startLocationLat: 41.931624,
@@ -64,7 +71,9 @@ async function seed() {
       pickupLocationLat: 41.920361,
       pickupLocationLng: -87.63305,
       pickupTime: Date.now(),
-      status: 'toDropOff'
+      deliveryLocationLat: 41.920361,
+      deliveryLocationLng: -87.63305,
+      status: 'ToDropOff'
     }),
     Order.create({
       startLocationLat: 41.931624,

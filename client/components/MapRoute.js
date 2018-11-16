@@ -25,8 +25,8 @@ class Map extends React.Component {
     const myLng = 41.8781
     this.props.postOrder(myLat, myLng)
   }
-    
-    handleRoute = () => {
+
+  handleRoute = () => {
     this.setState({
       origin: '405 W Superior St. Chicago, IL 60654',
       destination: '3838 N Fremon St. Chicago, IL 60613'
@@ -36,7 +36,7 @@ class Map extends React.Component {
     return (
       <React.Fragment>
         <UserMap {...this.state} />
-        <span>
+        <span className="renderOverMap">
           <button type="button" onClick={this.handleRoute}>
             Press ME
           </button>

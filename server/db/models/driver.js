@@ -6,6 +6,10 @@ const Driver = db.define('driver', {
     type: Sequelize.BOOLEAN,
     defaultValue: false
   },
+  isAvailable: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: true
+  },
   carMake: {
     type: Sequelize.STRING,
     allowNull: false
@@ -35,10 +39,6 @@ const Driver = db.define('driver', {
   },
   currentLocationLng: {
     type: Sequelize.DECIMAL(10, 6)
-  },
-  status: {
-    type: Sequelize.ENUM,
-    values: ['Available', 'toPickup', 'toDropOff']
   }
 })
 

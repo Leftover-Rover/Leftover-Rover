@@ -38,7 +38,7 @@ const Order = db.define('order', {
   },
   status: {
     type: Sequelize.ENUM,
-    values: ['Requested', 'toPickup', 'toDropOff', 'Completed']
+    values: ['Requested', 'ToPickup', 'ToDropOff', 'Completed', 'Cancelled']
   }
 })
 
