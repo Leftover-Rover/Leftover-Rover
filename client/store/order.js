@@ -29,6 +29,7 @@ export const postOrder = (
       startLocationLng
     })
     dispatch(getOrder(res.data))
+    return [startLocationLng, startLocationLat]
   } catch (err) {
     console.error(err)
   }
