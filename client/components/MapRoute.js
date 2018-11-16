@@ -37,9 +37,14 @@ class Map extends React.Component {
 
   handleBook = () => {
     // These constants will take my lat/lng from my location for pickup location, I have hard coded them in the meantime.
-    const myLat = this.state.centerLat
-    const myLng = this.state.centerLng
-    this.props.postOrder(myLat, myLng)
+    let newOrder = {
+      pickupLocationLat: this.state.centerLat,
+      pickupLocationLng: this.state.centerLng,
+      dropoffLocationLat: this.props.user.defaultDeliveryLat,
+      dropoffLocationLng: this.props.user.defaultDeliveryLng,
+      deliveryNotes: ''
+    }
+    this.props.postOrder(newOrder)
   }
 
   handleRoute = (origin, destination) => {
@@ -49,6 +54,7 @@ class Map extends React.Component {
     })
   }
   render() {
+
     return (
       <React.Fragment>
         <span className="renderOverMap">
@@ -70,7 +76,8 @@ const mapDispatch = {
 const mapState = state => {
   return {
     order: state.order,
-    myLocation: state.myLocation
+    myLocation: state.myLocation,
+    user: state.user
   }
 }
 
