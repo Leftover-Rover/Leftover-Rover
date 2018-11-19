@@ -2,9 +2,14 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter, Route, Switch } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { Login, Signup, UserHome, Rover, Me } from './components'
-import { me, fetchLoggedinUser } from './store'
-import { Login, Signup, UserHome, Rover, Me, AddDefaultAddress } from './components'
+import {
+  Login,
+  Signup,
+  UserHome,
+  Rover,
+  Me,
+  AddDefaultAddress
+} from './components'
 import { me, fetchLoggedinUser } from './store'
 
 /**
