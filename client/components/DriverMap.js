@@ -5,7 +5,7 @@ import { TOKEN } from './constant'
 
 mapboxgl.accessToken = TOKEN
 
-export default class UserMap extends React.Component {
+export default class DriverMap extends React.Component {
   componentDidMount = () => {
     const { lng, lat, zoom } = {
       lng: this.props.centerLng,
