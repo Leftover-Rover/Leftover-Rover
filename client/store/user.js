@@ -18,7 +18,7 @@ const defaultUser = {}
  */
 const getUser = user => ({ type: GET_USER, user })
 const removeUser = () => ({ type: REMOVE_USER })
-const updateDefaultAddress = user => ({type: UPDATE_DEFAULT_ADDRESS, user})
+const updateDefaultAddress = user => ({ type: UPDATE_DEFAULT_ADDRESS, user })
 
 /**
  * THUNK CREATORS
@@ -42,7 +42,7 @@ export const auth = (email, password, method) => async dispatch => {
 
   try {
     dispatch(getUser(res.data))
-    history.push('/home')
+    history.push('/me')
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr)
   }
@@ -79,7 +79,7 @@ export default function(state = defaultUser, action) {
     case REMOVE_USER:
       return defaultUser
     case UPDATE_DEFAULT_ADDRESS:
-    return action.user
+      return action.user
     default:
       return state
   }

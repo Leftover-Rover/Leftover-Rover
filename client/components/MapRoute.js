@@ -91,6 +91,7 @@ class Map extends React.Component {
   }
 
   render() {
+    const orderExists = this.props.order.status
     const ToPickup = this.props.order.status === 'ToPickup'
     console.log('topickup', ToPickup)
 
@@ -106,17 +107,20 @@ class Map extends React.Component {
           </Grid.Row>
           <Grid.Row>
             {/* We will need to add conditionals here for different control bar, or handle it similarly to UserMap */}
-            <Button
-              type="button"
-              onClick={this.handleBook}
-              size="large"
-              style={{
-                width: '90%',
-                margin: '1vw'
-              }}
-            >
-              Book me a Route!
-            </Button>
+            {!orderExists && (
+              <Button
+                type="button"
+                onClick={this.handleBook}
+                size="large"
+                style={{
+                  width: '90%',
+                  margin: '1vw'
+                }}
+              >
+                Book me a Route!
+              </Button>
+            )}
+            {orderExists && <p>Driver Is En Route</p>}
             {ToPickup && (
               <Button
                 type="button"
