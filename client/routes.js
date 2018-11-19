@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { withRouter, Route, Switch } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { Login, Signup, UserHome, Rover, Me } from './components'
-import { me } from './store'
+import { me, fetchLoggedinUser } from './store'
 
 /**
  * COMPONENT
@@ -14,8 +14,12 @@ class Routes extends Component {
   }
 
   render() {
-    const { isLoggedIn } = { isLoggedIn: true } // this.props //to avtivate this change true to this.props
-    const { isDriver } = { isDriver: true } // this.props // we need to add the logic to check if it is a driver
+    // Necessary to get isDriver
+    if (this.props.user.id && !this.props.loggedinUser.id) {
+      this.props.fetchLoggedinUser(this.props.user.id)
+    }
+    const { isLoggedIn } = this.props
+    const { isDriver } = this.props
 
     return (
       <React.Fragment>
@@ -49,7 +53,10 @@ const mapState = state => {
   return {
     // Being 'logged in' for our purposes will be defined has having a state.user that has a truthy id.
     // Otherwise, state.user will be an empty object, and state.user.id will be falsey
-    isLoggedIn: !!state.user.id
+    isLoggedIn: !!state.user.id,
+    user: state.user,
+    loggedinUser: state.loggedinUser,
+    isDriver: !!state.loggedinUser.driver
   }
 }
 
@@ -57,6 +64,9 @@ const mapDispatch = dispatch => {
   return {
     loadInitialData() {
       dispatch(me())
+    },
+    fetchLoggedinUser: userId => {
+      dispatch(fetchLoggedinUser(userId))
     }
   }
 }
