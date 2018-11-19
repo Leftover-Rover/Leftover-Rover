@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { postOrder, getMyLocation } from '../store'
+import { postOrder, getMyLocation, updateDriver } from '../store'
 import DriverMap from './DriverMap'
 
 class Map extends React.Component {
@@ -14,10 +14,16 @@ class Map extends React.Component {
 
   componentDidMount() {
     const options = {
-      timeout: 30000
+      timeout: 3000
     }
     this.watch = navigator.geolocation.watchPosition(
-      this.props.getMyLocation,
+      pos => {
+        this.props.getMyLocation(pos)
+        this.props.updateDriver(this.props.driverId, {
+          currentLocationLat: pos.coords.latitude,
+          currentLocationLng: pos.coords.longitude
+        })
+      },
       err => console.log(err),
       options
     )
@@ -65,14 +71,16 @@ class Map extends React.Component {
 
 const mapDispatch = {
   postOrder,
-  getMyLocation
+  getMyLocation,
+  updateDriver
 }
 
 const mapState = state => {
   return {
     order: state.order,
     myLocation: state.myLocation,
-    user: state.user
+    user: state.user,
+    driverId: state.loggedinUser.driver.id
   }
 }
 
