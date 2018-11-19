@@ -28,6 +28,15 @@ export const fetchLoggedinUser = userId => async dispatch => {
   }
 }
 
+export const updateDriver = (driverId, driver) => async dispatch => {
+  try {
+    const res = await axios.put(`/api/drivers/${driverId}`, driver)
+    dispatch(getLoggedinUser(res.data))
+  } catch (err) {
+    console.error(err)
+  }
+}
+
 /**
  * REDUCER
  */
