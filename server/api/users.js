@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { User, Driver } = require('../db/models')
+const { User, Address, Driver } = require('../db/models')
 module.exports = router
 
 router.get('/', async (req, res, next) => {
@@ -15,6 +15,7 @@ router.get('/', async (req, res, next) => {
     next(err)
   }
 })
+
 
 router.get('/:userId', async (req, res, next) => {
   try {
@@ -33,5 +34,23 @@ router.get('/:userId', async (req, res, next) => {
     res.json(user)
   } catch (err) {
     next(err)
+
+router.put('/:userId/address', async (req, res, next) => {
+  try {
+    let user = await User.findById(req.params.userId)
+    if (!user) {
+      const err = new Error('User Not Found Or No User Is Logged In')
+      err.status = 500
+      return next(err)
+    } else {
+      const updatedUser = await user.update({
+        ...user,
+        defaultDeliveryLat: req.body.newDefaultLat,
+        defaultDeliveryLng: req.body.newDefaultLng
+      })
+      res.json(updatedUser)
+    }
+  } catch (err) {
+    console.error(err)
   }
 })
