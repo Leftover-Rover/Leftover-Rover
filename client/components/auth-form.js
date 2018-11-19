@@ -48,8 +48,8 @@ const AuthForm = props => {
             </label>
             <input name="password" type="password" />
             <div />
-            <Button size="small" primary type="submit">
-              {displayName}
+            <Button size="small" primary type="submit" >
+              {displayName.toUpperCase()}
             </Button>
             {error && error.response && <div> {error.response.data} </div>}
           </form>
@@ -58,21 +58,20 @@ const AuthForm = props => {
           <Button
             size="small"
             color="google plus"
-            as={Link}
-            to="/auth/google"
+            href="/auth/google"
             style={{
               display: 'flex',
+              textAlign: 'center',
               justifyContent: 'center',
               justifyItems: 'center',
-              flexDirection: 'column',
-              padding: '4px',
-              margin: '4px'
+              flexDirection: 'row',
+              margin: 'auto',
+              padding: 'auto'
             }}
           >
-            <Icon name="google" /> GOOGLE{' '}
+            <Icon name="google" style={{float: 'left', position: 'relative'}} /> GOOGLE{' '}
           </Button>
           <div />
-          {/* <a href="/auth/google">{displayName} with Google</a> */}
         </Segment>
       </Grid.Column>
     </Grid>
