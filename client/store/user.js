@@ -59,8 +59,8 @@ export const logout = () => async dispatch => {
 }
 
 export const addDefaultAddress = (user, address) => async dispatch => {
-  user.newDefaultLat = String(address.lat)
-  user.newDefaultLng = String(address.lng)
+  user.newDefaultLat = address.lat
+  user.newDefaultLng = address.lng
   try {
     const updatedUser = await axios.put(`/api/users/${user.id}/address`, user)
     dispatch(updateDefaultAddress(updatedUser.data))
