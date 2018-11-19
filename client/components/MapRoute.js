@@ -83,7 +83,7 @@ class Map extends React.Component {
               height: '85vh'
             }}
           >
-            <UserMap {...this.state} markers={this.markers} />
+            <UserMap {...this.state} markers={this.markers} style={{width: '100%'}} />
           </Grid.Row>
           <Grid.Row>
             {/* We will need to add conditionals here for different control bar, or handle it similarly to UserMap */}

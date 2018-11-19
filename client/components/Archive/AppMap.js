@@ -33,9 +33,6 @@ class AppMap extends Component {
   }
 
   render() {
-    // console.log('PROPS IN APP MAP:', this.props)
-
-    // console.log('STATE IN APP MAP:', this.state)
 
     const { viewport } = this.state
 
