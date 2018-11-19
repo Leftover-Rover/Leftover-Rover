@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { postOrder, getMyLocation } from '../store'
+import { postOrder, getMyLocation, updateOrderToDropOff } from '../store'
 import UserMap from './UserMap'
 import { Button, Grid } from 'semantic-ui-react'
 import DriverSwitch from './DriverSwitch'
@@ -69,13 +69,31 @@ class Map extends React.Component {
       destination,
       centerLat: (Number(origin[1]) + Number(destination[1])) / 2,
       centerLng: (Number(origin[0]) + Number(destination[0])) / 2,
-      zoom: 13
+      zoom: 12.8
     })
 
     this.markers = [origin, destination] //adding arrays of [lat,lng] will draw markers on the map
   }
 
+  changeToDropOff = () => {
+    this.props.updateOrderToDropOff()
+    const {
+      pickupLocationLng,
+      pickupLocationLat,
+      deliveryLocationLng,
+      deliveryLocationLat
+    } = this.props.order
+
+    const newOrigin = [pickupLocationLng, pickupLocationLat]
+    const newDest = [deliveryLocationLng, deliveryLocationLat]
+    console.log('in change to dropoff', newOrigin, newDest)
+    this.handleRoute(newOrigin, newDest)
+  }
+
   render() {
+    const ToPickup = this.props.order.status === 'ToPickup'
+    console.log('topickup', ToPickup)
+
     return (
       <React.Fragment>
         <Grid textAlign="center">
@@ -99,7 +117,20 @@ class Map extends React.Component {
             >
               Book me a Route!
             </Button>
-            {this.props.driver ? <DriverSwitch /> : <div />}
+            {ToPickup && (
+              <Button
+                type="button"
+                onClick={this.changeToDropOff}
+                size="large"
+                style={{
+                  width: '90%',
+                  margin: '1vw'
+                }}
+              >
+                Leftovers Have Been Picked Up!
+              </Button>
+            )}
+            {/* {this.props.driver ? <DriverSwitch /> : <div />} */}
           </Grid.Row>
         </Grid>
       </React.Fragment>
@@ -109,7 +140,8 @@ class Map extends React.Component {
 
 const mapDispatch = {
   postOrder,
-  getMyLocation
+  getMyLocation,
+  updateOrderToDropOff
 }
 
 const mapState = state => {

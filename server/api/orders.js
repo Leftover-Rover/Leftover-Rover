@@ -31,6 +31,19 @@ const findDriver = async (myLat, myLng) => {
   return closest.driverId
 }
 
+router.put('/', async (req, res, next) => {
+  try {
+    const order = await Order.findById(11)
+    await order.update({
+      status: req.body.status,
+      pickupTime: req.body.pickupTime
+    })
+    res.json(order)
+  } catch (error) {
+    console.log(error)
+  }
+})
+
 // Route for creating an order when user requests a driver
 router.post('/', async (req, res, next) => {
   // req.body = {pickupLocationLat,
