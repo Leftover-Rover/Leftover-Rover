@@ -23,6 +23,21 @@ class Map extends React.Component {
     )
   }
 
+  componentDidUpdate() {
+    if (!this.props.order.status && this.props.myLocation.lat) {
+      this.markers = [[this.props.myLocation.lng, this.props.myLocation.lat]]
+      if (
+        this.state.centerLat !== this.props.myLocation.lat ||
+        this.state.centerLng !== this.props.myLocation.lng
+      ) {
+        this.setState({
+          centerLat: this.props.myLocation.lat,
+          centerLng: this.props.myLocation.lng
+        })
+      }
+    }
+  }
+
   componentWillUnmount() {
     navigator.geolocation.clearWatch(this.watch)
   }
