@@ -34,6 +34,8 @@ router.get('/:userId', async (req, res, next) => {
     res.json(user)
   } catch (err) {
     next(err)
+    }
+})
 
 router.put('/:userId/address', async (req, res, next) => {
   try {
