@@ -9,7 +9,8 @@ class Map extends React.Component {
     origin: '',
     destination: '',
     centerLat: 41.8781,
-    centerLng: -87.6298
+    centerLng: -87.6298,
+    zoom: 14
   }
 
   componentDidMount() {
@@ -51,15 +52,26 @@ class Map extends React.Component {
       dropoffLocationLng: this.props.user.defaultDeliveryLng,
       deliveryNotes: ''
     }
-    this.props.postOrder(newOrder)
+    this.props
+      .postOrder(newOrder)
+      .then(data =>
+        this.handleRoute(
+          [data.startLocationLng, data.startLocationLat],
+          [data.pickupLocationLng, data.pickupLocationLat]
+        )
+      )
   }
 
   handleRoute = (origin, destination) => {
     this.setState({
       origin,
-      destination
+      destination,
+      centerLat: (Number(origin[1]) + Number(destination[1])) / 2,
+      centerLng: (Number(origin[0]) + Number(destination[0])) / 2,
+      zoom: 13
     })
-    this.markers = [] //adding arrays of [lat,lng] will draw markers on the map
+
+    this.markers = [origin, destination] //adding arrays of [lat,lng] will draw markers on the map
   }
 
   render() {

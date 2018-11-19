@@ -35,7 +35,7 @@ export const postOrder = ({
       deliveryNotes
     })
     dispatch(getOrder(res.data))
-    // return [myLocationLng, myLocationLat]
+    return res.data
   } catch (err) {
     console.error(err)
   }

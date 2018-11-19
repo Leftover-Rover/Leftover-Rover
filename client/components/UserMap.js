@@ -50,13 +50,19 @@ export default class UserMap extends React.Component {
       this.directions.setDestination(this.props.destination)
     })
     if (Array.isArray(this.props.markers) && this.props.markers.length) {
-      this.props.markers.forEach(marker =>
-        new mapboxgl.Marker().setLngLat(marker).addTo(this.map)
-      )
+      this.props.markers.forEach((marker, index) => {
+        this[`marker${index}`] = new mapboxgl.Marker()
+          .setLngLat(marker)
+          .addTo(this.map)
+      })
+    }
+    if (this.props.origin.length) {
+      this.directions.setOrigin(this.props.origin)
+      this.directions.setDestination(this.props.destination)
     }
     this.map.flyTo({
       center: [this.props.centerLng, this.props.centerLat],
-      zoom: 14
+      zoom: this.props.zoom
     })
   }
 
