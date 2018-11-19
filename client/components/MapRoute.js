@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { postOrder, getMyLocation } from '../store'
 import UserMap from './UserMap'
 import { Button, Grid } from 'semantic-ui-react'
+import DriverSwitch from './DriverSwitch'
 
 class Map extends React.Component {
   state = {
@@ -98,6 +99,7 @@ class Map extends React.Component {
             >
               Book me a Route!
             </Button>
+            {this.props.driver ? <DriverSwitch /> : <div />}
           </Grid.Row>
         </Grid>
       </React.Fragment>
@@ -114,7 +116,8 @@ const mapState = state => {
   return {
     order: state.order,
     myLocation: state.myLocation,
-    user: state.user
+    user: state.user,
+    driver: state.loggedinUser.driver
   }
 }
 
