@@ -1,6 +1,7 @@
 const User = require('./user')
 const Driver = require('./driver')
 const Order = require('./order')
+const Address = require('./address')
 
 User.hasMany(Order)
 Order.belongsTo(User)
@@ -14,5 +15,6 @@ Order.belongsTo(Driver)
 module.exports = {
   User,
   Driver,
-  Order
+  Order,
+  Address
 }

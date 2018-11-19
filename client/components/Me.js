@@ -8,7 +8,7 @@ class Me extends Component {
     return (
       <React.Fragment>
         {/* Add here anything that should render for the user*/}
-        <MapRoute />
+        <MapRoute markers={this.markers} />
       </React.Fragment>
     )
   }

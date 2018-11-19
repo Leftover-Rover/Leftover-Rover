@@ -72,7 +72,6 @@ const AuthForm = props => {
             <Icon name="google" /> GOOGLE{' '}
           </Button>
           <div />
-          {/* <a href="/auth/google">{displayName} with Google</a> */}
         </Segment>
       </Grid.Column>
     </Grid>
