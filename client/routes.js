@@ -8,7 +8,8 @@ import {
   UserHome,
   Rover,
   Me,
-  AddDefaultAddress
+  AddDefaultAddress,
+  SidebarMenu
 } from './components'
 import { me, fetchLoggedinUser } from './store'
 
@@ -30,6 +31,7 @@ class Routes extends Component {
 
     return (
       <React.Fragment>
+        <SidebarMenu className="renderOverMap" />
         <Switch>
           {/* Routes placed here are available to all visitors */}
           <Route path="/login" component={Login} />
