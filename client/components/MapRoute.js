@@ -138,7 +138,7 @@ class Map extends React.Component {
                 Leftovers Have Been Picked Up!
               </Button>
             )}
-            {/* {this.props.driver ? <DriverSwitch /> : <div />} */}
+            {this.props.driver ? <DriverSwitch /> : <div />}
           </Grid.Row>
         </Grid>
       </React.Fragment>
