@@ -41,8 +41,13 @@ export const auth = (email, password, method) => async dispatch => {
   }
 
   try {
-    dispatch(getUser(res.data))
-    history.push('/me')
+    if (method === 'signup') {
+      dispatch(getUser(res.data))
+      history.push('/me/default-dropoff')
+    } else {
+      dispatch(getUser(res.data))
+      history.push('/me')
+    }
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr)
   }

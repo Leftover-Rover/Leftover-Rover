@@ -58,12 +58,21 @@ export class SidebarMenu extends Component {
           width="thin"
         >
           <Menu.Item href="/me">Home</Menu.Item>
-          <Menu.Item href="/update-default-dropoff">My Profile</Menu.Item>
-          <Menu.Item href="/me/order-history">My Order History</Menu.Item>
-          <Menu.Item href="/signup-to-drive">Become A Rover</Menu.Item>
-          <Menu.Item as={Link} to="/#" name="logout" onClick={handleClick}>
-            Logout
-          </Menu.Item>
+          {this.props.isLoggedIn ? (
+            <>
+              <Menu.Item href="/me/default-dropoff">My Profile</Menu.Item>
+              <Menu.Item href="/me/order-history">My Order History</Menu.Item>
+              <Menu.Item href="/signup-to-drive">Become A Rover</Menu.Item>
+              <Menu.Item as={Link} to="/#" name="logout" onClick={handleClick}>
+                Logout
+              </Menu.Item>
+            </>
+          ) : (
+            <>
+              {' '}
+              <Menu.Item href="/signup-to-drive">Become A Rover</Menu.Item>
+            </>
+          )}
         </Sidebar>
       </div>
     )
