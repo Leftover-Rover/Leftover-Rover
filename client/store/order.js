@@ -19,6 +19,19 @@ const getOrder = order => ({ type: GET_ORDER, order })
 /**
  * THUNK CREATORS
  */
+export const updateOrderToDropOff = id => async dispatch => {
+  try {
+    const { data } = await axios.put('/api/orders', {
+      id,
+      status: 'ToDropOff',
+      pickupTime: Date.now()
+    })
+    dispatch(getOrder(data))
+  } catch (error) {
+    console.error(error)
+  }
+}
+
 export const postOrder = ({
   pickupLocationLat,
   pickupLocationLng,
