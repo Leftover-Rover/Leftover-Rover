@@ -3,6 +3,9 @@ import { connect } from 'react-redux'
 import { Checkbox } from 'semantic-ui-react'
 import { updateDriver, fetchLoggedinUser } from '../store'
 import { Link } from 'react-router-dom'
+import { EventEmitter } from 'events'
+
+export const driverEvent = new EventEmitter()
 
 class DriverSwitch extends Component {
   constructor() {
@@ -17,6 +20,8 @@ class DriverSwitch extends Component {
   }
 
   handleChange = () => {
+    !this.props.driver.isActive &&
+      driverEvent.emit('driverIsActive', this.props.driver)
     this.props.updateDriver(this.props.driver.id, {
       isActive: !this.props.driver.isActive,
       isAvailable: true

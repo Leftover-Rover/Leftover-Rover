@@ -1,6 +1,11 @@
+const { EventEmitter } = require('events')
+
 const router = require('express').Router()
 const { Order, User, Driver } = require('../db/models')
 module.exports = router
+
+const routeRequested = new EventEmitter()
+router.routeRequested = routeRequested
 
 const idFinder = req => {
   let id
@@ -69,6 +74,7 @@ router.post('/', async (req, res, next) => {
     const order = await Order.create(orderData)
 
     // Between here is where we would wait for driver to accept
+    routeRequested.emit('routeRequested', order)
 
     await Promise.all([
       driver.update({ isAvailable: false }),

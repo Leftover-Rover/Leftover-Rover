@@ -103,7 +103,11 @@ class Map extends React.Component {
               height: '85vh'
             }}
           >
-            <UserMap {...this.state} markers={this.markers} style={{width: '100%'}} />
+            <UserMap
+              {...this.state}
+              markers={this.markers}
+              style={{ width: '100%' }}
+            />
           </Grid.Row>
           <Grid.Row>
             {/* We will need to add conditionals here for different control bar, or handle it similarly to UserMap */}
@@ -134,7 +138,7 @@ class Map extends React.Component {
                 Leftovers Have Been Picked Up!
               </Button>
             )}
-            {/* {this.props.driver ? <DriverSwitch /> : <div />} */}
+            {this.props.driver ? <DriverSwitch /> : <div />}
           </Grid.Row>
         </Grid>
       </React.Fragment>
