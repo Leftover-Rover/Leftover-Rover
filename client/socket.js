@@ -3,11 +3,10 @@ import { driverEvent } from './components/DriverSwitch'
 
 const socket = io(window.location.origin)
 
-driverEvent.on('driverIsActive', driver => {
+driverEvent.on('driverIsActive', () => {
   socket.on('driverRequest', order =>
     console.log('do you want this Rover?', order)
   )
-  socket.emit('driverStatus', driver)
 })
 
 socket.on('connect', () => {

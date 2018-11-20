@@ -20,8 +20,7 @@ class DriverSwitch extends Component {
   }
 
   handleChange = () => {
-    !this.props.driver.isActive &&
-      driverEvent.emit('driverIsActive', this.props.driver)
+    !this.props.driver.isActive && driverEvent.emit('driverIsActive')
     this.props.updateDriver(this.props.driver.id, {
       isActive: !this.props.driver.isActive,
       isAvailable: true
