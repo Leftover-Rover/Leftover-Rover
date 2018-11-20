@@ -48,7 +48,7 @@ const AuthForm = props => {
             </label>
             <input name="password" type="password" />
             <div />
-            <Button size="small" primary type="submit" >
+            <Button size="small" primary type="submit">
               {displayName.toUpperCase()}
             </Button>
             {error && error.response && <div> {error.response.data} </div>}
@@ -69,7 +69,11 @@ const AuthForm = props => {
               padding: 'auto'
             }}
           >
-            <Icon name="google" style={{float: 'left', position: 'relative'}} /> GOOGLE{' '}
+            <Icon
+              name="google"
+              style={{ float: 'left', position: 'relative' }}
+            />{' '}
+            GOOGLE{' '}
           </Button>
           <div />
         </Segment>
@@ -106,7 +110,7 @@ const mapDispatch = dispatch => {
     handleSubmit(evt) {
       evt.preventDefault()
       const formName = evt.target.name
-      const email = evt.target.email.value
+      const email = evt.target.email.value.toLowerCase()
       const password = evt.target.password.value
       dispatch(auth(email, password, formName))
     }
