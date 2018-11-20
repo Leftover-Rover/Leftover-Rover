@@ -76,7 +76,6 @@ class Map extends React.Component {
   }
 
   changeToDropOff = () => {
-    console.log(this.props.order.id)
     this.props.updateOrderToDropOff(this.props.order.id)
     const {
       pickupLocationLng,
