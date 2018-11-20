@@ -1,3 +1,4 @@
+/* eslint-disable complexity */
 import React from 'react'
 import { connect } from 'react-redux'
 import { postOrder, getMyLocation, updateOrderToDropOff } from '../store'
@@ -97,10 +98,10 @@ class Map extends React.Component {
 
     return (
       <React.Fragment>
-        <Grid textAlign="center">
+        <Grid textAlign="center" style={{ height: '85vh' }}>
           <Grid.Row
             style={{
-              height: '85vh'
+              height: '80%'
             }}
           >
             <UserMap
@@ -109,40 +110,49 @@ class Map extends React.Component {
               style={{ width: '100%' }}
             />
           </Grid.Row>
-          <Grid.Row>
+          <Grid.Row
+            style={{
+              height: '20%'
+            }}
+          >
             {/* We will need to add conditionals here for different control bar, or handle it similarly to UserMap */}
-            {
-              this.props.user && !this.props.user.defaultDeliveryLat && !this.props.user.defaultDeliveryLng && (
+            {this.props.user &&
+              !this.props.user.defaultDeliveryLat &&
+              !this.props.user.defaultDeliveryLng && (
                 <>
-                <h4>To book a Rover, complete your profile by adding a default dropoff address!</h4>
+                  <h4>
+                    To book a Rover, complete your profile by adding a default
+                    dropoff address!
+                  </h4>
+                  <Button
+                    type="button"
+                    as="a"
+                    href="/me/default-dropoff"
+                    size="large"
+                    style={{
+                      width: '90%',
+                      margin: '1vw'
+                    }}
+                  >
+                    Add Address & Get Rovin'
+                  </Button>
+                </>
+              )}
+            {!orderExists &&
+              this.props.user.defaultDeliveryLat !== null &&
+              this.props.user.defaultDeliveryLng !== null && (
                 <Button
-                type="button"
-                as='a'
-                href='/me/default-dropoff'
-                size="large"
-                style={{
-                  width: '90%',
-                  margin: '1vw'
-                }}
-              >
-                Add Address & Get Rovin'
-              </Button>
-              </>
-              )
-            }
-            {(!orderExists && this.props.user.defaultDeliveryLat !== null && this.props.user.defaultDeliveryLng !== null) && (
-              <Button
-                type="button"
-                onClick={this.handleBook}
-                size="large"
-                style={{
-                  width: '90%',
-                  margin: '1vw'
-                }}
-              >
-                Book Me A Rover!
-              </Button>
-            )}
+                  type="button"
+                  onClick={this.handleBook}
+                  size="large"
+                  style={{
+                    width: '90%',
+                    margin: '1vw'
+                  }}
+                >
+                  Book Me A Rover!
+                </Button>
+              )}
             {orderExists && <p>Driver Is En Route</p>}
             {ToPickup && (
               <Button
