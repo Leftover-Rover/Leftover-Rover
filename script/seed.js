@@ -53,6 +53,16 @@ async function seed() {
       carColor: 'Red',
       currentLocationLat: 41.891083,
       currentLocationLng: -87.624501
+    }),
+    Driver.create({
+      isActive: true,
+      isAvailable: true,
+      carMake: 'Toyota',
+      carModel: 'Camry',
+      licensePlate: 'JDANS23S',
+      carColor: 'Red',
+      currentLocationLat: 41.891083,
+      currentLocationLng: -87.624501
     })
   ])
 
@@ -93,6 +103,7 @@ async function seed() {
   ])
 
   await drivers[0].setUser(users[0])
+  await drivers[1].setUser(users[1])
 
   console.log(`seeded ${users.length} users`)
   console.log(`seeded successfully`)

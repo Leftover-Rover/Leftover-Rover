@@ -33,7 +33,7 @@ const findDriver = async (myLat, myLng) => {
 
 router.put('/', async (req, res, next) => {
   try {
-    const order = await Order.findById(11)
+    const order = await Order.findById(req.body.id)
     await order.update({
       status: req.body.status,
       pickupTime: req.body.pickupTime
