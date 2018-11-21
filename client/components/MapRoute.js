@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { postOrder, getMyLocation, updateOrderToDropOff } from '../store'
 import UserMap from './UserMap'
 import { Button, Grid } from 'semantic-ui-react'
-import DriverSwitch from './DriverSwitch'
 
 class Map extends React.Component {
   state = {
@@ -87,14 +86,12 @@ class Map extends React.Component {
 
     const newOrigin = [pickupLocationLng, pickupLocationLat]
     const newDest = [deliveryLocationLng, deliveryLocationLat]
-    console.log('in change to dropoff', newOrigin, newDest)
     this.handleRoute(newOrigin, newDest)
   }
 
   render() {
     const orderExists = this.props.order.status
     const ToPickup = this.props.order.status === 'ToPickup'
-    console.log('topickup', ToPickup)
 
     return (
       <React.Fragment>
@@ -167,7 +164,6 @@ class Map extends React.Component {
                 Leftovers Have Been Picked Up!
               </Button>
             )}
-            {this.props.driver ? <DriverSwitch /> : <div />}
           </Grid.Row>
         </Grid>
       </React.Fragment>
