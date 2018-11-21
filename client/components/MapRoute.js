@@ -186,7 +186,7 @@ const mapState = state => {
     order: state.order,
     myLocation: state.myLocation,
     user: state.user,
-    driver: state.loggedinUser.driver
+    driver: state.user.driver
   }
 }
 

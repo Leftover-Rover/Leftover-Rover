@@ -1,5 +1,5 @@
 import axios from 'axios'
-import history from '../history'
+import history from '../../history'
 
 /**
  * ACTION TYPES
@@ -28,14 +28,14 @@ export const fetchLoggedinUser = userId => async dispatch => {
   }
 }
 
-export const updateDriver = (driverId, driver) => async dispatch => {
-  try {
-    const res = await axios.put(`/api/drivers/${driverId}`, driver)
-    dispatch(getLoggedinUser(res.data))
-  } catch (err) {
-    console.error(err)
-  }
-}
+// export const updateDriver = (driverId, driver) => async dispatch => {
+//   try {
+//     const res = await axios.put(`/api/drivers/${driverId}`, driver)
+//     dispatch(getLoggedinUser(res.data))
+//   } catch (err) {
+//     console.error(err)
+//   }
+// }
 
 /**
  * REDUCER

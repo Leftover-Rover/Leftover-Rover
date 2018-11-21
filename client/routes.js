@@ -13,7 +13,7 @@ import {
   UserProfile,
   UpdateUserProfile
 } from './components'
-import { me, fetchLoggedinUser } from './store'
+import { me } from './store'
 
 /**
  * COMPONENT
@@ -24,10 +24,6 @@ class Routes extends Component {
   }
 
   render() {
-    // Necessary to get isDriver
-    if (this.props.user.id && !this.props.loggedinUser.id) {
-      this.props.fetchLoggedinUser(this.props.user.id)
-    }
     const { isLoggedIn } = this.props
     const { isDriver } = this.props
 
@@ -38,19 +34,32 @@ class Routes extends Component {
           {/* Routes placed here are available to all visitors */}
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
-          <Route exact path="/me/default-dropoff" component={AddDefaultAddress} />
+          <Route
+            exact
+            path="/me/default-dropoff"
+            component={AddDefaultAddress}
+          />
           {isLoggedIn && (
             <Switch>
               {/* Routes placed here are only available after logging in */}
-              <Route exact path="/me/update-dropoff" component={AddDefaultAddress} />
+              <Route
+                exact
+                path="/me/update-dropoff"
+                component={AddDefaultAddress}
+              />
               <Route exact path="/me/profile" component={UserProfile} />
-              <Route exact path="/me/profile/edit" component={UpdateUserProfile} />
+              <Route
+                exact
+                path="/me/profile/edit"
+                component={UpdateUserProfile}
+              />
               <Route path="/me" component={Me} />
               {isDriver && (
                 <Switch>
                   <Route path="/rover" component={Rover} />
                 </Switch>
               )}
+              <Route component={Me} />
             </Switch>
           )}
           {/* Displays our Login component as a fallback */}
@@ -71,8 +80,7 @@ const mapState = state => {
     // Otherwise, state.user will be an empty object, and state.user.id will be falsey
     isLoggedIn: !!state.user.id,
     user: state.user,
-    loggedinUser: state.loggedinUser,
-    isDriver: !!state.loggedinUser.driver
+    isDriver: !!state.user.driver
   }
 }
 
@@ -80,9 +88,6 @@ const mapDispatch = dispatch => {
   return {
     loadInitialData() {
       dispatch(me())
-    },
-    fetchLoggedinUser: userId => {
-      dispatch(fetchLoggedinUser(userId))
     }
   }
 }
