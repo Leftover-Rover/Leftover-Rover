@@ -2,10 +2,13 @@
 
 const db = require('../server/db')
 const { User, Driver, Order } = require('../server/db/models')
+const usersFile = require('./users')
 
 async function seed() {
   await db.sync({ force: true })
   console.log('db synced!')
+
+  await Promise.all(usersFile.map(user => User.create(user)))
 
   const users = await Promise.all([
     User.create({
