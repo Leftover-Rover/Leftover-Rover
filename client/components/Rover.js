@@ -9,10 +9,8 @@ class Rover extends Component {
     return (
       <React.Fragment>
         {/* Add here anything that should render for the driver*/}
-        <h1>Driver Page</h1>
-        <DriverSwitch />
+        {/* <DriverSwitch /> */}
         <DriverMapRoute />
-
       </React.Fragment>
     )
   }

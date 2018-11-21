@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { postOrder, getMyLocation, updateDriver } from '../store'
 import DriverMap from './DriverMap'
+import { Button, Grid } from 'semantic-ui-react'
+import DriverSwitch from './DriverSwitch'
 
 class Map extends React.Component {
   state = {
@@ -63,7 +65,24 @@ class Map extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <DriverMap {...this.state} markers={this.markers} />
+        <Grid textAlign="center" style={{ height: '85vh' }}>
+          <Grid.Row
+            style={{
+              height: '80%'
+            }}
+          >
+            <DriverMap {...this.state} markers={this.markers} />
+          </Grid.Row>
+          <Grid.Row
+            style={{
+              backgroundColor: 'orange',
+              height: '20%'
+            }}
+          >
+            <p>Buttons and Messages Will Go Here</p>
+            <DriverSwitch />
+          </Grid.Row>
+        </Grid>
       </React.Fragment>
     )
   }
