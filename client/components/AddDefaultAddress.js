@@ -41,13 +41,35 @@ export class AddDefaultAddress extends Component {
       method: 'get',
       url: `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodedAddress}.json?access_token=${TOKEN}&country=US`
     })
-    .then(results => {
-      newAddress.lat = results.data.features[0].center[1]
-      newAddress.lng = results.data.features[0].center[0]
-    })
+      .then(results => {
+        if (results.status === 200) {
+          newAddress.lat = results.data.features[0].center[1]
+          newAddress.lng = results.data.features[0].center[0]
+        } else {
+          this.props.history.replace('/me/default-dropoff')
+          alert(
+            "Sorry, we couldn't find that location. Please check for typoes, spelling, or any other errors and try again."
+          )
+        }
+      })
+      .catch(err => console.error(err))
 
     await this.props.addDefaultDropoff(this.props.user, newAddress)
 
+    // ** NOTE **
+    // Not sure how we want to handle confirmation on the front-end, we can push/redirect the user to a new page or use a pop-up confirmation window
+  }
+
+  componentDidUpdate = prevProps => {
+    if (this.props.user) {
+      if (
+        this.props.user.defaultDeliveryLat !==
+          prevProps.user.defaultDeliveryLat ||
+        this.props.user.defaultDeliveryLng !== prevProps.user.defaultDeliveryLng
+      ) {
+        this.props.history.push('/me')
+      }
+    }
   }
 
   render() {
@@ -203,6 +225,7 @@ export class AddDefaultAddress extends Component {
                 </Form.Field>
               </Form.Group>
             </Form>
+<<<<<<< HEAD
             <div />
           <div style={{
             paddingTop: '5%',
@@ -213,6 +236,11 @@ export class AddDefaultAddress extends Component {
           </Button>
           </div>
             {/* <button type="submit" onClick={this.handleSubmit} >PRESS FOR API CALL</button> */}
+=======
+            <button type="submit" onClick={this.handleSubmit}>
+              PRESS FOR API CALL
+            </button>
+>>>>>>> 46f874f8abb082f10e56e1fc78d46a940b5c86d9
           </Segment>
         </Grid.Column>
       </Grid>
@@ -222,7 +250,8 @@ export class AddDefaultAddress extends Component {
 
 const mapDispatch = dispatch => {
   return {
-    addDefaultDropoff: (user, location) => dispatch(addDefaultAddress(user, location))
+    addDefaultDropoff: (user, location) =>
+      dispatch(addDefaultAddress(user, location))
   }
 }
 

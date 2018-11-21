@@ -1,12 +1,15 @@
 import io from 'socket.io-client'
 import { driverEvent } from './components/DriverSwitch'
+import store, { updateActionItem } from './store'
 
 const socket = io(window.location.origin)
 
 driverEvent.on('driverIsActive', () => {
-  socket.on('driverRequest', order =>
+  socket.on('driverRequest', order => {
+    console.log('update action item:', updateActionItem, 'store: ', store)
+    store.dispatch(updateActionItem())
     console.log('do you want this Rover?', order)
-  )
+  })
 })
 
 socket.on('connect', () => {

@@ -111,7 +111,26 @@ class Map extends React.Component {
           </Grid.Row>
           <Grid.Row>
             {/* We will need to add conditionals here for different control bar, or handle it similarly to UserMap */}
-            {!orderExists && (
+            {
+              this.props.user && !this.props.user.defaultDeliveryLat && !this.props.user.defaultDeliveryLng && (
+                <>
+                <h4>To book a Rover, complete your profile by adding a default dropoff address!</h4>
+                <Button
+                type="button"
+                as='a'
+                href='/me/default-dropoff'
+                size="large"
+                style={{
+                  width: '90%',
+                  margin: '1vw'
+                }}
+              >
+                Add Address & Get Rovin'
+              </Button>
+              </>
+              )
+            }
+            {(!orderExists && this.props.user.defaultDeliveryLat !== null && this.props.user.defaultDeliveryLng !== null) && (
               <Button
                 type="button"
                 onClick={this.handleBook}
@@ -121,7 +140,7 @@ class Map extends React.Component {
                   margin: '1vw'
                 }}
               >
-                Book me a Route!
+                Book Me A Rover!
               </Button>
             )}
             {orderExists && <p>Driver Is En Route</p>}
