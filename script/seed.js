@@ -3,12 +3,13 @@
 const db = require('../server/db')
 const { User, Driver, Order } = require('../server/db/models')
 const usersFile = require('./users')
+const driversFile = require('./drivers')
 
 async function seed() {
   await db.sync({ force: true })
   console.log('db synced!')
 
-  await Promise.all(usersFile.map(user => User.create(user)))
+  const user100 = await Promise.all(usersFile.map(user => User.create(user)))
 
   const users = await Promise.all([
     User.create({
@@ -69,6 +70,10 @@ async function seed() {
     })
   ])
 
+  const driver100 = await Promise.all(
+    driversFile.map(driver => Driver.create(driver))
+  )
+
   await Promise.all([
     Order.create({
       pickupLocationLat: 41.948128,
@@ -107,6 +112,9 @@ async function seed() {
 
   await drivers[0].setUser(users[0])
   await drivers[1].setUser(users[1])
+  await Promise.all(
+    driver100.map((driver, index) => driver.setUser(user100[index]))
+  )
 
   console.log(`seeded ${users.length} users`)
   console.log(`seeded successfully`)
