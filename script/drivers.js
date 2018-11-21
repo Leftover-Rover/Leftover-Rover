@@ -7,10 +7,10 @@ const cars = [
   ['Honda', 'Civic', 'CR-V', 'Accord', 'Pilot']
 ]
 
-const minLat = 40.051132
-const maxLat = 41.699272
-const minLng = -87.831033
-const maxLng = -87.68209
+const minLat = 41.7
+const maxLat = 42.04
+const minLng = -87.8
+const maxLng = -87.61
 
 const randomLocation = () => {
   const random = Math.random()

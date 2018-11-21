@@ -24,16 +24,21 @@ const findDriver = async (myLat, myLng) => {
       isActive: true
     }
   })
-  let closest = { driverId: 2, driverScore: Infinity }
-  drivers.forEach(driver => {
+  let driverList = drivers.map(driver => {
     const latScore = Math.abs(myLat - driver.currentLocationLat)
     const lngScore = Math.abs(myLng - driver.currentLocationLng)
     const score = latScore + lngScore
-    if (score < closest.driverScore) {
-      closest.driverId = driver.id
-    }
+    return [score, driver.id]
   })
-  return closest.driverId
+
+  driverList.sort()
+  console.log(driverList)
+  let closest = driverList.slice(0, 5)
+  const output = closest.map(val => {
+    return val[1]
+  })
+  console.log(output)
+  return output
 }
 
 router.put('/', async (req, res, next) => {
@@ -58,11 +63,14 @@ router.post('/', async (req, res, next) => {
   // deliveryNotes}
   try {
     const { id } = idFinder(req)
-    const driverId = await findDriver(
+    const drivers = await findDriver(
       req.body.pickupLocationLat,
       req.body.pickupLocationLng
     )
-    const driver = await Driver.findById(driverId)
+    const driverList = []
+    drivers.forEach(async driver => {
+      driverList.push(await Driver.findById(driver))
+    })
     const orderData = {
       userId: id,
       pickupLocationLat: req.body.pickupLocationLat,
@@ -73,17 +81,21 @@ router.post('/', async (req, res, next) => {
     }
     const order = await Order.create(orderData)
 
-    // Between here is where we would wait for driver to accept
-    routeRequested.emit('routeRequested', order)
+    driverList.forEach(driver => {
+      driver.update({ isAvailable: false })
+    })
+
+    routeRequested.emit('routeRequested', order, driverList)
+
+    //This setting driver here needs to be deleted once driver accepting is hooked up - this is just to keep the app from breaking in the meantime
 
     await Promise.all([
-      driver.update({ isAvailable: false }),
       order.update({
         status: 'ToPickup',
-        startLocationLat: driver.currentLocationLat,
-        startLocationLng: driver.currentLocationLng
+        startLocationLat: driverList[0].currentLocationLat,
+        startLocationLng: driverList[0].currentLocationLng
       }),
-      order.setDriver(driver)
+      order.setDriver(driverList[0])
     ])
     res.json(order)
   } catch (err) {
