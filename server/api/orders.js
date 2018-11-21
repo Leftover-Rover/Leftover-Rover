@@ -41,6 +41,34 @@ const findDriver = async (myLat, myLng) => {
   return output
 }
 
+// This is the route called when a driver accepts a request. It requires the orderId as the orderId req.params. It does not need to specify the accepted driver, as the reqest will come from that driver. It does require an array of complete driver objects to be passed in as the req.body. Whether the accepting driver is included in this array does not matter.
+router.put('/:orderId', async (req, res, next) => {
+  // Expects req.body={drivers: [driver1, driver2, driver3, driver4]}
+  try {
+    const order = await Order.findById(req.params.orderId)
+    await Promise.all([
+      order.update({
+        status: 'ToPickup',
+        startLocationLat: req.user.driver.currentLocationLat,
+        startLocationLng: req.user.driver.currentLocationLng
+      }),
+      order.setDriver(req.user.driver)
+    ])
+    const drivers = req.body.drivers
+    const newDrivers = drivers.map(driver => {
+      if (driver.id !== req.user.driver.id) {
+        return driver
+      }
+    })
+    newDrivers.forEach(async driver => {
+      await driver.update({ isAvailable: true })
+    })
+    res.json(order)
+  } catch (error) {
+    console.log(error)
+  }
+})
+
 router.put('/', async (req, res, next) => {
   try {
     const order = await Order.findById(req.body.id)
@@ -87,7 +115,7 @@ router.post('/', async (req, res, next) => {
 
     routeRequested.emit('routeRequested', order, driverList)
 
-    //This setting driver here needs to be deleted once driver accepting is hooked up - this is just to keep the app from breaking in the meantime
+    //This section below needs to be deleted once driver accepting is hooked up - this is just to keep the app from breaking in the meantime
 
     await Promise.all([
       order.update({
