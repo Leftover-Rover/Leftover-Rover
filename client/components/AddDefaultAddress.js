@@ -225,7 +225,6 @@ export class AddDefaultAddress extends Component {
                 </Form.Field>
               </Form.Group>
             </Form>
-<<<<<<< HEAD
             <div />
           <div style={{
             paddingTop: '5%',
@@ -235,12 +234,6 @@ export class AddDefaultAddress extends Component {
             UPDATE ADDRESS
           </Button>
           </div>
-            {/* <button type="submit" onClick={this.handleSubmit} >PRESS FOR API CALL</button> */}
-=======
-            <button type="submit" onClick={this.handleSubmit}>
-              PRESS FOR API CALL
-            </button>
->>>>>>> 46f874f8abb082f10e56e1fc78d46a940b5c86d9
           </Segment>
         </Grid.Column>
       </Grid>
