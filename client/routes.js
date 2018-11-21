@@ -14,13 +14,15 @@ import {
   UpdateUserProfile
 } from './components'
 import { me } from './store'
+import { fetchUserCurrentOrder } from './store/order'
 
 /**
  * COMPONENT
  */
 class Routes extends Component {
-  componentDidMount() {
-    this.props.loadInitialData()
+  async componentDidMount() {
+    await this.props.loadInitialData()
+    this.props.checkForActiveOrder()
   }
 
   render() {
@@ -86,9 +88,8 @@ const mapState = state => {
 
 const mapDispatch = dispatch => {
   return {
-    loadInitialData() {
-      dispatch(me())
-    }
+    loadInitialData: () => dispatch(me()),
+    checkForActiveOrder: () => dispatch(fetchUserCurrentOrder())
   }
 }
 

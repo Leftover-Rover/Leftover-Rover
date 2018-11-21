@@ -87,14 +87,12 @@ class Map extends React.Component {
 
     const newOrigin = [pickupLocationLng, pickupLocationLat]
     const newDest = [deliveryLocationLng, deliveryLocationLat]
-    console.log('in change to dropoff', newOrigin, newDest)
     this.handleRoute(newOrigin, newDest)
   }
 
   render() {
     const orderExists = this.props.order.status
     const ToPickup = this.props.order.status === 'ToPickup'
-    console.log('topickup', ToPickup)
 
     return (
       <React.Fragment>
@@ -127,7 +125,7 @@ class Map extends React.Component {
                   <Button
                     type="button"
                     as="a"
-                    href="/me/default-dropoff"
+                    href="/me/update-dropoff"
                     size="large"
                     style={{
                       width: '90%',
