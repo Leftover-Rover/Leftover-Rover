@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Checkbox } from 'semantic-ui-react'
-import { updateDriver } from '../store'
+import { Checkbox, Label } from 'semantic-ui-react'
+import { updateDriver, fetchLoggedinUser } from '../store'
 import { Link } from 'react-router-dom'
 import { EventEmitter } from 'events'
 
@@ -34,13 +34,25 @@ class DriverSwitch extends Component {
           <Checkbox
             toggle
             onChange={this.handleChange}
-            label="Rove!"
+            label={
+              <Label size="large" color="orange">
+                Stop Roving!
+              </Label>
+            }
             defaultChecked
           />
         </Link>
       ) : (
         <Link to="/rover">
-          <Checkbox toggle onChange={this.handleChange} label="Rove!" />
+          <Checkbox
+            toggle
+            onChange={this.handleChange}
+            label={
+              <Label size="large" color="orange">
+                Start Roving!
+              </Label>
+            }
+          />
         </Link>
       )
     } else {
@@ -53,6 +65,9 @@ const mapDispatch = dispatch => {
   return {
     updateDriver: (driverId, driver) => {
       dispatch(updateDriver(driverId, driver))
+    },
+    fetchLoggedinUser: userId => {
+      dispatch(fetchLoggedinUser(userId))
     }
   }
 }

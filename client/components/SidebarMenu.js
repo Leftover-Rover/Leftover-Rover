@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { logout } from '../store'
 import { Menu, Sidebar, Icon, Label } from 'semantic-ui-react'
+import DriverSwitch from './DriverSwitch'
 
 export class SidebarMenu extends Component {
   state = { visible: false }
@@ -12,6 +13,7 @@ export class SidebarMenu extends Component {
   render() {
     const { visible } = this.state
     const { handleClick } = this.props
+    console.log(this.props.driver)
 
     return (
       <div
@@ -56,21 +58,26 @@ export class SidebarMenu extends Component {
           onHide={this.handleToggle}
           vertical
           visible={visible}
-          style={{fontSize: '1.75rem'}}
+          style={{ fontSize: '1.75rem' }}
         >
           <Menu.Item href="/me">Home</Menu.Item>
           {this.props.isLoggedIn ? (
             <>
               <Menu.Item href="/me/profile">My Profile</Menu.Item>
               <Menu.Item href="/me/order-history">My Order History</Menu.Item>
-              <Menu.Item href="/signup-to-drive">Become A Rover</Menu.Item>
+              {this.props.driver && this.props.driver.isAvailable ? (
+                <Menu.Item>
+                  <DriverSwitch />
+                </Menu.Item>
+              ) : (
+                <Menu.Item href="/signup-to-drive">Become A Rover</Menu.Item>
+              )}
               <Menu.Item as={Link} to="/#" name="logout" onClick={handleClick}>
                 Logout
               </Menu.Item>
             </>
           ) : (
             <>
-              {' '}
               <Menu.Item href="/signup-to-drive">Become A Rover</Menu.Item>
             </>
           )}
@@ -82,7 +89,8 @@ export class SidebarMenu extends Component {
 
 const mapState = state => {
   return {
-    isLoggedIn: !!state.user.id
+    isLoggedIn: !!state.user.id,
+    driver: state.user.driver
   }
 }
 

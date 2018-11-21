@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { postOrder, getMyLocation, updateDriver } from '../store'
 import DriverMap from './DriverMap'
 import { Button, Grid } from 'semantic-ui-react'
-import DriverSwitch from './DriverSwitch'
 
 class Map extends React.Component {
   state = {
@@ -80,7 +79,6 @@ class Map extends React.Component {
             }}
           >
             <p>Buttons and Messages Will Go Here</p>
-            <DriverSwitch />
           </Grid.Row>
         </Grid>
       </React.Fragment>
