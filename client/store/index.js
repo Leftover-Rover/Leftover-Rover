@@ -5,14 +5,12 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import user from './user'
 import order from './order'
 import myLocation from './myLocation'
-import loggedinUser from './loggedinUser'
 import actionItem from './actionItem'
 
 const reducer = combineReducers({
   user,
   order,
   myLocation,
-  loggedinUser,
   actionItem
 })
 const middleware = composeWithDevTools(
@@ -24,5 +22,4 @@ export default store
 export * from './user'
 export * from './order'
 export * from './myLocation'
-export * from './loggedinUser'
 export * from './actionItem'

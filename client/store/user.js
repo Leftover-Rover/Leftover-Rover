@@ -20,7 +20,7 @@ const defaultUser = {}
 const getUser = user => ({ type: GET_USER, user })
 const removeUser = () => ({ type: REMOVE_USER })
 const updateDefaultAddress = user => ({ type: UPDATE_DEFAULT_ADDRESS, user })
-const updatedUserProfile = user => ({type: UPDATED_USER_PROFILE, user})
+const updatedUserProfile = user => ({ type: UPDATED_USER_PROFILE, user })
 
 /**
  * THUNK CREATORS
@@ -77,10 +77,19 @@ export const addDefaultAddress = (user, address) => async dispatch => {
 }
 
 export const updateExistingUser = user => async dispatch => {
-  const userId = user.id;
+  const userId = user.id
   try {
     const updatedUser = await axios.put(`/api/users/${userId}`, user)
     dispatch(updatedUserProfile(updatedUser.data))
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+export const updateDriver = (driverId, driver) => async dispatch => {
+  try {
+    const res = await axios.put(`/api/drivers/${driverId}`, driver)
+    dispatch(getUser(res.data))
   } catch (err) {
     console.error(err)
   }

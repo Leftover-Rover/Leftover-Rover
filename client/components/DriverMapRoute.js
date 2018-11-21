@@ -99,7 +99,7 @@ const mapState = state => {
     order: state.order,
     myLocation: state.myLocation,
     user: state.user,
-    driverId: state.loggedinUser.driver.id
+    driverId: state.user.driver.id
   }
 }
 

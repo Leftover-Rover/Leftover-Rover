@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Checkbox } from 'semantic-ui-react'
-import { updateDriver, fetchLoggedinUser } from '../store'
+import { updateDriver } from '../store'
 import { Link } from 'react-router-dom'
 import { EventEmitter } from 'events'
 
@@ -53,9 +53,6 @@ const mapDispatch = dispatch => {
   return {
     updateDriver: (driverId, driver) => {
       dispatch(updateDriver(driverId, driver))
-    },
-    fetchLoggedinUser: userId => {
-      dispatch(fetchLoggedinUser(userId))
     }
   }
 }
@@ -63,7 +60,7 @@ const mapDispatch = dispatch => {
 const mapState = state => {
   return {
     order: state.order,
-    driver: state.loggedinUser.driver
+    driver: state.user.driver
   }
 }
 
