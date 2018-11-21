@@ -6,6 +6,7 @@ import axios from 'axios'
 import { TOKEN } from './constant'
 import { addDefaultAddress } from '../store/user'
 
+
 export class AddDefaultAddress extends Component {
   constructor() {
     super()
@@ -46,9 +47,6 @@ export class AddDefaultAddress extends Component {
     })
 
     await this.props.addDefaultDropoff(this.props.user, newAddress)
-
-    // ** NOTE **
-    // Not sure how we want to handle confirmation on the front-end, we can push/redirect the user to a new page or use a pop-up confirmation window
 
   }
 
@@ -205,7 +203,16 @@ export class AddDefaultAddress extends Component {
                 </Form.Field>
               </Form.Group>
             </Form>
-            <button type="submit" onClick={this.handleSubmit} >PRESS FOR API CALL</button>
+            <div />
+          <div style={{
+            paddingTop: '5%',
+            marginTop: '5%'
+          }} >
+          <Button color='teal' size='massive' type='submit' onClick={this.handleSubmit} >
+            UPDATE ADDRESS
+          </Button>
+          </div>
+            {/* <button type="submit" onClick={this.handleSubmit} >PRESS FOR API CALL</button> */}
           </Segment>
         </Grid.Column>
       </Grid>
