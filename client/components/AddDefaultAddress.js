@@ -6,6 +6,7 @@ import axios from 'axios'
 import { TOKEN } from './constant'
 import { addDefaultAddress } from '../store/user'
 
+
 export class AddDefaultAddress extends Component {
   constructor() {
     super()
@@ -224,9 +225,15 @@ export class AddDefaultAddress extends Component {
                 </Form.Field>
               </Form.Group>
             </Form>
-            <button type="submit" onClick={this.handleSubmit}>
-              PRESS FOR API CALL
-            </button>
+            <div />
+          <div style={{
+            paddingTop: '5%',
+            marginTop: '5%'
+          }} >
+          <Button color='teal' size='massive' type='submit' onClick={this.handleSubmit} >
+            UPDATE ADDRESS
+          </Button>
+          </div>
           </Segment>
         </Grid.Column>
       </Grid>

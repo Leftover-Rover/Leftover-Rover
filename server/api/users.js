@@ -56,3 +56,19 @@ router.put('/:userId/address', async (req, res, next) => {
     console.error(err)
   }
 })
+
+router.put('/:userId', async (req, res, next) => {
+  try {
+    let user = await User.findById(req.params.userId)
+    if (!user) {
+      const err = new Error('User Not Found Or No User Is Logged In')
+      err.status = 500
+      return next(err)
+    } else {
+      const updatedUser = await user.update(req.body)
+      res.json(updatedUser)
+    }
+  } catch (err) {
+    console.error(err)
+  }
+})

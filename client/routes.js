@@ -9,7 +9,9 @@ import {
   Rover,
   Me,
   AddDefaultAddress,
-  SidebarMenu
+  SidebarMenu,
+  UserProfile,
+  UpdateUserProfile
 } from './components'
 import { me, fetchLoggedinUser } from './store'
 
@@ -36,15 +38,14 @@ class Routes extends Component {
           {/* Routes placed here are available to all visitors */}
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
+          <Route exact path="/me/default-dropoff" component={AddDefaultAddress} />
           {isLoggedIn && (
             <Switch>
               {/* Routes placed here are only available after logging in */}
-              <Route exact path="/me" component={Me} />
-              <Route
-                exact
-                path="/me/default-dropoff"
-                component={AddDefaultAddress}
-              />
+              <Route exact path="/me/update-dropoff" component={AddDefaultAddress} />
+              <Route exact path="/me/profile" component={UserProfile} />
+              <Route exact path="/me/profile/edit" component={UpdateUserProfile} />
+              <Route path="/me" component={Me} />
               {isDriver && (
                 <Switch>
                   <Route path="/rover" component={Rover} />

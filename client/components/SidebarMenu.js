@@ -28,6 +28,7 @@ export class SidebarMenu extends Component {
         <Label
           as="a"
           basic
+          size="large"
           onClick={this.handleToggle}
           style={{
             textAlign: 'center',
@@ -55,12 +56,12 @@ export class SidebarMenu extends Component {
           onHide={this.handleToggle}
           vertical
           visible={visible}
-          width="thin"
+          style={{fontSize: '1.75rem'}}
         >
           <Menu.Item href="/me">Home</Menu.Item>
           {this.props.isLoggedIn ? (
             <>
-              <Menu.Item href="/me/default-dropoff">My Profile</Menu.Item>
+              <Menu.Item href="/me/profile">My Profile</Menu.Item>
               <Menu.Item href="/me/order-history">My Order History</Menu.Item>
               <Menu.Item href="/signup-to-drive">Become A Rover</Menu.Item>
               <Menu.Item as={Link} to="/#" name="logout" onClick={handleClick}>
