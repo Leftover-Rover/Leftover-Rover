@@ -13,7 +13,6 @@ export class SidebarMenu extends Component {
   render() {
     const { visible } = this.state
     const { handleClick } = this.props
-    console.log(this.props.driver)
 
     return (
       <div
