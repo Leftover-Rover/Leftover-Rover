@@ -8,12 +8,11 @@ import DriverSwitch from './DriverSwitch'
 export class SidebarMenu extends Component {
   state = { visible: false }
 
-  handleToggle = () => this.setState({ visible: !this.state.visible })
+  handleToggle = () => this.setState(state => ({ visible: !state.visible }))
 
   render() {
     const { visible } = this.state
     const { handleClick } = this.props
-    console.log(this.props.driver)
 
     return (
       <div

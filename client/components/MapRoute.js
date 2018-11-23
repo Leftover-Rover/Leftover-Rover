@@ -131,7 +131,7 @@ class Map extends React.Component {
                       margin: '1vw'
                     }}
                   >
-                    Add Address & Get Rovin'
+                    Add Address {`&`} Get Rovin'
                   </Button>
                 </>
               )}

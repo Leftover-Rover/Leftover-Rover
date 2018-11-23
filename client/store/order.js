@@ -54,6 +54,17 @@ export const postOrder = ({
   }
 }
 
+export const driverAcceptOrder = (id, driverList) => async dispatch => {
+  try {
+    const { data } = await axios.put(`api/orders/${id}`, {
+      drivers: driverList
+    })
+    dispatch(getOrder(data))
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 /**
  * REDUCER
  */
