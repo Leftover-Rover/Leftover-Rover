@@ -78,7 +78,21 @@ class Map extends React.Component {
               height: '20%'
             }}
           >
-            <p>Buttons and Messages Will Go Here</p>
+            <p>
+              Buttons and Messages Will Go Here
+              {this.props.actionItem ? (
+                <Button
+                  type="button"
+                  onClick={this.handleBook}
+                  size="large"
+                  style={{ width: '90%', margin: '1vw' }}
+                >
+                  Do you want this Rover?
+                </Button>
+              ) : (
+                <span>Lookin for a Rover request</span>
+              )}
+            </p>
           </Grid.Row>
         </Grid>
       </React.Fragment>
@@ -97,7 +111,8 @@ const mapState = state => {
     order: state.order,
     myLocation: state.myLocation,
     user: state.user,
-    driverId: state.user.driver.id
+    driverId: state.user.driver.id,
+    actionItem: state.actionItem
   }
 }
 
