@@ -1,8 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { postOrder, getMyLocation, updateDriver } from '../store'
+import { getMyLocation, updateDriver, driverAcceptOrder } from '../store'
 import DriverMap from './DriverMap'
 import { Button, Grid } from 'semantic-ui-react'
+
+import { orderForDriver, driverList } from '../socket'
 
 class Map extends React.Component {
   state = {
@@ -47,6 +49,11 @@ class Map extends React.Component {
 
   componentWillUnmount() {
     navigator.geolocation.clearWatch(this.watch)
+  }
+
+  handleBook = () => {
+    const id = orderForDriver.id
+    this.props.driverAcceptOrder(id, driverList)
   }
 
   handleRoute = (origin, destination) => {
@@ -101,9 +108,9 @@ class Map extends React.Component {
 }
 
 const mapDispatch = {
-  postOrder,
   getMyLocation,
-  updateDriver
+  updateDriver,
+  driverAcceptOrder
 }
 
 const mapState = state => {
