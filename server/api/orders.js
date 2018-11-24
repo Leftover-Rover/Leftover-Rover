@@ -17,30 +17,6 @@ const idFinder = req => {
   return { id }
 }
 
-const findDriver = async (myLat, myLng) => {
-  const drivers = await Driver.findAll({
-    where: {
-      isAvailable: true,
-      isActive: true
-    }
-  })
-  let driverList = drivers.map(driver => {
-    const latScore = Math.abs(myLat - driver.currentLocationLat)
-    const lngScore = Math.abs(myLng - driver.currentLocationLng)
-    const score = latScore + lngScore
-    return [score, driver.id]
-  })
-
-  driverList.sort()
-  console.log(driverList)
-  let closest = driverList.slice(0, 5)
-  const output = closest.map(val => {
-    return val[1]
-  })
-  console.log(output)
-  return output
-}
-
 // This is the route called when a driver accepts a request. It requires the orderId as the orderId req.params. It does not need to specify the accepted driver, as the reqest will come from that driver. It does require an array of complete driver objects to be passed in as the req.body. Whether the accepting driver is included in this array does not matter.
 router.put('/:orderId', async (req, res, next) => {
   // Expects req.body={drivers: [driver1, driver2, driver3, driver4]}
@@ -91,7 +67,7 @@ router.post('/', async (req, res, next) => {
   // deliveryNotes}
   try {
     const { id } = idFinder(req)
-    const drivers = await findDriver(
+    const drivers = await Driver.findNearest(
       req.body.pickupLocationLat,
       req.body.pickupLocationLng
     )
