@@ -46,6 +46,7 @@ router.put('/:orderId', async (req, res, next) => {
   // Expects req.body={drivers: [driver1, driver2, driver3, driver4]}
   try {
     const order = await Order.findById(req.params.orderId)
+
     await Promise.all([
       order.update({
         status: 'ToPickup',
@@ -54,15 +55,20 @@ router.put('/:orderId', async (req, res, next) => {
       }),
       order.setDriver(req.user.driver)
     ])
-    const drivers = req.body.drivers
-    const newDrivers = drivers.map(driver => {
-      if (driver.id !== req.user.driver.id) {
-        return driver
-      }
+    const otherDrivers = req.body.drivers.filter(driver => {
+      return driver.id !== req.user.driver.id
     })
-    newDrivers.forEach(async driver => {
+
+    const otherDriverModels = []
+    for (const driver of otherDrivers) {
+      let temp = await Driver.findById(driver.id)
+      otherDriverModels.push(temp)
+    }
+
+    for (const driver of otherDriverModels) {
       await driver.update({ isAvailable: true })
-    })
+    }
+
     res.json(order)
   } catch (error) {
     console.log(error)
@@ -89,6 +95,7 @@ router.post('/', async (req, res, next) => {
   // dropoffLocationLat,
   // dropoffLocationLng,
   // deliveryNotes}
+
   try {
     const { id } = idFinder(req)
     const drivers = await findDriver(
@@ -99,6 +106,7 @@ router.post('/', async (req, res, next) => {
     drivers.forEach(async driver => {
       driverList.push(await Driver.findById(driver))
     })
+
     const orderData = {
       userId: id,
       pickupLocationLat: req.body.pickupLocationLat,
@@ -117,14 +125,16 @@ router.post('/', async (req, res, next) => {
 
     //This section below needs to be deleted once driver accepting is hooked up - this is just to keep the app from breaking in the meantime
 
-    await Promise.all([
-      order.update({
-        status: 'ToPickup',
-        startLocationLat: driverList[0].currentLocationLat,
-        startLocationLng: driverList[0].currentLocationLng
-      }),
-      order.setDriver(driverList[0])
-    ])
+    // I have commented out for now as the driver's order accept button should be working
+
+    // await Promise.all([
+    //   order.update({
+    //     status: 'ToPickup',
+    //     startLocationLat: driverList[0].currentLocationLat,
+    //     startLocationLng: driverList[0].currentLocationLng
+    //   }),
+    //   order.setDriver(driverList[0])
+    // ])
     res.json(order)
   } catch (err) {
     next(err)
