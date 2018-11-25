@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { logout } from '../store'
+import { logout } from '../../store'
 import { Menu } from 'semantic-ui-react'
 
 class Navbar extends Component {
@@ -13,6 +13,7 @@ class Navbar extends Component {
   render() {
     const { handleClick, isLoggedIn } = this.props
     const { activeItem } = this.state
+
     return (
       <div>
         <h1>Leftover Rover</h1>

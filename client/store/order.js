@@ -56,12 +56,25 @@ export const postOrder = ({
   }
 }
 
+
 export const fetchUserCurrentOrder = () => {
   return async (dispatch, getState) => {
     const state = getState()
     let userId = state.user.id
     const currentOrder = await axios.get(`/api/orders/${userId}`)
     dispatch(setOrder(currentOrder.data))
+  }
+}
+
+export const driverAcceptOrder = (id, driverList) => async dispatch => {
+  try {
+    const { data } = await axios.put(`api/orders/${id}`, {
+      drivers: driverList
+    })
+    dispatch(getOrder(data))
+  } catch (error) {
+    console.log(error)
+
   }
 }
 

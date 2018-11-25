@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { postOrder, getMyLocation, updateOrderToDropOff } from '../store'
 import UserMap from './UserMap'
 import { Button, Grid } from 'semantic-ui-react'
-import DriverSwitch from './DriverSwitch'
 
 class Map extends React.Component {
   state = {
@@ -132,7 +131,7 @@ class Map extends React.Component {
                       margin: '1vw'
                     }}
                   >
-                    Add Address & Get Rovin'
+                    Add Address {`&`} Get Rovin'
                   </Button>
                 </>
               )}
@@ -165,7 +164,6 @@ class Map extends React.Component {
                 Leftovers Have Been Picked Up!
               </Button>
             )}
-            {this.props.driver ? <DriverSwitch /> : <div />}
           </Grid.Row>
         </Grid>
       </React.Fragment>

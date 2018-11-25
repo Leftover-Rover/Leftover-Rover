@@ -49,3 +49,19 @@ form div {
   display: -ms-flexbox;
   display: flex;
 }
+
+.admin {
+  color: white;
+  background-color: black;
+  flex-direction: column;
+  display: flex;
+}
+
+.admin > h1 {
+  text-align: center;
+  padding: 20px;
+}
+
+.userTable {
+  padding-left: 50px;
+}

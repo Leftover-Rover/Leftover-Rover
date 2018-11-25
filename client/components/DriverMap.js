@@ -46,10 +46,16 @@ export default class DriverMap extends React.Component {
   }
 
   componentDidUpdate = () => {
+    const { origin, destination } = this.props
     this.map.on('load', () => {
-      this.directions.setOrigin(this.props.origin)
-      this.directions.setDestination(this.props.destination)
+      this.directions.setOrigin(origin)
+      this.directions.setDestination(destination)
     })
+    let markerIndex = 0
+    while (this[`marker${markerIndex}`]) {
+      this[`marker${markerIndex}`].remove()
+      ++markerIndex
+    }
     if (Array.isArray(this.props.markers) && this.props.markers.length) {
       this.props.markers.forEach((marker, index) => {
         this[`marker${index}`] = new mapboxgl.Marker()
@@ -58,8 +64,9 @@ export default class DriverMap extends React.Component {
       })
     }
     if (this.props.origin.length) {
-      this.directions.setOrigin(this.props.origin)
-      this.directions.setDestination(this.props.destination)
+      this.directions.setOrigin(origin)
+      this.directions.setDestination(destination)
+      this.map.fitBounds([origin, destination])
     }
     this.map.flyTo({
       center: [this.props.centerLng, this.props.centerLat],

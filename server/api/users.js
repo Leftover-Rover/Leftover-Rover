@@ -8,14 +8,20 @@ router.get('/', async (req, res, next) => {
       // explicitly select only the id and email fields - even though
       // users' passwords are encrypted, it won't help if we just
       // send everything to anyone who asks!
-      attributes: ['id', 'email']
+      attributes: [
+        'id',
+        'name',
+        'email',
+        'phoneNumber',
+        'imageUrl',
+        'createdAt'
+      ]
     })
     res.json(users)
   } catch (err) {
     next(err)
   }
 })
-
 
 router.get('/:userId', async (req, res, next) => {
   try {
@@ -34,7 +40,7 @@ router.get('/:userId', async (req, res, next) => {
     res.json(user)
   } catch (err) {
     next(err)
-    }
+  }
 })
 
 router.put('/:userId/address', async (req, res, next) => {

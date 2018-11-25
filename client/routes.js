@@ -11,7 +11,8 @@ import {
   AddDefaultAddress,
   SidebarMenu,
   UserProfile,
-  UpdateUserProfile
+  UpdateUserProfile,
+  Admin
 } from './components'
 import { me } from './store'
 import { fetchUserCurrentOrder } from './store/order'
@@ -26,8 +27,7 @@ class Routes extends Component {
   }
 
   render() {
-    const { isLoggedIn } = this.props
-    const { isDriver } = this.props
+    const { isLoggedIn, isDriver, isAdmin } = this.props
 
     return (
       <React.Fragment>
@@ -58,7 +58,14 @@ class Routes extends Component {
               <Route path="/me" component={Me} />
               {isDriver && (
                 <Switch>
+                  {/* Routes placed here are only available for drivers */}
                   <Route path="/rover" component={Rover} />
+                </Switch>
+              )}
+              {isAdmin && (
+                <Switch>
+                  {/* Routes placed here are only available for admins */}
+                  <Route path="/admin" component={Admin} />
                 </Switch>
               )}
               <Route component={Me} />
@@ -82,7 +89,8 @@ const mapState = state => {
     // Otherwise, state.user will be an empty object, and state.user.id will be falsey
     isLoggedIn: !!state.user.id,
     user: state.user,
-    isDriver: !!state.user.driver
+    isDriver: !!state.user.driver,
+    isAdmin: state.user.isAdmin
   }
 }
 

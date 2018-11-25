@@ -3,15 +3,16 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { logout } from '../store'
 import { Menu, Sidebar, Icon, Label } from 'semantic-ui-react'
+import DriverSwitch from './DriverSwitch'
 
 export class SidebarMenu extends Component {
   state = { visible: false }
 
-  handleToggle = () => this.setState({ visible: !this.state.visible })
+  handleToggle = () => this.setState(state => ({ visible: !state.visible }))
 
   render() {
     const { visible } = this.state
-    const { handleClick } = this.props
+    const { handleClick, isAdmin } = this.props
 
     return (
       <div
@@ -56,21 +57,31 @@ export class SidebarMenu extends Component {
           onHide={this.handleToggle}
           vertical
           visible={visible}
-          style={{fontSize: '1.75rem'}}
+          style={{ fontSize: '1.75rem' }}
         >
           <Menu.Item href="/me">Home</Menu.Item>
+          {isAdmin ? (
+            <Menu.Item href="/admin">Admin Dashboard</Menu.Item>
+          ) : (
+            <React.Fragment />
+          )}
           {this.props.isLoggedIn ? (
             <>
               <Menu.Item href="/me/profile">My Profile</Menu.Item>
               <Menu.Item href="/me/order-history">My Order History</Menu.Item>
-              <Menu.Item href="/signup-to-drive">Become A Rover</Menu.Item>
+              {this.props.driver && this.props.driver.isAvailable ? (
+                <Menu.Item>
+                  <DriverSwitch />
+                </Menu.Item>
+              ) : (
+                <Menu.Item href="/signup-to-drive">Become A Rover</Menu.Item>
+              )}
               <Menu.Item as={Link} to="/#" name="logout" onClick={handleClick}>
                 Logout
               </Menu.Item>
             </>
           ) : (
             <>
-              {' '}
               <Menu.Item href="/signup-to-drive">Become A Rover</Menu.Item>
             </>
           )}
@@ -82,7 +93,9 @@ export class SidebarMenu extends Component {
 
 const mapState = state => {
   return {
-    isLoggedIn: !!state.user.id
+    isLoggedIn: !!state.user.id,
+    driver: state.user.driver,
+    isAdmin: state.user.isAdmin
   }
 }
 

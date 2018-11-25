@@ -1,9 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { postOrder, getMyLocation, updateDriver } from '../store'
+import { getMyLocation, updateDriver, driverAcceptOrder } from '../store'
 import DriverMap from './DriverMap'
 import { Button, Grid } from 'semantic-ui-react'
-import DriverSwitch from './DriverSwitch'
+
+import { orderForDriver, driverList } from '../socket'
 
 class Map extends React.Component {
   state = {
@@ -50,6 +51,11 @@ class Map extends React.Component {
     navigator.geolocation.clearWatch(this.watch)
   }
 
+  handleBook = () => {
+    const id = orderForDriver.id
+    this.props.driverAcceptOrder(id, driverList)
+  }
+
   handleRoute = (origin, destination) => {
     this.setState({
       origin,
@@ -79,8 +85,21 @@ class Map extends React.Component {
               height: '20%'
             }}
           >
-            <p>Buttons and Messages Will Go Here</p>
-            <DriverSwitch />
+            <p>
+              Buttons and Messages Will Go Here
+              {this.props.actionItem ? (
+                <Button
+                  type="button"
+                  onClick={this.handleBook}
+                  size="large"
+                  style={{ width: '90%', margin: '1vw' }}
+                >
+                  Do you want this Rover?
+                </Button>
+              ) : (
+                <span>Lookin for a Rover request</span>
+              )}
+            </p>
           </Grid.Row>
         </Grid>
       </React.Fragment>
@@ -89,9 +108,9 @@ class Map extends React.Component {
 }
 
 const mapDispatch = {
-  postOrder,
   getMyLocation,
-  updateDriver
+  updateDriver,
+  driverAcceptOrder
 }
 
 const mapState = state => {
@@ -99,7 +118,8 @@ const mapState = state => {
     order: state.order,
     myLocation: state.myLocation,
     user: state.user,
-    driverId: state.user.driver.id
+    driverId: state.user.driver.id,
+    actionItem: state.actionItem
   }
 }
 

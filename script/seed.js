@@ -44,6 +44,14 @@ async function seed() {
       phoneNumber: '1234567890',
       defaultDeliveryLat: 41.952363,
       defaultDeliveryLng: -87.652167
+    }),
+    User.create({
+      name: 'Daniel Eimer',
+      email: 'daniel@email.com',
+      password: '123',
+      phoneNumber: '1234562890',
+      defaultDeliveryLat: 41.95232,
+      defaultDeliveryLng: -87.65218
     })
   ])
 
@@ -67,6 +75,16 @@ async function seed() {
       carColor: 'Red',
       currentLocationLat: 41.891083,
       currentLocationLng: -87.624501
+    }),
+    Driver.create({
+      isActive: true,
+      isAvailable: true,
+      carMake: 'Toyota',
+      carModel: 'Camry',
+      licensePlate: 'JDANS23S',
+      carColor: 'Red',
+      currentLocationLat: 41.95232,
+      currentLocationLng: -87.65218
     })
   ])
 
@@ -112,6 +130,7 @@ async function seed() {
 
   await drivers[0].setUser(users[0])
   await drivers[1].setUser(users[1])
+  await drivers[2].setUser(users[4])
   await Promise.all(
     driver100.map((driver, index) => driver.setUser(user100[index]))
   )

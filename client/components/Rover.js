@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import DriverSwitch from './DriverSwitch'
 
 import { DriverMapRoute } from './index'
 
@@ -9,7 +8,6 @@ class Rover extends Component {
     return (
       <React.Fragment>
         {/* Add here anything that should render for the driver*/}
-        {/* <DriverSwitch /> */}
         <DriverMapRoute />
       </React.Fragment>
     )
