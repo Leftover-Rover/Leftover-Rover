@@ -52,6 +52,7 @@ router.put('/', async (req, res, next) => {
       status: req.body.status,
       pickupTime: req.body.pickupTime
     })
+    req.session.orderId = order.id
     res.json(order)
   } catch (error) {
     console.log(error)
@@ -101,8 +102,19 @@ router.post('/', async (req, res, next) => {
       }),
       order.setDriver(driverList[0])
     ])
+    req.session.orderId = order.id
     res.json(order)
   } catch (err) {
     next(err)
+  }
+})
+
+router.get('/:userId', (req, res, next) => {
+  if(!req.session.orderId) {
+    return next()
+  } else  {
+    Order.findById(req.session.orderId)
+    .then(order => order ? res.json(order) : next())
+    .catch(next)
   }
 })

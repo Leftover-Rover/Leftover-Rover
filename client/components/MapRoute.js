@@ -124,7 +124,7 @@ class Map extends React.Component {
                   <Button
                     type="button"
                     as="a"
-                    href="/me/default-dropoff"
+                    href="/me/update-dropoff"
                     size="large"
                     style={{
                       width: '90%',
