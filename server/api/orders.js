@@ -17,30 +17,6 @@ const idFinder = req => {
   return { id }
 }
 
-const findDriver = async (myLat, myLng) => {
-  const drivers = await Driver.findAll({
-    where: {
-      isAvailable: true,
-      isActive: true
-    }
-  })
-  let driverList = drivers.map(driver => {
-    const latScore = Math.abs(myLat - driver.currentLocationLat)
-    const lngScore = Math.abs(myLng - driver.currentLocationLng)
-    const score = latScore + lngScore
-    return [score, driver.id]
-  })
-
-  driverList.sort()
-  console.log(driverList)
-  let closest = driverList.slice(0, 5)
-  const output = closest.map(val => {
-    return val[1]
-  })
-  console.log(output)
-  return output
-}
-
 // This is the route called when a driver accepts a request. It requires the orderId as the orderId req.params. It does not need to specify the accepted driver, as the reqest will come from that driver. It does require an array of complete driver objects to be passed in as the req.body. Whether the accepting driver is included in this array does not matter.
 router.put('/:orderId', async (req, res, next) => {
   // Expects req.body={drivers: [driver1, driver2, driver3, driver4]}
@@ -82,6 +58,7 @@ router.put('/', async (req, res, next) => {
       status: req.body.status,
       pickupTime: req.body.pickupTime
     })
+    req.session.orderId = order.id
     res.json(order)
   } catch (error) {
     console.log(error)
@@ -98,7 +75,7 @@ router.post('/', async (req, res, next) => {
 
   try {
     const { id } = idFinder(req)
-    const drivers = await findDriver(
+    const drivers = await Driver.findNearest(
       req.body.pickupLocationLat,
       req.body.pickupLocationLng
     )
@@ -122,21 +99,19 @@ router.post('/', async (req, res, next) => {
     })
 
     routeRequested.emit('routeRequested', order, driverList)
-
-    //This section below needs to be deleted once driver accepting is hooked up - this is just to keep the app from breaking in the meantime
-
-    // I have commented out for now as the driver's order accept button should be working
-
-    // await Promise.all([
-    //   order.update({
-    //     status: 'ToPickup',
-    //     startLocationLat: driverList[0].currentLocationLat,
-    //     startLocationLng: driverList[0].currentLocationLng
-    //   }),
-    //   order.setDriver(driverList[0])
-    // ])
+    
     res.json(order)
   } catch (err) {
     next(err)
+  }
+})
+
+router.get('/:userId', (req, res, next) => {
+  if(!req.session.orderId) {
+    return next()
+  } else  {
+    Order.findById(req.session.orderId)
+    .then(order => order ? res.json(order) : next())
+    .catch(next)
   }
 })

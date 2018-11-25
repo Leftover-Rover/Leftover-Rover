@@ -25,7 +25,7 @@ const updatedUserProfile = user => ({ type: UPDATED_USER_PROFILE, user })
 /**
  * THUNK CREATORS
  */
-export const me = () => async dispatch => {
+export const me = () => async (dispatch) => {
   try {
     const res = await axios.get('/auth/me')
     dispatch(getUser(res.data || defaultUser))

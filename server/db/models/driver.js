@@ -42,4 +42,28 @@ const Driver = db.define('driver', {
   }
 })
 
+Driver.findNearest = async (myLat, myLng) => {
+  const drivers = await Driver.findAll({
+    where: {
+      isAvailable: true,
+      isActive: true
+    }
+  })
+  let driverList = drivers.map(driver => {
+    const latScore = Math.abs(myLat - driver.currentLocationLat)
+    const lngScore = Math.abs(myLng - driver.currentLocationLng)
+    const score = latScore + lngScore
+    return [score, driver.id]
+  })
+
+  driverList.sort()
+  console.log(driverList)
+  let closest = driverList.slice(0, 5)
+  const output = closest.map(val => {
+    return val[1]
+  })
+  console.log(output)
+  return output
+}
+
 module.exports = Driver
