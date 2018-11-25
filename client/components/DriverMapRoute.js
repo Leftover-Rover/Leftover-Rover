@@ -1,10 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { getMyLocation, updateDriver, driverAcceptOrder } from '../store'
+import {
+  getMyLocation,
+  updateDriver,
+  driverAcceptOrder,
+  updateOrderToDropOff
+} from '../store'
 import DriverMap from './DriverMap'
 import { Button, Grid } from 'semantic-ui-react'
 
-import { orderForDriver, driverList } from '../socket'
+import { orderInfo } from '../socket'
 
 class Map extends React.Component {
   state = {
@@ -52,8 +57,15 @@ class Map extends React.Component {
   }
 
   handleBook = () => {
-    const id = orderForDriver.id
-    this.props.driverAcceptOrder(id, driverList)
+    const id = orderInfo.orderForDriver.id
+    const origin = [this.props.myLocation.lng, this.props.myLocation.lat]
+    const destination = [
+      orderInfo.orderForDriver.pickupLocationLng,
+      orderInfo.orderForDriver.pickupLocationLat
+    ]
+
+    this.props.driverAcceptOrder(id, orderInfo.driverList)
+    this.handleRoute(origin, destination)
   }
 
   handleRoute = (origin, destination) => {
@@ -68,7 +80,24 @@ class Map extends React.Component {
     this.markers = [origin, destination] //adding arrays of [lat,lng] will draw markers on the map
   }
 
+  changeToDropOff = () => {
+    this.props.updateOrderToDropOff(this.props.order.id)
+    const {
+      pickupLocationLng,
+      pickupLocationLat,
+      deliveryLocationLng,
+      deliveryLocationLat
+    } = this.props.order
+
+    const newOrigin = [pickupLocationLng, pickupLocationLat]
+    const newDest = [deliveryLocationLng, deliveryLocationLat]
+    this.handleRoute(newOrigin, newDest)
+  }
+
   render() {
+    const orderExists = !!this.props.order.id
+    const ToPickup = this.props.order.status === 'ToPickup'
+
     return (
       <React.Fragment>
         <Grid textAlign="center" style={{ height: '85vh' }}>
@@ -85,9 +114,11 @@ class Map extends React.Component {
               height: '20%'
             }}
           >
-            <p>
-              Buttons and Messages Will Go Here
-              {this.props.actionItem ? (
+            {!this.props.actionItem &&
+              !orderExists && <h1>Lookin' for a Rover request</h1>}
+
+            {this.props.actionItem &&
+              !orderExists && (
                 <Button
                   type="button"
                   onClick={this.handleBook}
@@ -96,10 +127,20 @@ class Map extends React.Component {
                 >
                   Do you want this Rover?
                 </Button>
-              ) : (
-                <span>Lookin for a Rover request</span>
               )}
-            </p>
+            {ToPickup && (
+              <Button
+                type="button"
+                onClick={this.changeToDropOff}
+                size="large"
+                style={{
+                  width: '90%',
+                  margin: '1vw'
+                }}
+              >
+                Leftovers Have Been Picked Up!
+              </Button>
+            )}
           </Grid.Row>
         </Grid>
       </React.Fragment>
@@ -110,7 +151,8 @@ class Map extends React.Component {
 const mapDispatch = {
   getMyLocation,
   updateDriver,
-  driverAcceptOrder
+  driverAcceptOrder,
+  updateOrderToDropOff
 }
 
 const mapState = state => {

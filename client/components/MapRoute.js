@@ -45,7 +45,6 @@ class Map extends React.Component {
   }
 
   handleBook = () => {
-    // These constants will take my lat/lng from my location for pickup location, I have hard coded them in the meantime.
     let newOrder = {
       pickupLocationLat: this.props.myLocation.lat,
       pickupLocationLng: this.props.myLocation.lng,
@@ -53,14 +52,7 @@ class Map extends React.Component {
       dropoffLocationLng: this.props.user.defaultDeliveryLng,
       deliveryNotes: ''
     }
-    this.props
-      .postOrder(newOrder)
-      .then(data =>
-        this.handleRoute(
-          [data.startLocationLng, data.startLocationLat],
-          [data.pickupLocationLng, data.pickupLocationLat]
-        )
-      )
+    this.props.postOrder(newOrder)
   }
 
   handleRoute = (origin, destination) => {
@@ -75,23 +67,8 @@ class Map extends React.Component {
     this.markers = [origin, destination] //adding arrays of [lat,lng] will draw markers on the map
   }
 
-  changeToDropOff = () => {
-    this.props.updateOrderToDropOff(this.props.order.id)
-    const {
-      pickupLocationLng,
-      pickupLocationLat,
-      deliveryLocationLng,
-      deliveryLocationLat
-    } = this.props.order
-
-    const newOrigin = [pickupLocationLng, pickupLocationLat]
-    const newDest = [deliveryLocationLng, deliveryLocationLat]
-    this.handleRoute(newOrigin, newDest)
-  }
-
   render() {
     const orderExists = this.props.order.status
-    const ToPickup = this.props.order.status === 'ToPickup'
 
     return (
       <React.Fragment>
@@ -151,19 +128,6 @@ class Map extends React.Component {
                 </Button>
               )}
             {orderExists && <p>Driver Is En Route</p>}
-            {ToPickup && (
-              <Button
-                type="button"
-                onClick={this.changeToDropOff}
-                size="large"
-                style={{
-                  width: '90%',
-                  margin: '1vw'
-                }}
-              >
-                Leftovers Have Been Picked Up!
-              </Button>
-            )}
           </Grid.Row>
         </Grid>
       </React.Fragment>
@@ -173,8 +137,8 @@ class Map extends React.Component {
 
 const mapDispatch = {
   postOrder,
-  getMyLocation,
-  updateOrderToDropOff
+  getMyLocation
+  // updateOrderToDropOff
 }
 
 const mapState = state => {

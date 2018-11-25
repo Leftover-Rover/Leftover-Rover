@@ -4,7 +4,7 @@ import store, { updateActionItem } from './store'
 
 const socket = io(window.location.origin)
 
-let orderInfo = { orderForDriver: {}, driverList: [] }
+export const orderInfo = { orderForDriver: {}, driverList: [] }
 
 driverEvent.on('driverIsActive', () => {
   console.log('ready for orders')
@@ -15,14 +15,13 @@ driverEvent.on('driverIsActive', () => {
     driverList.forEach(driver => {
       if (driver.id === store.getState().user.driver.id) {
         store.dispatch(updateActionItem())
-        console.log('do you want this Rover?', orderForDriver, driverList)
-        orderInfo = { orderForDriver, driverList }
+        orderInfo.orderForDriver = orderForDriver
+        orderInfo.driverList = driverList
+        console.log('do you want this Rover?', orderInfo)
       }
     })
   })
 })
-
-export const { orderForDriver, driverList } = orderInfo
 
 socket.on('connect', () => {
   console.log('Connected!')
