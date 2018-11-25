@@ -1,19 +1,18 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
-import {logout} from '../store'
-import {Menu} from 'semantic-ui-react'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { logout } from '../store'
+import { Menu } from 'semantic-ui-react'
 
 class Navbar extends Component {
   state = {}
 
-  handleItemClick = (e, {name}) => this.setState({activeItem: name})
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
   render() {
-    const {handleClick, isLoggedIn} = this.props
-    const {activeItem} = this.state
-
+    const { handleClick, isLoggedIn } = this.props
+    const { activeItem } = this.state
     return (
       <div>
         <h1>Leftover Rover</h1>

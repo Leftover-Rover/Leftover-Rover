@@ -12,7 +12,7 @@ export class SidebarMenu extends Component {
 
   render() {
     const { visible } = this.state
-    const { handleClick } = this.props
+    const { handleClick, isAdmin } = this.props
 
     return (
       <div
@@ -60,6 +60,11 @@ export class SidebarMenu extends Component {
           style={{ fontSize: '1.75rem' }}
         >
           <Menu.Item href="/me">Home</Menu.Item>
+          {isAdmin ? (
+            <Menu.Item href="/admin">Admin Dashboard</Menu.Item>
+          ) : (
+            <React.Fragment />
+          )}
           {this.props.isLoggedIn ? (
             <>
               <Menu.Item href="/me/profile">My Profile</Menu.Item>
@@ -89,7 +94,8 @@ export class SidebarMenu extends Component {
 const mapState = state => {
   return {
     isLoggedIn: !!state.user.id,
-    driver: state.user.driver
+    driver: state.user.driver,
+    isAdmin: state.user.isAdmin
   }
 }
 
