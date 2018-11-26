@@ -9,6 +9,7 @@ router.post('/login', async (req, res, next) => {
       where: { email: req.body.email },
       include: Driver
     })
+    await user.driver.update({ isActive: false })
     if (!user) {
       console.log('No such user found:', req.body.email)
       res.status(401).send('Wrong username and/or password')
