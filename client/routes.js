@@ -24,7 +24,7 @@ import { fetchUserCurrentOrder } from './store/order'
 class Routes extends Component {
   async componentDidMount() {
     await this.props.loadInitialData()
-    this.props.checkForActiveOrder()
+    if (this.props.isLoggedIn) this.props.checkForActiveOrder()
   }
 
   render() {
