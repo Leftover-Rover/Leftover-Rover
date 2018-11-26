@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Checkbox, Label, Segment } from 'semantic-ui-react'
+import { Checkbox, Segment } from 'semantic-ui-react'
 import { updateDriver, fetchLoggedinUser } from '../store'
-import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { EventEmitter } from 'events'
 
 export const driverEvent = new EventEmitter()
@@ -21,6 +21,7 @@ class DriverSwitch extends Component {
 
   handleChange = () => {
     !this.props.driver.isActive && driverEvent.emit('driverIsActive')
+    this.props.history.push(!this.props.driver.isActive ? '/rover' : '/me')
     this.props.updateDriver(this.props.driver.id, {
       isActive: !this.props.driver.isActive,
       isAvailable: true
@@ -29,26 +30,15 @@ class DriverSwitch extends Component {
   }
   render() {
     if (this.props.driver) {
-      return this.props.driver.isActive ? (
+      return (
         <Segment inverted color="orange">
-          <Link to="/me">
-            <Checkbox
-              toggle
-              onChange={this.handleChange}
-              defaultChecked
-              label="Stop Roving!"
-            />
-          </Link>
-        </Segment>
-      ) : (
-        <Segment inverted color="orange">
-          <Link to="/rover">
-            <Checkbox
-              toggle
-              onChange={this.handleChange}
-              label="Start Roving!"
-            />
-          </Link>
+          <Checkbox
+            toggle
+            onChange={this.handleChange}
+            label={
+              this.props.driver.isActive ? 'Stop Roving!' : 'Start Roving!'
+            }
+          />
         </Segment>
       )
     } else {
@@ -68,11 +58,12 @@ const mapDispatch = dispatch => {
   }
 }
 
-const mapState = state => {
+const mapState = (state, ownProps) => {
   return {
     order: state.order,
-    driver: state.user.driver
+    driver: state.user.driver,
+    history: ownProps.history
   }
 }
 
-export default connect(mapState, mapDispatch)(DriverSwitch)
+export default withRouter(connect(mapState, mapDispatch)(DriverSwitch))
