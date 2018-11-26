@@ -37,8 +37,8 @@ module.exports = drivers.map((driver, index) => {
   const location = randomLocation()
   const carArray = cars[random()]
   return {
-    isAvailable: true,
-    isActive: true,
+    isAvailable: false,
+    isActive: false,
     carMake: carArray[0],
     carModel: carArray[random() + 1],
     licensePlate: randomLicense(),

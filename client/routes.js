@@ -12,7 +12,8 @@ import {
   SidebarMenu,
   UserProfile,
   UpdateUserProfile,
-  Admin
+  Admin,
+  OrdersList
 } from './components'
 import { me } from './store'
 import { fetchUserCurrentOrder } from './store/order'
@@ -36,6 +37,7 @@ class Routes extends Component {
           {/* Routes placed here are available to all visitors */}
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
+          <Route exact path="/me/order-history" component={OrdersList} />
           <Route
             exact
             path="/me/default-dropoff"
