@@ -1,4 +1,6 @@
 const { EventEmitter } = require('events')
+const Sequelize = require('sequelize')
+const Op = Sequelize.Op
 
 const router = require('express').Router()
 const { Order, User, Driver } = require('../db/models')
@@ -86,9 +88,11 @@ router.post('/', isUser, async (req, res, next) => {
       req.body.pickupLocationLat,
       req.body.pickupLocationLng
     )
-    const driverList = []
-    drivers.forEach(async driver => {
-      driverList.push(await Driver.findById(driver))
+
+    const driverList = await Driver.findAll({
+      where: {
+        id: { [Op.in]: drivers }
+      }
     })
 
     if (driverList.length === 0) {
