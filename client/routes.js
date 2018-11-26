@@ -93,7 +93,7 @@ const mapState = state => {
     // Otherwise, state.user will be an empty object, and state.user.id will be falsey
     isLoggedIn: !!state.user.id,
     user: state.user,
-    isDriver: !!state.user.driver,
+    isDriver: !!state.user.driver && state.user.driver.isActive,
     isAdmin: state.user.isAdmin
   }
 }

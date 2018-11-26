@@ -29,6 +29,7 @@ class DriverSwitch extends Component {
     this.setState({ isChecked: !this.state.isChecked })
   }
   render() {
+    const { isActive } = this.props.driver
     if (this.props.driver) {
       return (
         <Segment inverted color="orange">
@@ -38,6 +39,7 @@ class DriverSwitch extends Component {
             label={
               this.props.driver.isActive ? 'Stop Roving!' : 'Start Roving!'
             }
+            checked={isActive}
           />
         </Segment>
       )
