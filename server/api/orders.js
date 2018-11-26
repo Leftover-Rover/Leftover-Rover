@@ -4,6 +4,8 @@ const router = require('express').Router()
 const { Order, User, Driver } = require('../db/models')
 module.exports = router
 
+const { isUser, isAdmin } = require('./middleware')
+
 const routeRequested = new EventEmitter()
 router.routeRequested = routeRequested
 
@@ -18,7 +20,7 @@ const idFinder = req => {
 }
 
 // This is the route called when a driver accepts a request. It requires the orderId as the orderId req.params. It does not need to specify the accepted driver, as the reqest will come from that driver. It does require an array of complete driver objects to be passed in as the req.body. Whether the accepting driver is included in this array does not matter.
-router.put('/:orderId', async (req, res, next) => {
+router.put('/:orderId', isUser, async (req, res, next) => {
   // Expects req.body={drivers: [driver1, driver2, driver3, driver4]}
   try {
     const order = await Order.findById(req.params.orderId)
@@ -51,7 +53,7 @@ router.put('/:orderId', async (req, res, next) => {
   }
 })
 
-router.put('/', async (req, res, next) => {
+router.put('/', isUser, async (req, res, next) => {
   try {
     const order = await Order.findById(req.body.id)
     await order.update({
@@ -67,7 +69,7 @@ router.put('/', async (req, res, next) => {
 })
 
 // Route for creating an order when user requests a driver
-router.post('/', async (req, res, next) => {
+router.post('/', isUser, async (req, res, next) => {
   // req.body = {pickupLocationLat,
   // pickupLocationLng,
   // dropoffLocationLat,
