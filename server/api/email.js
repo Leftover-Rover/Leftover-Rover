@@ -6,7 +6,6 @@ sgMail.setApiKey(process.env.SENDGRID_API)
 
 router.post('/', (req, res, next) => {
   try {
-    console.log(req.body.email)
     const msg = {
       to: `${req.body.email}`,
       from: 'leftoverrover@gmail.com',
