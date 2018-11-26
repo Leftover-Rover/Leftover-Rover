@@ -32,7 +32,7 @@ class Routes extends Component {
 
     return (
       <React.Fragment>
-        <SidebarMenu className="renderOverMap" />
+        {isLoggedIn && <SidebarMenu className="renderOverMap" />}
         <Switch>
           {/* Routes placed here are available to all visitors */}
           <Route path="/login" component={Login} />
