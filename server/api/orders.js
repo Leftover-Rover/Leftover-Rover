@@ -117,7 +117,7 @@ router.get('/:userId', (req, res, next) => {
         status: 'Requested' || 'ToPickup' || 'ToDropOff'
       }
     })
-      .then(order => (order ? res.json(order) : next()))
+      .then(order => (order ? res.json(order) : res.json({})))
       .catch(next)
   }
 })
