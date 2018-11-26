@@ -49,6 +49,9 @@ export const updateOrderToCompleted = (id, userId) => async dispatch => {
   try {
     const user = await axios.get(`/api/users/${userId}`)
     await axios.post('/api/email', user.data)
+    if (user.data.phoneNumber && user.data.phoneNumber !== null) {
+      await axios.get(`/api/texts/${user.data.phoneNumber}/dropoff`)
+    }
   } catch (error) {
     console.error(error)
   }
@@ -103,6 +106,14 @@ export const driverAcceptOrder = (id, driverList) => async dispatch => {
       drivers: driverList
     })
     dispatch(getOrder(data))
+    try {
+      const user = await axios.get(`/api/users/${data.userId}`)
+      if (user.data.phoneNumber && user.data.phoneNumber !== null) {
+        await axios.get(`/api/texts/${user.data.phoneNumber}/order-accepted`)
+      }
+    } catch (error) {
+      console.error(error)
+    }
   } catch (error) {
     console.log(error)
   }

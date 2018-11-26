@@ -4,8 +4,6 @@ import axios from 'axios'
 
 export const TextButton = props => {
 
-  console.log('PROPS IN TEXT BUTTON:', props)
-
   const handleClick = async e => {
     e.preventDefault();
     const number = props.user.phoneNumber;
