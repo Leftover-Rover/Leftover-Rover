@@ -1,6 +1,7 @@
 import io from 'socket.io-client'
 import { driverEvent } from './components/DriverSwitch'
-import store, { updateActionItem } from './store'
+import { userEvent } from './components/MapRoute'
+import store, { updateActionItem, getCurrentOrder } from './store'
 
 const socket = io(window.location.origin)
 
@@ -20,6 +21,19 @@ driverEvent.on('driverIsActive', () => {
         console.log('do you want this Rover?', orderInfo)
       }
     })
+  })
+})
+
+userEvent.on('orderRequested', () => {
+  socket.on('driverAccept', order => {
+    if (order.userId === store.getState().user.id) {
+      store.dispatch(getCurrentOrder(order))
+    }
+  })
+  socket.on('orderChange', order => {
+    if (order.userId === store.getState().user.id) {
+      store.dispatch(getCurrentOrder(order))
+    }
   })
 })
 
