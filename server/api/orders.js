@@ -91,7 +91,7 @@ router.post('/', isUser, async (req, res, next) => {
       driverList.push(await Driver.findById(driver))
     })
 
-    if (driverList.length === 0) {
+    if (drivers.length === 0) {
       res.json({})
     } else {
       const orderData = {
