@@ -57,12 +57,10 @@ Driver.findNearest = async (myLat, myLng) => {
   })
 
   driverList.sort()
-  console.log(driverList)
   let closest = driverList.slice(0, 5)
   const output = closest.map(val => {
     return val[1]
   })
-  console.log(output)
   return output
 }
 
