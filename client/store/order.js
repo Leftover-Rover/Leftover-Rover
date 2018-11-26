@@ -7,7 +7,6 @@ import history from '../history'
 const GET_ORDER = 'GET_ORDER'
 const SET_ORDER = 'SET_ORDER'
 
-
 /**
  * INITIAL STATE
  */
@@ -80,6 +79,9 @@ export const postOrder = ({
       deliveryNotes
     })
     dispatch(getOrder(res.data))
+    if (Object.keys(res.data).length === 0) {
+      alert('There are no active drivers, please try again later.')
+    }
     return res.data
   } catch (err) {
     console.error(err)

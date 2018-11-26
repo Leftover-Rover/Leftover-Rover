@@ -85,23 +85,27 @@ router.post('/', async (req, res, next) => {
       driverList.push(await Driver.findById(driver))
     })
 
-    const orderData = {
-      userId: id,
-      pickupLocationLat: req.body.pickupLocationLat,
-      pickupLocationLng: req.body.pickupLocationLng,
-      deliveryLocationLat: req.body.dropoffLocationLat,
-      deliveryLocationLng: req.body.dropoffLocationLng,
-      deliveryNotes: req.body.deliveryNotes
+    if (driverList.length === 0) {
+      res.json({})
+    } else {
+      const orderData = {
+        userId: id,
+        pickupLocationLat: req.body.pickupLocationLat,
+        pickupLocationLng: req.body.pickupLocationLng,
+        deliveryLocationLat: req.body.dropoffLocationLat,
+        deliveryLocationLng: req.body.dropoffLocationLng,
+        deliveryNotes: req.body.deliveryNotes
+      }
+      const order = await Order.create(orderData)
+
+      driverList.forEach(driver => {
+        driver.update({ isAvailable: false })
+      })
+
+      routeRequested.emit('routeRequested', order, driverList)
+
+      res.json(order)
     }
-    const order = await Order.create(orderData)
-
-    driverList.forEach(driver => {
-      driver.update({ isAvailable: false })
-    })
-
-    routeRequested.emit('routeRequested', order, driverList)
-
-    res.json(order)
   } catch (err) {
     next(err)
   }
@@ -109,6 +113,7 @@ router.post('/', async (req, res, next) => {
 
 router.get('/:userId', (req, res, next) => {
   if (!req.session.userId) {
+    console.log('here')
     return next()
   } else {
     Order.findOne({
@@ -117,7 +122,7 @@ router.get('/:userId', (req, res, next) => {
         status: 'Requested' || 'ToPickup' || 'ToDropOff'
       }
     })
-      .then(order => (order ? res.json(order) : next()))
+      .then(order => (order ? res.json(order) : res.json({})))
       .catch(next)
   }
 })
