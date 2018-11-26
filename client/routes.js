@@ -13,7 +13,8 @@ import {
   UserProfile,
   UpdateUserProfile,
   Admin,
-  OrdersList
+  OrdersList,
+  TextButton
 } from './components'
 import { me } from './store'
 import { fetchUserCurrentOrder } from './store/order'
@@ -37,6 +38,7 @@ class Routes extends Component {
           {/* Routes placed here are available to all visitors */}
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
+          <Route path="/testing-texts" component={TextButton} />
           <Route exact path="/me/order-history" component={OrdersList} />
           <Route
             exact
