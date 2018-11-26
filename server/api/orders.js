@@ -56,7 +56,8 @@ router.put('/', async (req, res, next) => {
     const order = await Order.findById(req.body.id)
     await order.update({
       status: req.body.status,
-      pickupTime: req.body.pickupTime
+      pickupTime: req.body.pickupTime,
+      deliveryTime: req.body.deliveryTime
     })
     req.session.orderId = order.id
     res.json(order)
@@ -99,7 +100,7 @@ router.post('/', async (req, res, next) => {
     })
 
     routeRequested.emit('routeRequested', order, driverList)
-    
+
     res.json(order)
   } catch (err) {
     next(err)
@@ -107,11 +108,11 @@ router.post('/', async (req, res, next) => {
 })
 
 router.get('/:userId', (req, res, next) => {
-  if(!req.session.orderId) {
+  if (!req.session.orderId) {
     return next()
-  } else  {
+  } else {
     Order.findById(req.session.orderId)
-    .then(order => order ? res.json(order) : next())
-    .catch(next)
+      .then(order => (order ? res.json(order) : next()))
+      .catch(next)
   }
 })
