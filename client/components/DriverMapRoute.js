@@ -101,7 +101,10 @@ class Map extends React.Component {
   }
 
   changeToCompleted = () => {
-    this.props.updateOrderToCompleted(this.props.order.id)
+    this.props.updateOrderToCompleted(
+      this.props.order.id,
+      this.props.order.userId
+    )
     this.setState({
       origin: '',
       destination: ''

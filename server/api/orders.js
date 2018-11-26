@@ -56,7 +56,8 @@ router.put('/', async (req, res, next) => {
     const order = await Order.findById(req.body.id)
     await order.update({
       status: req.body.status,
-      pickupTime: req.body.pickupTime
+      pickupTime: req.body.pickupTime,
+      deliveryTime: req.body.deliveryTime
     })
     req.session.orderId = order.id
     res.json(order)
@@ -107,7 +108,6 @@ router.post('/', async (req, res, next) => {
 })
 
 router.get('/:userId', (req, res, next) => {
-  console.log(req.session)
   if (!req.session.userId) {
     return next()
   } else {

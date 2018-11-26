@@ -35,14 +35,21 @@ export const updateOrderToDropOff = id => async dispatch => {
   }
 }
 
-export const updateOrderToCompleted = id => async dispatch => {
+export const updateOrderToCompleted = (id, userId) => async dispatch => {
   try {
+    const deliveryTime = Date.now()
     const { data } = await axios.put('/api/orders', {
       id,
       status: 'Completed',
-      deliveryTime: Date.now()
+      deliveryTime
     })
     dispatch(getOrder(data))
+  } catch (error) {
+    console.error(error)
+  }
+  try {
+    const user = await axios.get(`/api/users/${userId}`)
+    await axios.post('/api/email', user.data)
   } catch (error) {
     console.error(error)
   }
