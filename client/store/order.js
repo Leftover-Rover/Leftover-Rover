@@ -34,6 +34,28 @@ export const updateOrderToDropOff = id => async dispatch => {
   }
 }
 
+export const updateOrderToCompleted = id => async dispatch => {
+  try {
+    const { data } = await axios.put('/api/orders', {
+      id,
+      status: 'Completed',
+      deliveryTime: Date.now()
+    })
+    dispatch(getOrder(data))
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+export const updateDriverIsAvailable = () => dispatch => {
+  try {
+    const data = {}
+    dispatch(setOrder(data))
+  } catch (error) {
+    console.error(error)
+  }
+}
+
 export const postOrder = ({
   pickupLocationLat,
   pickupLocationLng,
@@ -56,7 +78,6 @@ export const postOrder = ({
   }
 }
 
-
 export const fetchUserCurrentOrder = () => {
   return async (dispatch, getState) => {
     const state = getState()
@@ -74,7 +95,6 @@ export const driverAcceptOrder = (id, driverList) => async dispatch => {
     dispatch(getOrder(data))
   } catch (error) {
     console.log(error)
-
   }
 }
 

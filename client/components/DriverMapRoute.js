@@ -1,10 +1,14 @@
+/* eslint-disable complexity */
 import React from 'react'
 import { connect } from 'react-redux'
 import {
   getMyLocation,
   updateDriver,
   driverAcceptOrder,
-  updateOrderToDropOff
+  updateOrderToDropOff,
+  updateOrderToCompleted,
+  updateDriverIsAvailable,
+  updateActionItem
 } from '../store'
 import DriverMap from './DriverMap'
 import { Button, Grid } from 'semantic-ui-react'
@@ -63,7 +67,9 @@ class Map extends React.Component {
       orderInfo.orderForDriver.pickupLocationLng,
       orderInfo.orderForDriver.pickupLocationLat
     ]
-
+    this.props.updateDriver(this.props.driverId, {
+      isAvailable: false
+    })
     this.props.driverAcceptOrder(id, orderInfo.driverList)
     this.handleRoute(origin, destination)
   }
@@ -94,9 +100,27 @@ class Map extends React.Component {
     this.handleRoute(newOrigin, newDest)
   }
 
+  changeToCompleted = () => {
+    this.props.updateOrderToCompleted(this.props.order.id)
+    this.setState({
+      origin: '',
+      destination: ''
+    })
+  }
+
+  handleDriverRestart = async () => {
+    await this.props.updateActionItem()
+    await this.props.updateDriverIsAvailable()
+    await this.props.updateDriver(this.props.driverId, {
+      isAvailable: true
+    })
+  }
+
   render() {
     const orderExists = !!this.props.order.id
     const ToPickup = this.props.order.status === 'ToPickup'
+    const ToDropOff = this.props.order.status === 'ToDropOff'
+    const completed = this.props.order.status === 'Completed'
 
     return (
       <React.Fragment>
@@ -141,6 +165,32 @@ class Map extends React.Component {
                 Leftovers Have Been Picked Up!
               </Button>
             )}
+            {ToDropOff && (
+              <Button
+                type="button"
+                onClick={this.changeToCompleted}
+                size="large"
+                style={{
+                  width: '90%',
+                  margin: '1vw'
+                }}
+              >
+                Leftovers Have Been Delivered!
+              </Button>
+            )}
+            {completed && (
+              <Button
+                type="button"
+                onClick={this.handleDriverRestart}
+                size="large"
+                style={{
+                  width: '90%',
+                  margin: '1vw'
+                }}
+              >
+                Look For New Leftovers!
+              </Button>
+            )}
           </Grid.Row>
         </Grid>
       </React.Fragment>
@@ -152,7 +202,10 @@ const mapDispatch = {
   getMyLocation,
   updateDriver,
   driverAcceptOrder,
-  updateOrderToDropOff
+  updateOrderToDropOff,
+  updateOrderToCompleted,
+  updateDriverIsAvailable,
+  updateActionItem
 }
 
 const mapState = state => {

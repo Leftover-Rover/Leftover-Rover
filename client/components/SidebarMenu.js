@@ -69,7 +69,7 @@ export class SidebarMenu extends Component {
             <>
               <Menu.Item href="/me/profile">My Profile</Menu.Item>
               <Menu.Item href="/me/order-history">My Order History</Menu.Item>
-              {this.props.driver && this.props.driver.isAvailable ? (
+              {this.props.driver ? (
                 <Menu.Item>
                   <DriverSwitch />
                 </Menu.Item>
