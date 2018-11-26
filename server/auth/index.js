@@ -1,10 +1,14 @@
 const router = require('express').Router()
 const User = require('../db/models/user')
+const Driver = require('../db/models/driver')
 module.exports = router
 
 router.post('/login', async (req, res, next) => {
   try {
-    const user = await User.findOne({ where: { email: req.body.email } })
+    const user = await User.findOne({
+      where: { email: req.body.email },
+      include: Driver
+    })
     if (!user) {
       console.log('No such user found:', req.body.email)
       res.status(401).send('Wrong username and/or password')
@@ -39,10 +43,10 @@ router.post('/logout', (req, res) => {
   res.redirect('/login')
 })
 
-const userNotFound = next =>  {
+const userNotFound = next => {
   const err = new Error('Not Found')
-    err.status = 404
-    next(err)
+  err.status = 404
+  next(err)
 }
 
 router.get('/me', (req, res) => {
