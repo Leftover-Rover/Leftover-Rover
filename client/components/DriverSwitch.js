@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Checkbox, Segment } from 'semantic-ui-react'
 import { updateDriver, fetchLoggedinUser } from '../store'
-import { withRouter, Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { EventEmitter } from 'events'
 
 export const driverEvent = new EventEmitter()
