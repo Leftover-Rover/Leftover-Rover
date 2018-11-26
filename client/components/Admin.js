@@ -38,7 +38,8 @@ class Admin extends Component {
             />
           </div>
         </div>
-        {this.props.location === 'users' && this.props.users.length ? (
+        {this.props.location === 'users' ||
+        (this.props.location === 'drivers' && this.props.users.length) ? (
           <UserTable users={this.props.users} />
         ) : (
           <></>
