@@ -92,7 +92,7 @@ async function seed() {
     driversFile.map(driver => Driver.create(driver))
   )
 
-  await Promise.all([
+  const orders = await Promise.all([
     Order.create({
       pickupLocationLat: 41.948128,
       pickupLocationLng: -87.656361,
@@ -133,6 +133,10 @@ async function seed() {
   await drivers[2].setUser(users[4])
   await Promise.all(
     driver100.map((driver, index) => driver.setUser(user100[index]))
+  )
+  await Promise.all(orders.map((order, index) => order.setUser(user100[index])))
+  await Promise.all(
+    orders.map((order, index) => order.setDriver(driver100[index + 50]))
   )
 
   console.log(`seeded ${users.length} users`)
