@@ -8,6 +8,7 @@ import myLocation from './myLocation'
 import actionItem from './actionItem'
 import users from './users'
 import orderHistory from './orderHistory'
+import orders from './orders'
 
 const reducer = combineReducers({
   user,
@@ -15,7 +16,8 @@ const reducer = combineReducers({
   myLocation,
   actionItem,
   users,
-  orderHistory
+  orderHistory,
+  orders
 })
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({ collapsed: true }))
@@ -28,3 +30,4 @@ export * from './order'
 export * from './myLocation'
 export * from './actionItem'
 export * from './users'
+export * from './orders'
