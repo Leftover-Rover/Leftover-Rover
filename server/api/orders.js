@@ -99,7 +99,7 @@ router.post('/', async (req, res, next) => {
     })
 
     routeRequested.emit('routeRequested', order, driverList)
-    
+
     res.json(order)
   } catch (err) {
     next(err)
@@ -107,11 +107,17 @@ router.post('/', async (req, res, next) => {
 })
 
 router.get('/:userId', (req, res, next) => {
-  if(!req.session.orderId) {
+  console.log(req.session)
+  if (!req.session.userId) {
     return next()
-  } else  {
-    Order.findById(req.session.orderId)
-    .then(order => order ? res.json(order) : next())
-    .catch(next)
+  } else {
+    Order.findOne({
+      where: {
+        userId: req.session.userId,
+        status: 'Requested' || 'ToPickup' || 'ToDropOff'
+      }
+    })
+      .then(order => (order ? res.json(order) : next()))
+      .catch(next)
   }
 })
