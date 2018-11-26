@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Checkbox, Label } from 'semantic-ui-react'
+import { Checkbox, Label, Segment } from 'semantic-ui-react'
 import { updateDriver, fetchLoggedinUser } from '../store'
 import { Link } from 'react-router-dom'
 import { EventEmitter } from 'events'
@@ -30,30 +30,26 @@ class DriverSwitch extends Component {
   render() {
     if (this.props.driver) {
       return this.props.driver.isActive ? (
-        <Link to="/me">
-          <Checkbox
-            toggle
-            onChange={this.handleChange}
-            label={
-              <Label size="large" color="orange">
-                Stop Roving!
-              </Label>
-            }
-            defaultChecked
-          />
-        </Link>
+        <Segment inverted color="orange">
+          <Link to="/me">
+            <Checkbox
+              toggle
+              onChange={this.handleChange}
+              defaultChecked
+              label="Stop Roving!"
+            />
+          </Link>
+        </Segment>
       ) : (
-        <Link to="/rover">
-          <Checkbox
-            toggle
-            onChange={this.handleChange}
-            label={
-              <Label size="large" color="orange">
-                Start Roving!
-              </Label>
-            }
-          />
-        </Link>
+        <Segment inverted color="orange">
+          <Link to="/rover">
+            <Checkbox
+              toggle
+              onChange={this.handleChange}
+              label="Start Roving!"
+            />
+          </Link>
+        </Segment>
       )
     } else {
       return <div />
