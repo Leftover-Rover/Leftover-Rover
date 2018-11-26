@@ -7,7 +7,7 @@ import {
   driverAcceptOrder,
   updateOrderToDropOff,
   updateOrderToCompleted,
-  updateDriverIsAvailable,
+  updateOrderToEmpty,
   updateActionItem
 } from '../store'
 import DriverMap from './DriverMap'
@@ -113,7 +113,7 @@ class Map extends React.Component {
 
   handleDriverRestart = async () => {
     await this.props.updateActionItem()
-    await this.props.updateDriverIsAvailable()
+    await this.props.updateOrderToEmpty()
     await this.props.updateDriver(this.props.driverId, {
       isAvailable: true
     })
@@ -207,7 +207,7 @@ const mapDispatch = {
   driverAcceptOrder,
   updateOrderToDropOff,
   updateOrderToCompleted,
-  updateDriverIsAvailable,
+  updateOrderToEmpty,
   updateActionItem
 }
 

@@ -31,6 +31,7 @@ router.put('/:orderId', async (req, res, next) => {
       }),
       order.setDriver(req.user.driver)
     ])
+    routeRequested.emit('roverAccepted', order)
     const otherDrivers = req.body.drivers.filter(driver => {
       return driver.id !== req.user.driver.id
     })
@@ -59,6 +60,9 @@ router.put('/', async (req, res, next) => {
       pickupTime: req.body.pickupTime,
       deliveryTime: req.body.deliveryTime
     })
+
+    routeRequested.emit('orderStatusChange', order)
+
     req.session.orderId = order.id
     res.json(order)
   } catch (error) {

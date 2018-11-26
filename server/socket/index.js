@@ -9,6 +9,13 @@ module.exports = io => {
     routeRequested.on('routeRequested', (order, driverList) => {
       socket.emit('driverRequest', order, driverList)
     })
+    socket.emit('user')
+    routeRequested.on('roverAccepted', order => {
+      socket.emit('driverAccept', order)
+    })
+    routeRequested.on('orderStatusChange', order => {
+      socket.emit('orderChange', order)
+    })
     socket.on('disconnect', () => {
       console.log(`Connection ${socket.id} has left the building`)
     })

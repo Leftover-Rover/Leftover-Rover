@@ -1,9 +1,12 @@
 /* eslint-disable complexity */
 import React from 'react'
 import { connect } from 'react-redux'
-import { postOrder, getMyLocation, updateOrderToDropOff } from '../store'
+import { postOrder, getMyLocation, updateOrderToCancelled } from '../store'
 import UserMap from './UserMap'
 import { Button, Grid } from 'semantic-ui-react'
+import { EventEmitter } from 'events'
+
+export const userEvent = new EventEmitter()
 
 class Map extends React.Component {
   state = {
@@ -53,6 +56,7 @@ class Map extends React.Component {
       deliveryNotes: ''
     }
     this.props.postOrder(newOrder)
+    userEvent.emit('orderRequested')
   }
 
   handleRoute = (origin, destination) => {
@@ -66,9 +70,16 @@ class Map extends React.Component {
 
     this.markers = [origin, destination] //adding arrays of [lat,lng] will draw markers on the map
   }
+  handleCancel = () => {
+    this.props.updateOrderToCancelled(this.props.order.id)
+  }
 
   render() {
     const orderExists = this.props.order.status
+    const orderRequested = this.props.order.status === 'Requested'
+    const orderToPickup = this.props.order.status === 'ToPickup'
+    const orderToDropOff = this.props.order.status === 'ToDropOff'
+    const orderCompleted = this.props.order.status === 'Completed'
 
     return (
       <React.Fragment>
@@ -127,7 +138,40 @@ class Map extends React.Component {
                   Book Me A Rover!
                 </Button>
               )}
-            {orderExists && <p>Driver Is En Route</p>}
+            {orderRequested && (
+              <div>
+                <h1>Lookin' For A Rover!</h1>
+                <Button
+                  type="button"
+                  onClick={this.handleCancel}
+                  size="large"
+                  style={{
+                    width: '90%',
+                    margin: '1vw'
+                  }}
+                >
+                  Cancel My Rover Request!
+                </Button>
+              </div>
+            )}
+            {orderToPickup && <h1>Your Rover Is On The Way!</h1>}
+            {orderToDropOff && <h1>Your Rover Is Going To Drop Off!</h1>}
+            {orderCompleted && (
+              <div>
+                <h1>Your Leftovers Have Been Dropped Off!</h1>{' '}
+                <Button
+                  type="button"
+                  onClick={this.handleBook}
+                  size="large"
+                  style={{
+                    width: '90%',
+                    margin: '1vw'
+                  }}
+                >
+                  Book Me A Rover!
+                </Button>
+              </div>
+            )}
           </Grid.Row>
         </Grid>
       </React.Fragment>
@@ -137,8 +181,8 @@ class Map extends React.Component {
 
 const mapDispatch = {
   postOrder,
-  getMyLocation
-  // updateOrderToDropOff
+  getMyLocation,
+  updateOrderToCancelled
 }
 
 const mapState = state => {
@@ -146,7 +190,8 @@ const mapState = state => {
     order: state.order,
     myLocation: state.myLocation,
     user: state.user,
-    driver: state.user.driver
+    driver: state.user.driver,
+    actionItem: state.actionItem
   }
 }
 

@@ -7,7 +7,6 @@ import history from '../history'
 const GET_ORDER = 'GET_ORDER'
 const SET_ORDER = 'SET_ORDER'
 
-
 /**
  * INITIAL STATE
  */
@@ -22,6 +21,10 @@ const setOrder = order => ({ type: SET_ORDER, order })
 /**
  * THUNK CREATORS
  */
+export const getCurrentOrder = currentOrder => dispatch => {
+  dispatch(getOrder(currentOrder))
+}
+
 export const updateOrderToDropOff = id => async dispatch => {
   try {
     const { data } = await axios.put('/api/orders', {
@@ -55,7 +58,20 @@ export const updateOrderToCompleted = (id, userId) => async dispatch => {
   }
 }
 
-export const updateDriverIsAvailable = () => dispatch => {
+export const updateOrderToCancelled = id => async dispatch => {
+  try {
+    await axios.put('/api/orders', {
+      id,
+      status: 'Cancelled'
+    })
+    const data = {}
+    dispatch(setOrder(data))
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+export const updateOrderToEmpty = () => dispatch => {
   try {
     const data = {}
     dispatch(setOrder(data))
