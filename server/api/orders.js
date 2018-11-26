@@ -108,10 +108,15 @@ router.post('/', async (req, res, next) => {
 })
 
 router.get('/:userId', (req, res, next) => {
-  if (!req.session.orderId) {
+  if (!req.session.userId) {
     return next()
   } else {
-    Order.findById(req.session.orderId)
+    Order.findOne({
+      where: {
+        userId: req.session.userId,
+        status: 'Requested' || 'ToPickup' || 'ToDropOff'
+      }
+    })
       .then(order => (order ? res.json(order) : next()))
       .catch(next)
   }
