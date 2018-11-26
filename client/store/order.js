@@ -96,6 +96,9 @@ export const postOrder = ({
       deliveryNotes
     })
     dispatch(getOrder(res.data))
+    if (Object.keys(res.data).length === 0) {
+      alert('There are no active drivers, please try again later.')
+    }
     return res.data
   } catch (err) {
     console.error(err)

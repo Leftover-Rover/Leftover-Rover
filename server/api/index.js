@@ -4,6 +4,7 @@ module.exports = router
 router.use('/users', require('./users'))
 router.use('/orders', require('./orders'))
 router.use('/drivers', require('./drivers'))
+router.use('/texts', require('./texts'))
 router.use('/email', require('./email'))
 // router.use('/addresses', require('./addresses'))
 
