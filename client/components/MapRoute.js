@@ -114,7 +114,8 @@ class Map extends React.Component {
               )}
             {!orderExists &&
               this.props.user.defaultDeliveryLat !== null &&
-              this.props.user.defaultDeliveryLng !== null && (
+              this.props.user.defaultDeliveryLng !== null &&
+              !!this.props.myLocation.lat && (
                 <Button
                   type="button"
                   onClick={this.handleBook}
@@ -128,6 +129,23 @@ class Map extends React.Component {
                 </Button>
               )}
             {orderExists && <p>Driver Is En Route</p>}
+            {!this.props.myLocation.lat && (
+              <div
+                className="ui segment"
+                style={{
+                  width: '90%',
+                  margin: '1vw'
+                }}
+              >
+                <div className="ui active transition visible inverted dimmer">
+                  <div className="content">
+                    <div className="ui text loader">
+                      Searching for your location
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
           </Grid.Row>
         </Grid>
       </React.Fragment>
