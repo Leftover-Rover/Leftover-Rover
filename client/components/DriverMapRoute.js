@@ -14,6 +14,7 @@ import DriverMap from './DriverMap'
 import { Button, Grid } from 'semantic-ui-react'
 
 import { orderInfo } from '../socket'
+import DriverUserItem from './DriverUserItem'
 
 class Map extends React.Component {
   state = {
@@ -22,7 +23,8 @@ class Map extends React.Component {
     centerLat: 41.8781,
     centerLng: -87.6298,
     zoom: 13.4,
-    status: ''
+    status: '',
+    user: {}
   }
 
   componentDidMount() {
@@ -73,6 +75,7 @@ class Map extends React.Component {
     })
     this.props.driverAcceptOrder(id, orderInfo.driverList)
     this.handleRoute(origin, destination)
+    this.setState({ user: orderInfo.orderForDriver.user })
   }
 
   handleRoute = (origin, destination) => {
@@ -130,6 +133,8 @@ class Map extends React.Component {
     const ToDropOff = this.props.order.status === 'ToDropOff'
     const completed = this.props.order.status === 'Completed'
 
+    console.log(this.state.user)
+
     return (
       <React.Fragment>
         <Grid textAlign="center" style={{ height: '85vh' }}>
@@ -143,7 +148,7 @@ class Map extends React.Component {
           <Grid.Row
             style={{
               backgroundColor: 'orange',
-              height: '20%'
+              height: '15%'
             }}
           >
             {!this.props.actionItem &&
@@ -200,6 +205,15 @@ class Map extends React.Component {
               </Button>
             )}
           </Grid.Row>
+          {this.state.user.id && (
+            <Grid.Row
+              style={{
+                height: '25%'
+              }}
+            >
+              <DriverUserItem user={this.state.user} />
+            </Grid.Row>
+          )}
         </Grid>
       </React.Fragment>
     )
