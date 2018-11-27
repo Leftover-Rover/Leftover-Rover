@@ -50,7 +50,8 @@ const userNotFound = next => {
   next(err)
 }
 
-router.get('/me', (req, res) => {
+router.get('/me', async (req, res) => {
+  if (req.user.driver) await req.user.driver.update({ isActive: false })
   res.json(req.user)
 })
 
