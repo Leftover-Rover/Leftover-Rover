@@ -11,6 +11,7 @@ import {
 import UserMap from './UserMap'
 import { Button, Grid } from 'semantic-ui-react'
 import { EventEmitter } from 'events'
+import DriverInfoCard from './DriverInfoCard'
 
 export const userEvent = new EventEmitter()
 
@@ -206,7 +207,20 @@ class Map extends React.Component {
                 </Button>
               </div>
             )}
-            {orderToPickup && <h1>Your Rover Is On The Way!</h1>}
+            {orderToPickup && (
+              <div
+                style={{
+                  width: '90%',
+                  textAlign: 'center',
+                  alignContent: 'center',
+                  justifyContent: 'center',
+                  alignItems: 'center'
+                }}
+              >
+                <h1>Your Rover Is On The Way!</h1>
+                <DriverInfoCard driver={this.props.order.driver} />
+              </div>
+            )}
             {orderToDropOff && <h1>Your Rover Is Going To Drop Off!</h1>}
             {orderCompleted && (
               <div>
