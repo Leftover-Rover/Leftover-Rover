@@ -1,10 +1,6 @@
 const results = [
   {
-    name: {
-      title: 'mr',
-      first: 'leon',
-      last: 'peterson'
-    },
+    name: { title: 'mr', first: 'leon', last: 'peterson' },
     email: 'leon.peterson@example.com',
     login: {
       uuid: '9b23c4f8-1e5d-42dc-9751-331f44dcdda6',
@@ -15,7 +11,7 @@ const results = [
       sha1: 'a4d79987556a3e03e39eb9c786a3a1586b9b5265',
       sha256: 'f72d711521abc879fab8b90d8666da1d660f03e0b5110f491fda11b76b78445a'
     },
-    cell: '(933)-851-2789',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/99.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/99.jpg',
@@ -23,11 +19,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'ms',
-      first: 'kristen',
-      last: 'simpson'
-    },
+    name: { title: 'ms', first: 'kristen', last: 'simpson' },
     email: 'kristen.simpson@example.com',
     login: {
       uuid: 'e65d823c-df65-4dd4-af71-ee8dba783b7e',
@@ -38,7 +30,7 @@ const results = [
       sha1: 'ffada6b051f32bff23aadba408a2c5f2c41930fa',
       sha256: 'c4cda3263d91d09454826c8a0cfba21071da69dbf57278848b5fe550ae5dd7b0'
     },
-    cell: '(105)-705-9478',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/50.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/50.jpg',
@@ -46,11 +38,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mrs',
-      first: 'bertha',
-      last: 'long'
-    },
+    name: { title: 'mrs', first: 'bertha', last: 'long' },
     email: 'bertha.long@example.com',
     login: {
       uuid: 'ff0919a9-72a8-4355-b0fb-1bd208c09f6b',
@@ -61,7 +49,7 @@ const results = [
       sha1: '02fd2348f560fea472a66c8ee83f37ab4c0bb5bb',
       sha256: 'c2acbdfc48aa9082514e5e2aa4a58c65cf874c3b6470672c197d9bf6046b2a3a'
     },
-    cell: '(160)-272-1950',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/17.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/17.jpg',
@@ -69,11 +57,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mrs',
-      first: 'beth',
-      last: 'curtis'
-    },
+    name: { title: 'mrs', first: 'beth', last: 'curtis' },
     email: 'beth.curtis@example.com',
     login: {
       uuid: '9dd0b55a-5c18-4a7f-a06c-d32c6bacbca3',
@@ -84,7 +68,7 @@ const results = [
       sha1: 'f311ffb23ac0f6fc0816a0d6dd2e033f0dfcd914',
       sha256: '4116af32a3be150e7afa8fb2ad93430f5bdc88bf2dc0eb0f1d5aad65cf9b8d98'
     },
-    cell: '(014)-163-5754',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/25.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/25.jpg',
@@ -92,11 +76,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mrs',
-      first: 'marian',
-      last: 'black'
-    },
+    name: { title: 'mrs', first: 'marian', last: 'black' },
     email: 'marian.black@example.com',
     login: {
       uuid: '2de30f61-8ab2-4b03-b43f-91d6540cf08e',
@@ -107,7 +87,7 @@ const results = [
       sha1: 'a9225cb2a89eb064be42a825e93a02a69444de45',
       sha256: '3aeb0b1e2259216a0a9eb9b9115e56aef8b2ba5a2cc294f6e678b4f8f04fecd5'
     },
-    cell: '(745)-952-2710',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/15.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/15.jpg',
@@ -115,11 +95,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'miss',
-      first: 'christy',
-      last: 'sutton'
-    },
+    name: { title: 'miss', first: 'christy', last: 'sutton' },
     email: 'christy.sutton@example.com',
     login: {
       uuid: '2884c7d0-460f-40e1-a083-fc44a5016d4c',
@@ -130,7 +106,7 @@ const results = [
       sha1: 'ccbb70fd27a0035854951408044d559f07343d8a',
       sha256: '0c8ab07745460bd16c80fffac023985123ea8ccc1aac50ea72955c8196399265'
     },
-    cell: '(761)-775-9691',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/58.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/58.jpg',
@@ -138,11 +114,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mrs',
-      first: 'tina',
-      last: 'moreno'
-    },
+    name: { title: 'mrs', first: 'tina', last: 'moreno' },
     email: 'tina.moreno@example.com',
     login: {
       uuid: '0162a58b-87f0-48e0-87d1-bea1919fe085',
@@ -153,7 +125,7 @@ const results = [
       sha1: '253bb167f3675bc0f5c042b380bd1a37f77c3b61',
       sha256: '7610c59153c6567303aabc38f7ab5f4e9675e1deaa4b5308569055eb515d383a'
     },
-    cell: '(414)-245-8382',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/8.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/8.jpg',
@@ -161,11 +133,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'rafael',
-      last: 'franklin'
-    },
+    name: { title: 'mr', first: 'rafael', last: 'franklin' },
     email: 'rafael.franklin@example.com',
     login: {
       uuid: 'e569bd43-07a2-4b19-b183-ba3c79f934c2',
@@ -176,7 +144,7 @@ const results = [
       sha1: 'ac16e2296666b681635432b1c206a28f46405448',
       sha256: '700214801a892f118c0b53c2c9a74aa76110bb6092b4da4bb3e853e7c88012f8'
     },
-    cell: '(750)-775-6669',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/35.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/35.jpg',
@@ -184,11 +152,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'miss',
-      first: 'savannah',
-      last: 'henry'
-    },
+    name: { title: 'miss', first: 'savannah', last: 'henry' },
     email: 'savannah.henry@example.com',
     login: {
       uuid: '52110063-4a3e-44de-a507-fa15968559e9',
@@ -199,7 +163,7 @@ const results = [
       sha1: 'c363d04fcc97a976305c2448300a8a7a3f73ce2d',
       sha256: '54de3f2cfb38dc692091113cfc55e19f306f5f5ea96a8942ff2ccda5e08525cb'
     },
-    cell: '(730)-730-4259',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/84.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/84.jpg',
@@ -207,11 +171,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'ms',
-      first: 'claudia',
-      last: 'grant'
-    },
+    name: { title: 'ms', first: 'claudia', last: 'grant' },
     email: 'claudia.grant@example.com',
     login: {
       uuid: '96585ace-198b-4a2c-b9f9-f2b08c16697d',
@@ -222,7 +182,7 @@ const results = [
       sha1: 'f11bb76dd752b0086a940106f915eb571b1b22e8',
       sha256: '23b9c61a7b494671bfba14aaf6bebc57127678b7eaa524e838b3a25542c1101f'
     },
-    cell: '(787)-181-4929',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/14.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/14.jpg',
@@ -230,11 +190,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'clarence',
-      last: 'woods'
-    },
+    name: { title: 'mr', first: 'clarence', last: 'woods' },
     email: 'clarence.woods@example.com',
     login: {
       uuid: '97f0e772-9b96-4451-89cd-e4911b12072a',
@@ -245,7 +201,7 @@ const results = [
       sha1: 'b6f8227c0b677985036449bbd199a79790753526',
       sha256: 'e1bff095d60dd1f6e6e2efd63099493f96358aadc94a692c2776c57ca9f1d7ab'
     },
-    cell: '(493)-891-4867',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/22.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/22.jpg',
@@ -253,11 +209,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'alfredo',
-      last: 'ross'
-    },
+    name: { title: 'mr', first: 'alfredo', last: 'ross' },
     email: 'alfredo.ross@example.com',
     login: {
       uuid: '636378e6-d4d0-41ac-ab8e-55c4281b3b8b',
@@ -268,7 +220,7 @@ const results = [
       sha1: '0dcc7597d9eec6b501b091caf1d922d943b1aa4e',
       sha256: '6efdc3696d68a9aa4730e46545a799c25c65e457f2e5496109b101dcfc03cd97'
     },
-    cell: '(421)-578-1633',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/34.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/34.jpg',
@@ -276,11 +228,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'francis',
-      last: 'west'
-    },
+    name: { title: 'mr', first: 'francis', last: 'west' },
     email: 'francis.west@example.com',
     login: {
       uuid: '1df8c93b-e459-4212-8b5e-76b91cc8aaae',
@@ -291,7 +239,7 @@ const results = [
       sha1: 'ff0d8acf0982eee473d9b4644946455db0faf114',
       sha256: '3a258558fac1f00044211390416912298788506d52d642be0d5d98f1e852cff4'
     },
-    cell: '(491)-932-6724',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/40.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/40.jpg',
@@ -299,11 +247,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'miss',
-      first: 'erika',
-      last: 'lynch'
-    },
+    name: { title: 'miss', first: 'erika', last: 'lynch' },
     email: 'erika.lynch@example.com',
     login: {
       uuid: 'd9da2ea8-bd61-4717-806b-b4e2b143646b',
@@ -314,7 +258,7 @@ const results = [
       sha1: '8f15d7b131c2c5b6a9787544b6a7984952cdbfaf',
       sha256: '265b28ab889d569aa237d389c2ea94b79100d3426c9041cddcf345197bc57e58'
     },
-    cell: '(567)-468-0296',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/49.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/49.jpg',
@@ -322,11 +266,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mrs',
-      first: 'mia',
-      last: 'george'
-    },
+    name: { title: 'mrs', first: 'mia', last: 'george' },
     email: 'mia.george@example.com',
     login: {
       uuid: 'b9a9e642-b6b5-41c5-8638-fdee56d36ddc',
@@ -337,7 +277,7 @@ const results = [
       sha1: 'e0ab02068069dc74370fd7ab78eaa1ff30eea938',
       sha256: '9a9aa8d366238c55d371f5da57356b2209f97859b4810d5a735f3079ff36e763'
     },
-    cell: '(607)-281-3638',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/22.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/22.jpg',
@@ -345,11 +285,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'ms',
-      first: 'joann',
-      last: 'larson'
-    },
+    name: { title: 'ms', first: 'joann', last: 'larson' },
     email: 'joann.larson@example.com',
     login: {
       uuid: 'c1512e9f-088c-4648-81e7-c12ec234e356',
@@ -360,7 +296,7 @@ const results = [
       sha1: '43e62359356b0db192102df18dead0c888ead64b',
       sha256: '875e91c6f3e75b5270ef624741b6179138d54b8ecd8b544a5513e63d558eb446'
     },
-    cell: '(127)-208-9815',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/39.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/39.jpg',
@@ -368,11 +304,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'samuel',
-      last: 'hunter'
-    },
+    name: { title: 'mr', first: 'samuel', last: 'hunter' },
     email: 'samuel.hunter@example.com',
     login: {
       uuid: 'db2e26e4-f7a3-49db-a945-22f01bf229a7',
@@ -383,7 +315,7 @@ const results = [
       sha1: 'ecf136d221eac9e6f537d7dc8552ae501de63aa0',
       sha256: 'a28f8d10422f914cea20b8fb509ea09b483b95dbd486496d982bf801443a059a'
     },
-    cell: '(387)-638-9997',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/3.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/3.jpg',
@@ -391,11 +323,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'miss',
-      first: 'emma',
-      last: 'rodriguez'
-    },
+    name: { title: 'miss', first: 'emma', last: 'rodriguez' },
     email: 'emma.rodriguez@example.com',
     login: {
       uuid: '76edd467-f381-4704-acab-67f5df27dab3',
@@ -406,7 +334,7 @@ const results = [
       sha1: '854a9d64ef2eb1c2ed856ea872f0bc68b7d3bde9',
       sha256: '9b0e1b9382d54eb6e13954498451c9d89d94496f3c60fd21bf5c013274531d22'
     },
-    cell: '(360)-648-2114',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/48.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/48.jpg',
@@ -414,11 +342,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'ramon',
-      last: 'taylor'
-    },
+    name: { title: 'mr', first: 'ramon', last: 'taylor' },
     email: 'ramon.taylor@example.com',
     login: {
       uuid: 'abedf944-0c4f-4035-a4a8-4269089cd8a5',
@@ -429,7 +353,7 @@ const results = [
       sha1: '9cfb4812c7870a69209fac448a83aa0511031997',
       sha256: 'e5f3d908a86d3863eaee67081dfb8df434d0e04e8078d29ab1d39d8bcd5f7dca'
     },
-    cell: '(260)-948-7477',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/36.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/36.jpg',
@@ -437,11 +361,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'ms',
-      first: 'joann',
-      last: 'nelson'
-    },
+    name: { title: 'ms', first: 'joann', last: 'nelson' },
     email: 'joann.nelson@example.com',
     login: {
       uuid: 'e09f36d9-7429-4cd2-955c-c5bb406d675f',
@@ -452,7 +372,7 @@ const results = [
       sha1: '8cbcf540fe5bf22ce1151c7f74b85815c12734dd',
       sha256: '9c748494f66153ccfcdb9e1006453f0160a95ae66e963420c7aa4eb23cf017c1'
     },
-    cell: '(547)-383-1078',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/23.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/23.jpg',
@@ -460,11 +380,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'nathaniel',
-      last: 'fisher'
-    },
+    name: { title: 'mr', first: 'nathaniel', last: 'fisher' },
     email: 'nathaniel.fisher@example.com',
     login: {
       uuid: '415c41bf-b9ca-40e8-bef6-0f2f691ab27f',
@@ -475,7 +391,7 @@ const results = [
       sha1: '9a0b107d55fd4c3cc58f10d2911baed22e2c4f8f',
       sha256: '5ea1e31b3e7277e50a2f1cc6a13a73788337cb597165efec9b79efd10890c722'
     },
-    cell: '(272)-024-5532',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/64.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/64.jpg',
@@ -483,11 +399,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'dan',
-      last: 'simpson'
-    },
+    name: { title: 'mr', first: 'dan', last: 'simpson' },
     email: 'dan.simpson@example.com',
     login: {
       uuid: '54ac470a-30c4-4ea3-ba58-32d7397c96b1',
@@ -498,7 +410,7 @@ const results = [
       sha1: 'a6672ac264fcdea2a97b345ea5d7fa6a147b0cc4',
       sha256: 'c8a830bec3a7ab059a37eefab0a49b48901f26455887ab37940d6a5058a58288'
     },
-    cell: '(895)-993-9190',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/90.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/90.jpg',
@@ -506,11 +418,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'ms',
-      first: 'serenity',
-      last: 'montgomery'
-    },
+    name: { title: 'ms', first: 'serenity', last: 'montgomery' },
     email: 'serenity.montgomery@example.com',
     login: {
       uuid: '0a6a3598-b5e2-4f24-8ef8-9c7be04e9ba7',
@@ -521,7 +429,7 @@ const results = [
       sha1: '84b9831e8d8ca89847db0bd235baadd65ce2e45a',
       sha256: '6d38ce9852b07678ec615bee627fbc93cb9f198bf26ba777109ad884bd81cea0'
     },
-    cell: '(637)-518-7384',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/93.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/93.jpg',
@@ -529,11 +437,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'ms',
-      first: 'tara',
-      last: 'garrett'
-    },
+    name: { title: 'ms', first: 'tara', last: 'garrett' },
     email: 'tara.garrett@example.com',
     login: {
       uuid: 'ac5d3eb4-8b49-4f84-b7fe-9a31f2f01d31',
@@ -544,7 +448,7 @@ const results = [
       sha1: '9e7a4d46946f7ed18913baa9525e3f135b88715e',
       sha256: '9526abe38bd7c16ec8c1009ac57de693f2951872343f0269932c626a3be974c4'
     },
-    cell: '(186)-935-9796',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/36.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/36.jpg',
@@ -552,11 +456,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mrs',
-      first: 'caroline',
-      last: 'bennett'
-    },
+    name: { title: 'mrs', first: 'caroline', last: 'bennett' },
     email: 'caroline.bennett@example.com',
     login: {
       uuid: '41c316b9-1c3d-4259-9dfa-0c26a99b878c',
@@ -567,7 +467,7 @@ const results = [
       sha1: 'c52b3ddbe3e23b128d7172dddc6197749ea9304b',
       sha256: '4f7cd681ff55c483a3d8a6a2c709d0aca4407dcd17ad64ea126e92c4b578d947'
     },
-    cell: '(702)-216-8844',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/91.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/91.jpg',
@@ -575,11 +475,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mrs',
-      first: 'lillie',
-      last: 'garza'
-    },
+    name: { title: 'mrs', first: 'lillie', last: 'garza' },
     email: 'lillie.garza@example.com',
     login: {
       uuid: '9a5bf429-eb9b-48cf-a696-d3422ab68524',
@@ -590,7 +486,7 @@ const results = [
       sha1: '957ab4f258b4faf2fe28f5f3cb5aa1855e35dd0f',
       sha256: '4a8cf075c1da6b09ffae0ae934f80eccefe6038ddd86255895159a4b7d19af63'
     },
-    cell: '(525)-256-6414',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/24.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/24.jpg',
@@ -598,11 +494,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'ms',
-      first: 'constance',
-      last: 'romero'
-    },
+    name: { title: 'ms', first: 'constance', last: 'romero' },
     email: 'constance.romero@example.com',
     login: {
       uuid: '1dfd38b4-4eeb-4eba-a7d7-8ff5305a42b5',
@@ -613,7 +505,7 @@ const results = [
       sha1: 'd07c6d7088be4d8c398926eed16d97762e60ea4a',
       sha256: 'c287ce95ac8a93ebeea811a72b7b3bfee045a4fbd62de3fb020f4c7c928e18ca'
     },
-    cell: '(073)-063-3227',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/46.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/46.jpg',
@@ -621,11 +513,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mrs',
-      first: 'amanda',
-      last: 'ramirez'
-    },
+    name: { title: 'mrs', first: 'amanda', last: 'ramirez' },
     email: 'amanda.ramirez@example.com',
     login: {
       uuid: '916fad0c-c6fd-4c5c-b05d-bb5dfffbf451',
@@ -636,7 +524,7 @@ const results = [
       sha1: '7d5d80d394446411b55fb002e06112709f71a0f3',
       sha256: '30af1309511e1405122d56dbbb8891bb0baad2a531dce0ee893a00e205b27d40'
     },
-    cell: '(738)-917-0170',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/63.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/63.jpg',
@@ -644,11 +532,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'salvador',
-      last: 'dunn'
-    },
+    name: { title: 'mr', first: 'salvador', last: 'dunn' },
     email: 'salvador.dunn@example.com',
     login: {
       uuid: '556e84c1-90e9-4327-9b26-f0ba43bee795',
@@ -659,7 +543,7 @@ const results = [
       sha1: 'a79afd42e86aa685fde8eeb77f2d777267214065',
       sha256: 'b63931ea510718e130dc82e897651ac503503c82351ea30f1cc2cf1787918861'
     },
-    cell: '(983)-015-5926',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/97.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/97.jpg',
@@ -667,11 +551,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'ms',
-      first: 'courtney',
-      last: 'johnson'
-    },
+    name: { title: 'ms', first: 'courtney', last: 'johnson' },
     email: 'courtney.johnson@example.com',
     login: {
       uuid: '6361474a-1b6d-4312-b73e-b4824b11ce0f',
@@ -682,7 +562,7 @@ const results = [
       sha1: '09db98bec9dc891b4c476e38bfdea09606f1a9bf',
       sha256: 'bda457813736853f008202162902e3f411c3719a3a4986f5d3b82b9171220c3e'
     },
-    cell: '(022)-608-8120',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/68.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/68.jpg',
@@ -690,11 +570,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'ms',
-      first: 'jacqueline',
-      last: 'hayes'
-    },
+    name: { title: 'ms', first: 'jacqueline', last: 'hayes' },
     email: 'jacqueline.hayes@example.com',
     login: {
       uuid: '8f1994d9-bbc4-49d0-95b6-4c81957b391e',
@@ -705,7 +581,7 @@ const results = [
       sha1: '9cf2a4053c9a262a110412dbfba217ac0bf850ab',
       sha256: '33bd6376bb094aa448f2dd5faad3d594b2e011ede090a0dee7d7138ed20957df'
     },
-    cell: '(129)-088-2258',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/51.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/51.jpg',
@@ -713,11 +589,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'miss',
-      first: 'myrtle',
-      last: 'mcdonalid'
-    },
+    name: { title: 'miss', first: 'myrtle', last: 'mcdonalid' },
     email: 'myrtle.mcdonalid@example.com',
     login: {
       uuid: 'c6cb49be-6910-4f8c-bae8-146f7e2e7b4f',
@@ -728,7 +600,7 @@ const results = [
       sha1: 'f4d19a9763fa73bef032336cdf5bb5e2bf6c8ceb',
       sha256: '2c6e27823ac2edc49c557432d938ff6f25e52b9deaf4b637ecd46d211e773e75'
     },
-    cell: '(591)-749-0199',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/73.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/73.jpg',
@@ -736,11 +608,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'gabriel',
-      last: 'lawrence'
-    },
+    name: { title: 'mr', first: 'gabriel', last: 'lawrence' },
     email: 'gabriel.lawrence@example.com',
     login: {
       uuid: '215d130a-0452-48f5-886c-6d421cdae279',
@@ -751,7 +619,7 @@ const results = [
       sha1: 'e41595e1f8819c66c4fd5aaa8cf0a6cfad5512b0',
       sha256: '5d3397d624e9f752ce409844f7ba128d45aad88bc4fb7a919529e99ef74336c8'
     },
-    cell: '(495)-444-1676',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/98.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/98.jpg',
@@ -759,11 +627,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'mario',
-      last: 'payne'
-    },
+    name: { title: 'mr', first: 'mario', last: 'payne' },
     email: 'mario.payne@example.com',
     login: {
       uuid: '3b87b3f9-5f7e-42a1-83fe-cf55224acf00',
@@ -774,7 +638,7 @@ const results = [
       sha1: 'feef7246b839192ca824fdd190b7e87405a348e5',
       sha256: '267f6b8d0b5894fa339ef394e62961ea95f3dc9e5bda07702ab683fb1485ec9b'
     },
-    cell: '(711)-477-7669',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/38.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/38.jpg',
@@ -782,11 +646,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'gene',
-      last: 'hernandez'
-    },
+    name: { title: 'mr', first: 'gene', last: 'hernandez' },
     email: 'gene.hernandez@example.com',
     login: {
       uuid: '9c624c40-3698-4546-8a63-fb78173d343b',
@@ -797,7 +657,7 @@ const results = [
       sha1: '4303fc8b604f16b9c64b190ea8ca3229589d9933',
       sha256: '1d78da991fd19638b411ee7fc4158f55d837ed737324f9501e631c9c81fcec8f'
     },
-    cell: '(914)-799-9633',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/96.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/96.jpg',
@@ -805,11 +665,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'floyd',
-      last: 'berry'
-    },
+    name: { title: 'mr', first: 'floyd', last: 'berry' },
     email: 'floyd.berry@example.com',
     login: {
       uuid: '006e0689-203d-4dfe-a6a3-a6df73cf8ff6',
@@ -820,7 +676,7 @@ const results = [
       sha1: '36332aeb935c04041c1efb2c3cd3520198a5d215',
       sha256: '21197330c23b99a1a90727b27f9f5f9aced437c3230637ae28fc9cdcd80655cd'
     },
-    cell: '(333)-826-9515',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/44.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/44.jpg',
@@ -828,11 +684,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'clifford',
-      last: 'coleman'
-    },
+    name: { title: 'mr', first: 'clifford', last: 'coleman' },
     email: 'clifford.coleman@example.com',
     login: {
       uuid: 'e02a07e4-9e37-48d9-be39-199ddd026039',
@@ -843,7 +695,7 @@ const results = [
       sha1: 'f9aa413e1ec2ea44a95ae19772aac5fe2c5fe685',
       sha256: 'b87099497799a7fe610cfde30fbc8125251e1103d36ea97c0ba768b774767a6f'
     },
-    cell: '(857)-419-5191',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/34.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/34.jpg',
@@ -851,11 +703,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'ms',
-      first: 'gwendolyn',
-      last: 'ramirez'
-    },
+    name: { title: 'ms', first: 'gwendolyn', last: 'ramirez' },
     email: 'gwendolyn.ramirez@example.com',
     login: {
       uuid: '4d4fd673-6053-4189-9b92-db6c7dd8f943',
@@ -866,7 +714,7 @@ const results = [
       sha1: '5d2cd6d03f8e745021b27134984fcae0c0b3e3df',
       sha256: '40065de1d288054af122cab9af00efde2a3e00d4b8fcde9612da8572d312be3f'
     },
-    cell: '(211)-897-3372',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/71.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/71.jpg',
@@ -874,11 +722,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mrs',
-      first: 'katherine',
-      last: 'harvey'
-    },
+    name: { title: 'mrs', first: 'katherine', last: 'harvey' },
     email: 'katherine.harvey@example.com',
     login: {
       uuid: '0ae4f997-a0a9-4249-88fe-74d5be6ca403',
@@ -889,7 +733,7 @@ const results = [
       sha1: '79e49a2cb61dd4c3607ba16dbfeefb903d6091c6',
       sha256: 'd93331983730aa835bb2cd71855572c5c1b734aacd87a74186c16983390bb667'
     },
-    cell: '(132)-497-7044',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/72.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/72.jpg',
@@ -897,11 +741,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'ms',
-      first: 'deann',
-      last: 'richards'
-    },
+    name: { title: 'ms', first: 'deann', last: 'richards' },
     email: 'deann.richards@example.com',
     login: {
       uuid: 'da22caf5-8fbf-49e8-a7db-0dec9208bb99',
@@ -912,7 +752,7 @@ const results = [
       sha1: '6a6b057141c6ab22c6af6c614b16ce1a9d02b847',
       sha256: '8652d3edf7bc54ff481a7ebaf26d954ccae0c9e4616fa13e2adf095feade5d99'
     },
-    cell: '(035)-471-4948',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/66.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/66.jpg',
@@ -920,11 +760,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'adrian',
-      last: 'jacobs'
-    },
+    name: { title: 'mr', first: 'adrian', last: 'jacobs' },
     email: 'adrian.jacobs@example.com',
     login: {
       uuid: 'e043c17a-251c-451f-95a6-68699ec0442a',
@@ -935,7 +771,7 @@ const results = [
       sha1: '6850345610f584e857f4ac769fe2a2bdd2b6ff85',
       sha256: '9ae838b62d3d35f00a9e0b62a4a571d59227df51aea3837dda574d93ed9db252'
     },
-    cell: '(333)-250-0935',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/9.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/9.jpg',
@@ -943,11 +779,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'ms',
-      first: 'mia',
-      last: 'hudson'
-    },
+    name: { title: 'ms', first: 'mia', last: 'hudson' },
     email: 'mia.hudson@example.com',
     login: {
       uuid: '6794d575-65e5-4b94-8052-accfeef4c137',
@@ -958,7 +790,7 @@ const results = [
       sha1: '757ed2178ba5e80e82d0874b44c15cbb92512aa4',
       sha256: '89bde5aca1f4597a8b855c7067600556bcb87a8a9859244ddb1f5bd0bd6dacd9'
     },
-    cell: '(331)-007-7601',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/18.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/18.jpg',
@@ -966,11 +798,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mrs',
-      first: 'shelly',
-      last: 'butler'
-    },
+    name: { title: 'mrs', first: 'shelly', last: 'butler' },
     email: 'shelly.butler@example.com',
     login: {
       uuid: 'a4f30a0c-a642-4848-8949-aa617039dc23',
@@ -981,7 +809,7 @@ const results = [
       sha1: 'bffe5d4fcfad5563d718f0f92108acaa020d8dce',
       sha256: '4a73b32125e9fd4ae19ccd75d58ff71f08a45faa0be1d065e03d7d48db9cfa1c'
     },
-    cell: '(420)-029-9900',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/54.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/54.jpg',
@@ -989,11 +817,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mrs',
-      first: 'ellen',
-      last: 'gordon'
-    },
+    name: { title: 'mrs', first: 'ellen', last: 'gordon' },
     email: 'ellen.gordon@example.com',
     login: {
       uuid: 'ee3cf2a3-6b44-4d53-b87f-71f5187594b8',
@@ -1004,7 +828,7 @@ const results = [
       sha1: 'a9882ab6720ad24f6665a228d94cb53a77b83b65',
       sha256: 'a6002a50dee8c4b55eb9efdf98e658ba5b3e1e68e2662a3d4c18474d839b9e96'
     },
-    cell: '(919)-160-9407',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/49.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/49.jpg',
@@ -1012,11 +836,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'ms',
-      first: 'lori',
-      last: 'simmons'
-    },
+    name: { title: 'ms', first: 'lori', last: 'simmons' },
     email: 'lori.simmons@example.com',
     login: {
       uuid: '9190b60a-5634-4c5b-9384-4ffce0b7ad1d',
@@ -1027,7 +847,7 @@ const results = [
       sha1: 'ac0da0f4c476c1ca1eb84c55589148606b2d8027',
       sha256: '5bb67c223922baf66ae6b64e121f9467a997b3a892e56546eff12bfb6f4a46ea'
     },
-    cell: '(375)-407-2782',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/55.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/55.jpg',
@@ -1035,11 +855,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'joshua',
-      last: 'ellis'
-    },
+    name: { title: 'mr', first: 'joshua', last: 'ellis' },
     email: 'joshua.ellis@example.com',
     login: {
       uuid: '9d7385b2-58c1-4c8a-8f3c-ad920bb4df1c',
@@ -1050,7 +866,7 @@ const results = [
       sha1: '7b9d81a763d3f2eb37303d8d203254a373bd8045',
       sha256: '729a6f220ad3fb05bd01b23a4506259c72cee3314d7420920dfae3b16b5b9378'
     },
-    cell: '(792)-583-4886',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/13.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/13.jpg',
@@ -1058,11 +874,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'anthony',
-      last: 'ramirez'
-    },
+    name: { title: 'mr', first: 'anthony', last: 'ramirez' },
     email: 'anthony.ramirez@example.com',
     login: {
       uuid: 'b1b0ae45-ce5c-43d3-a120-8f17e4ccee25',
@@ -1073,7 +885,7 @@ const results = [
       sha1: '673bddd691fbe9c74b02375469817fa99193ae36',
       sha256: 'afbec330a1cdac01e87b4f9443dfacc367788bde77a24241bba9c46f217a7fd0'
     },
-    cell: '(315)-138-2571',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/63.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/63.jpg',
@@ -1081,11 +893,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mrs',
-      first: 'alma',
-      last: 'shelton'
-    },
+    name: { title: 'mrs', first: 'alma', last: 'shelton' },
     email: 'alma.shelton@example.com',
     login: {
       uuid: '40f582a7-af4f-47fd-a028-9e49bd78ec1f',
@@ -1096,7 +904,7 @@ const results = [
       sha1: '9e84efbf4f638436c3db1a486938879c8e6a7274',
       sha256: '9f997a61c8e5f58701a8b8c93f0c01487854db5be23ab07e872a2646f93817f8'
     },
-    cell: '(165)-544-4763',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/23.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/23.jpg',
@@ -1104,11 +912,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mrs',
-      first: 'kaylee',
-      last: 'west'
-    },
+    name: { title: 'mrs', first: 'kaylee', last: 'west' },
     email: 'kaylee.west@example.com',
     login: {
       uuid: '937d78dd-5a6d-45ef-a25e-e7d5cbf9f6c3',
@@ -1119,7 +923,7 @@ const results = [
       sha1: 'f5e9edf2d8b4ac724b11b0a61b383db3b4c34ec1',
       sha256: 'a80b746cda3c8c6b5cdd856a15fe386ef5bd54a8e3139c76a76fc9dfab6fa897'
     },
-    cell: '(147)-980-0818',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/35.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/35.jpg',
@@ -1127,11 +931,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mrs',
-      first: 'letitia',
-      last: 'lucas'
-    },
+    name: { title: 'mrs', first: 'letitia', last: 'lucas' },
     email: 'letitia.lucas@example.com',
     login: {
       uuid: 'c2043a1d-c230-4f68-a296-757e66f140ca',
@@ -1142,7 +942,7 @@ const results = [
       sha1: '0d111b68a447a88f63fb69903ec200976d1c3ad2',
       sha256: '3dfd774cec01aa418b1139297f7588f204dacf43d0b4e243118d6846b6d6b70c'
     },
-    cell: '(403)-594-5649',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/1.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/1.jpg',
@@ -1150,11 +950,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'ms',
-      first: 'marilyn',
-      last: 'rice'
-    },
+    name: { title: 'ms', first: 'marilyn', last: 'rice' },
     email: 'marilyn.rice@example.com',
     login: {
       uuid: '4d651ce5-9ec9-408c-8751-af08514f0ee4',
@@ -1165,7 +961,7 @@ const results = [
       sha1: '78892dcf29e8d831636ee205f4f1a8adfcd71ccc',
       sha256: 'a1bc1ebcd445c1b9589c8bc0f0bd64fc2f718daa40721acbb404d2ccdb877cb4'
     },
-    cell: '(345)-496-2363',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/46.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/46.jpg',
@@ -1173,11 +969,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'leonard',
-      last: 'schmidt'
-    },
+    name: { title: 'mr', first: 'leonard', last: 'schmidt' },
     email: 'leonard.schmidt@example.com',
     login: {
       uuid: 'd1e2161d-ad4a-4b93-a8e3-910fb703de0d',
@@ -1188,7 +980,7 @@ const results = [
       sha1: '30289fde7308d6ca04833171ff557f60acb9846b',
       sha256: '12f4e3834f2b977c7402c14a74c8b471ac0a825b58249391f0d410edf1f6c051'
     },
-    cell: '(474)-950-6004',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/17.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/17.jpg',
@@ -1196,11 +988,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'miss',
-      first: 'teresa',
-      last: 'wood'
-    },
+    name: { title: 'miss', first: 'teresa', last: 'wood' },
     email: 'teresa.wood@example.com',
     login: {
       uuid: '77cace64-a8db-409f-ab6f-12ff93625554',
@@ -1211,7 +999,7 @@ const results = [
       sha1: '0556f9ab8efe0c066ea8c41da285bbf5ecd156d8',
       sha256: '2316ffe827e895fae58032258c9b160ccd4b1bc0ca51b8e56620c39608b68789'
     },
-    cell: '(188)-701-5921',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/25.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/25.jpg',
@@ -1219,11 +1007,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'ms',
-      first: 'naomi',
-      last: 'arnold'
-    },
+    name: { title: 'ms', first: 'naomi', last: 'arnold' },
     email: 'naomi.arnold@example.com',
     login: {
       uuid: '25835fa2-16af-4c9e-8a81-ed54fda0008b',
@@ -1234,7 +1018,7 @@ const results = [
       sha1: '11c9433b10b59b054850c512b21adffc51c03e7d',
       sha256: '55647e33955a2857895f0d4461ee7974351867839e27a3e0a4e83332e909181f'
     },
-    cell: '(573)-310-6840',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/20.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/20.jpg',
@@ -1242,11 +1026,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'ms',
-      first: 'alexa',
-      last: 'garcia'
-    },
+    name: { title: 'ms', first: 'alexa', last: 'garcia' },
     email: 'alexa.garcia@example.com',
     login: {
       uuid: '07e97661-aba6-46c2-a20e-731aa2883cab',
@@ -1257,7 +1037,7 @@ const results = [
       sha1: 'bcc317f21b55166f98f445f0a232fa312eec37af',
       sha256: 'c61e2765746a2bd65536f3037f02f308cd0266b2aea8543d5906ca70e74aa777'
     },
-    cell: '(655)-133-7814',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/26.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/26.jpg',
@@ -1265,11 +1045,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'maurice',
-      last: 'johnston'
-    },
+    name: { title: 'mr', first: 'maurice', last: 'johnston' },
     email: 'maurice.johnston@example.com',
     login: {
       uuid: '45c86c8a-2f96-4420-8dbe-66dc217cbb9a',
@@ -1280,7 +1056,7 @@ const results = [
       sha1: '01dcee861f9c08e54b4bed5eb093899c07dbfb8a',
       sha256: '3210f21806190f54798ca416cf9bece75b5d65a5290f67bc2995715e73ea33a3'
     },
-    cell: '(209)-153-8876',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/97.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/97.jpg',
@@ -1288,11 +1064,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'landon',
-      last: 'palmer'
-    },
+    name: { title: 'mr', first: 'landon', last: 'palmer' },
     email: 'landon.palmer@example.com',
     login: {
       uuid: 'cbcb497b-a166-41b8-a761-7f7d30b615a2',
@@ -1303,7 +1075,7 @@ const results = [
       sha1: 'c5a136633d9cc3caad714bb2dc998941e55fb9ef',
       sha256: '47fe65c1c869d67df7cdfd0e1093319463ccd19064a0b1635bd844671896cfa9'
     },
-    cell: '(888)-639-9991',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/79.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/79.jpg',
@@ -1311,11 +1083,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'ms',
-      first: 'lauren',
-      last: 'mills'
-    },
+    name: { title: 'ms', first: 'lauren', last: 'mills' },
     email: 'lauren.mills@example.com',
     login: {
       uuid: 'b67903f1-b0e3-46ce-bea6-541537eb40a7',
@@ -1326,7 +1094,7 @@ const results = [
       sha1: '03d7a7e1821bd863bb74c98ae4a46c462619f9a1',
       sha256: '824a1cf8ea81d26c1b53c6998b9d3dbccca594e3b610a5d6f94349c3023771a0'
     },
-    cell: '(761)-893-6633',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/15.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/15.jpg',
@@ -1334,11 +1102,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mrs',
-      first: 'jessie',
-      last: 'nelson'
-    },
+    name: { title: 'mrs', first: 'jessie', last: 'nelson' },
     email: 'jessie.nelson@example.com',
     login: {
       uuid: 'fc863b99-86e7-4894-8dc0-57b5bb3db701',
@@ -1349,7 +1113,7 @@ const results = [
       sha1: 'b8c106a25c7596e8800282ed93b22fbbae05dbee',
       sha256: '87230e8d80a3fe4e095b6972af6c3dcfe15ec97fe89543b5cf60770edcb2aecd'
     },
-    cell: '(242)-037-6361',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/27.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/27.jpg',
@@ -1357,11 +1121,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'enrique',
-      last: 'castro'
-    },
+    name: { title: 'mr', first: 'enrique', last: 'castro' },
     email: 'enrique.castro@example.com',
     login: {
       uuid: '6d3af819-e75f-45b4-8ce6-2287a3f087e2',
@@ -1372,7 +1132,7 @@ const results = [
       sha1: 'a3d5d42a503989098e2e5fecb93b74359541fff1',
       sha256: '0ea89deb82d27bd89a375247b04d52dd23e0cb2646a30616a7aadc540871f58d'
     },
-    cell: '(472)-119-5088',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/3.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/3.jpg',
@@ -1380,11 +1140,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'ralph',
-      last: 'ward'
-    },
+    name: { title: 'mr', first: 'ralph', last: 'ward' },
     email: 'ralph.ward@example.com',
     login: {
       uuid: '103eaf83-5eab-439b-bc98-d9b62f81f2ab',
@@ -1395,7 +1151,7 @@ const results = [
       sha1: '8c79edc0d11ed18d0d4b80d2e52de53fa6e8401f',
       sha256: '8dc4f0c443a4c8b294f697f02b06c299d5bb81d71617ac69a0081d188ed7bea2'
     },
-    cell: '(485)-008-1579',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/1.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/1.jpg',
@@ -1403,11 +1159,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'allan',
-      last: 'clark'
-    },
+    name: { title: 'mr', first: 'allan', last: 'clark' },
     email: 'allan.clark@example.com',
     login: {
       uuid: '1bc65d96-bba6-4cbc-aa05-2341cafcf13b',
@@ -1418,7 +1170,7 @@ const results = [
       sha1: 'f5dae1e025292f4903431aecb0c20ff0a7c55676',
       sha256: 'a2ba8120c98d3653865a27833c7334bef196a420a717c82d81ae72b28b13c5fb'
     },
-    cell: '(397)-518-9490',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/33.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/33.jpg',
@@ -1426,11 +1178,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'ms',
-      first: 'jill',
-      last: 'johnston'
-    },
+    name: { title: 'ms', first: 'jill', last: 'johnston' },
     email: 'jill.johnston@example.com',
     login: {
       uuid: '3de60c90-432d-4fb5-9c4a-6f48a5c04b86',
@@ -1441,7 +1189,7 @@ const results = [
       sha1: '5679b54ba701672c28f1ca42f90e2568aed4a481',
       sha256: '8f24e627d066175201506ae1efdc7a365daa5b8d1b5ef69d704b1aedeeb01804'
     },
-    cell: '(528)-856-9836',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/70.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/70.jpg',
@@ -1449,11 +1197,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'charlie',
-      last: 'campbell'
-    },
+    name: { title: 'mr', first: 'charlie', last: 'campbell' },
     email: 'charlie.campbell@example.com',
     login: {
       uuid: '310b82f2-8d32-44a9-8652-b0993f114b72',
@@ -1464,7 +1208,7 @@ const results = [
       sha1: 'c602dd01f1e542ecebbd71dd2279b2db1c34ed85',
       sha256: '0ed226fc953a98d19811277468daba77ca6dde33eaa752f6cdf31cef5d1b3650'
     },
-    cell: '(587)-111-2934',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/18.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/18.jpg',
@@ -1472,11 +1216,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'andy',
-      last: 'jackson'
-    },
+    name: { title: 'mr', first: 'andy', last: 'jackson' },
     email: 'andy.jackson@example.com',
     login: {
       uuid: '6fbc067c-00ab-4d61-87f3-ce9fca259664',
@@ -1487,7 +1227,7 @@ const results = [
       sha1: 'f72f14c2500f5c6681034fc90f0cab30bc1a8cf9',
       sha256: '234814b8cb8821a19dfd5597483a5331dd3ad7863c0c8cf1d32f7be4cc855657'
     },
-    cell: '(182)-309-8437',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/83.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/83.jpg',
@@ -1495,11 +1235,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'pedro',
-      last: 'gonzales'
-    },
+    name: { title: 'mr', first: 'pedro', last: 'gonzales' },
     email: 'pedro.gonzales@example.com',
     login: {
       uuid: '400463c4-a289-4d30-af73-1687b36e7e7f',
@@ -1510,7 +1246,7 @@ const results = [
       sha1: '4e92dfda86bb07b261ea1801457da47fd6afd14d',
       sha256: '45095ff6ca82e6234f69482652c1ba91cf56c9c898954d38eac625853d47e326'
     },
-    cell: '(820)-008-8742',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/91.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/91.jpg',
@@ -1518,11 +1254,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'julio',
-      last: 'larson'
-    },
+    name: { title: 'mr', first: 'julio', last: 'larson' },
     email: 'julio.larson@example.com',
     login: {
       uuid: '032c8d70-7b56-4d23-9bd3-bf395a740012',
@@ -1533,7 +1265,7 @@ const results = [
       sha1: '66d43ded05c4a6f3ee1fe7d62f82f2fc981725da',
       sha256: '18f276bf901a521d0a1dd57e0478e9400ca937e6bc81200fc0ec5b32ce36100c'
     },
-    cell: '(020)-205-5190',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/73.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/73.jpg',
@@ -1541,11 +1273,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'soham',
-      last: 'rivera'
-    },
+    name: { title: 'mr', first: 'soham', last: 'rivera' },
     email: 'soham.rivera@example.com',
     login: {
       uuid: '8e01d585-6438-400e-98b1-7358f5aadb6f',
@@ -1556,7 +1284,7 @@ const results = [
       sha1: 'faac7a71ce44b97873e80e2c8c6654b8bef4e140',
       sha256: '497f3e79afa641f92d09bcf072a0567c3101f027e59426338bdb7d76cc9c82f3'
     },
-    cell: '(235)-614-1705',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/44.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/44.jpg',
@@ -1564,11 +1292,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'salvador',
-      last: 'martin'
-    },
+    name: { title: 'mr', first: 'salvador', last: 'martin' },
     email: 'salvador.martin@example.com',
     login: {
       uuid: '4fd6d684-7b1d-4a64-8413-37f510fc0c56',
@@ -1579,7 +1303,7 @@ const results = [
       sha1: 'a2f65b5abffc4506de33b9571a390e644c42edbd',
       sha256: '21b10db67adc6934c361f74430d0bfac6f50f17466622422612514dc59aa3f5e'
     },
-    cell: '(362)-341-1428',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/24.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/24.jpg',
@@ -1587,11 +1311,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'ryan',
-      last: 'wagner'
-    },
+    name: { title: 'mr', first: 'ryan', last: 'wagner' },
     email: 'ryan.wagner@example.com',
     login: {
       uuid: '0bba0111-c647-40b5-bcd1-698d4994198c',
@@ -1602,7 +1322,7 @@ const results = [
       sha1: '917f0aff9dfe9b79506449829421b43b16a0c070',
       sha256: 'cd7838a020f09f88b3b5b2b0b805930dfd7564b60347174c6e734bafd0653b1f'
     },
-    cell: '(771)-186-0630',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/61.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/61.jpg',
@@ -1610,11 +1330,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'miss',
-      first: 'wendy',
-      last: 'rice'
-    },
+    name: { title: 'miss', first: 'wendy', last: 'rice' },
     email: 'wendy.rice@example.com',
     login: {
       uuid: '5ca9ffd9-2704-4704-b9b7-3014eef1036d',
@@ -1625,7 +1341,7 @@ const results = [
       sha1: 'b1dff87647df53f35425a33796cc7ecfd5e8ee23',
       sha256: '099026d967bb60f9d8261fa206e3a5297e2c655eda997798e8990fb7856be0e3'
     },
-    cell: '(469)-331-9659',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/21.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/21.jpg',
@@ -1633,11 +1349,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'hunter',
-      last: 'carter'
-    },
+    name: { title: 'mr', first: 'hunter', last: 'carter' },
     email: 'hunter.carter@example.com',
     login: {
       uuid: '03be6b45-ad17-453f-953e-4aea93767088',
@@ -1648,7 +1360,7 @@ const results = [
       sha1: '2b79d1079e5fd10e1acaf9ffe89061af37e270f2',
       sha256: '08784d8e48c0dad5ae6cf47e0c0296f3cf0915698c9b1659e8c59c92eac99a47'
     },
-    cell: '(541)-024-4384',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/97.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/97.jpg',
@@ -1656,11 +1368,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'manuel',
-      last: 'hernandez'
-    },
+    name: { title: 'mr', first: 'manuel', last: 'hernandez' },
     email: 'manuel.hernandez@example.com',
     login: {
       uuid: 'f93e117f-2e1b-40f6-8b22-3aa631aef9da',
@@ -1671,7 +1379,7 @@ const results = [
       sha1: '7d8af1d7ded280934535c19e7d1ce1f9ac3fedd5',
       sha256: 'bec010bd906f8bf716f21637c664988c3881e4cbcf4c4197e221efada2246074'
     },
-    cell: '(784)-039-1799',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/58.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/58.jpg',
@@ -1679,11 +1387,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'miss',
-      first: 'gabriella',
-      last: 'walker'
-    },
+    name: { title: 'miss', first: 'gabriella', last: 'walker' },
     email: 'gabriella.walker@example.com',
     login: {
       uuid: 'b69406ee-5387-47d2-ba79-be26d96d6f5b',
@@ -1694,7 +1398,7 @@ const results = [
       sha1: 'dafa096c47b879774297370a167cf8c3da9d0e69',
       sha256: '195d8a95532bab41a471e8a8921366172afa41576afeae994afc619559a7401b'
     },
-    cell: '(298)-675-0492',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/34.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/34.jpg',
@@ -1702,11 +1406,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'ms',
-      first: 'kristin',
-      last: 'bailey'
-    },
+    name: { title: 'ms', first: 'kristin', last: 'bailey' },
     email: 'kristin.bailey@example.com',
     login: {
       uuid: '1b4bd413-3aa7-4a65-9283-42d197a26650',
@@ -1717,7 +1417,7 @@ const results = [
       sha1: 'bde6dfed0c39a5b4b7076ac11cb9c53b797efb31',
       sha256: '7697f2c16bfa99d3ecfd9ff3345260056e022ff67cc7767f16a6224b646f0f40'
     },
-    cell: '(782)-631-5270',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/91.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/91.jpg',
@@ -1725,11 +1425,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'isaac',
-      last: 'ruiz'
-    },
+    name: { title: 'mr', first: 'isaac', last: 'ruiz' },
     email: 'isaac.ruiz@example.com',
     login: {
       uuid: 'bd9b8a25-a4d5-427c-96cf-48d56ed91feb',
@@ -1740,7 +1436,7 @@ const results = [
       sha1: '3719e895ea154c45d08cc24bd9c4da69bf69e480',
       sha256: '555361581d4033346e5e86bb26c63deeb37a72956c00c22a58fcb0f1a2d32e98'
     },
-    cell: '(961)-230-8725',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/64.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/64.jpg',
@@ -1748,11 +1444,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'dave',
-      last: 'ross'
-    },
+    name: { title: 'mr', first: 'dave', last: 'ross' },
     email: 'dave.ross@example.com',
     login: {
       uuid: '910340b1-1374-4fd2-a24f-8a7c56acafb7',
@@ -1763,7 +1455,7 @@ const results = [
       sha1: '25438d991aa3e85a8ecaf499fddf7fe5dcdd98de',
       sha256: '396a4eb6d502d4961607aac0495d53eae5bc3aab1b73f9235b3603abf5522a1b'
     },
-    cell: '(506)-262-9344',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/37.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/37.jpg',
@@ -1771,11 +1463,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'miss',
-      first: 'sofia',
-      last: 'scott'
-    },
+    name: { title: 'miss', first: 'sofia', last: 'scott' },
     email: 'sofia.scott@example.com',
     login: {
       uuid: 'dfdd4428-25d3-48b2-8497-4a09f1c0d80b',
@@ -1786,7 +1474,7 @@ const results = [
       sha1: 'ef60fac78689c5d31ce7b038a50f350eb2db3afd',
       sha256: '94c4ca17acdedf9410572130e591fc6ea98f067618b0d10c586b3e4eb3917c47'
     },
-    cell: '(284)-433-5800',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/32.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/32.jpg',
@@ -1794,11 +1482,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mrs',
-      first: 'stephanie',
-      last: 'stewart'
-    },
+    name: { title: 'mrs', first: 'stephanie', last: 'stewart' },
     email: 'stephanie.stewart@example.com',
     login: {
       uuid: '84193a2b-020b-4faf-b355-239c178e2a88',
@@ -1809,7 +1493,7 @@ const results = [
       sha1: '175cd54ec508c63b59b59febdd04d4877d362749',
       sha256: '5af66b09b05b337082fefc78fdc913fa20a4e8b28042e11c1d035fb01827ef41'
     },
-    cell: '(383)-014-2986',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/94.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/94.jpg',
@@ -1817,11 +1501,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'ms',
-      first: 'frances',
-      last: 'hansen'
-    },
+    name: { title: 'ms', first: 'frances', last: 'hansen' },
     email: 'frances.hansen@example.com',
     login: {
       uuid: '6ba41a2c-9535-4fdb-8f60-ed4d30c1e5a4',
@@ -1832,7 +1512,7 @@ const results = [
       sha1: '227ddbfff636d2dea3b7c6617ba29c5c9d65285d',
       sha256: '2c6c1ddb886d1515a80e0265655f930bbf75569a20d0a407a050be3e44cd3838'
     },
-    cell: '(186)-816-2666',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/59.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/59.jpg',
@@ -1840,11 +1520,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'ben',
-      last: 'brown'
-    },
+    name: { title: 'mr', first: 'ben', last: 'brown' },
     email: 'ben.brown@example.com',
     login: {
       uuid: 'c4b9c58b-d9f3-418a-917c-ec10c3dfa98d',
@@ -1855,7 +1531,7 @@ const results = [
       sha1: '794b80092aecd2d14cb84a9a0ae4d9316db7fdb3',
       sha256: 'ebc64d584a0de2b244bea554471c28d8e6d5afd8d58a53092572db286208485e'
     },
-    cell: '(143)-781-7377',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/40.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/40.jpg',
@@ -1863,11 +1539,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'timmothy',
-      last: 'wallace'
-    },
+    name: { title: 'mr', first: 'timmothy', last: 'wallace' },
     email: 'timmothy.wallace@example.com',
     login: {
       uuid: '8b09985e-9d80-4c7b-8e72-62518f500caf',
@@ -1878,7 +1550,7 @@ const results = [
       sha1: '3391b44236f0b9965c6c68f7055bb765b770bffd',
       sha256: 'ae4da605abe8ef57c6fb67e11a6d33b5bfa28b46896e1b40e44e363ae66bdc64'
     },
-    cell: '(684)-231-8660',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/51.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/51.jpg',
@@ -1886,11 +1558,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'eduardo',
-      last: 'schmidt'
-    },
+    name: { title: 'mr', first: 'eduardo', last: 'schmidt' },
     email: 'eduardo.schmidt@example.com',
     login: {
       uuid: 'fbf93615-8e78-4a7f-b03f-cf93b7dacb05',
@@ -1901,7 +1569,7 @@ const results = [
       sha1: '294795fb5e66addf19a20298c2c5c6dda64992d2',
       sha256: '850c03a5628cc7c83b38ff1a348a6582c2c991a5eebc8893eb9a7c5c1fb24074'
     },
-    cell: '(859)-903-1897',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/22.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/22.jpg',
@@ -1909,11 +1577,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'ms',
-      first: 'janice',
-      last: 'steeves '
-    },
+    name: { title: 'ms', first: 'janice', last: 'steeves ' },
     email: 'janice.steeves@example.com',
     login: {
       uuid: 'f0283f7d-3300-4c06-975f-816a396f5697',
@@ -1924,7 +1588,7 @@ const results = [
       sha1: 'e6e87278e4807133529c561afe7a0d694268236d',
       sha256: '288334bbfe6b3e55217469871b86836d3fda908fbd8d5da3f93cbec480c7281a'
     },
-    cell: '(299)-363-7097',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/14.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/14.jpg',
@@ -1932,11 +1596,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'jordan',
-      last: 'sims'
-    },
+    name: { title: 'mr', first: 'jordan', last: 'sims' },
     email: 'jordan.sims@example.com',
     login: {
       uuid: '45a5a407-1ab3-4786-9de6-31539af9ebb2',
@@ -1947,7 +1607,7 @@ const results = [
       sha1: '93e5cabc97a8deb58618977deeab29d8ccc60023',
       sha256: 'c991e535bfc7c7b9bc968b138fba09850a6e2724ce21de8cbe28cde949f5dd9a'
     },
-    cell: '(188)-529-0430',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/77.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/77.jpg',
@@ -1955,11 +1615,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'herbert',
-      last: 'shaw'
-    },
+    name: { title: 'mr', first: 'herbert', last: 'shaw' },
     email: 'herbert.shaw@example.com',
     login: {
       uuid: '72692aa7-ad66-447b-bc6f-90a0074c2883',
@@ -1970,7 +1626,7 @@ const results = [
       sha1: '722fc7613cf98c88dba36383db0ae7c1df2f001f',
       sha256: '2a454c0b38bfd1f09ad2d084d85be93a9739d4926e0a1c11ac05e7c4d01adf36'
     },
-    cell: '(240)-698-7846',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/43.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/43.jpg',
@@ -1978,11 +1634,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mrs',
-      first: 'kitty',
-      last: 'fuller'
-    },
+    name: { title: 'mrs', first: 'kitty', last: 'fuller' },
     email: 'kitty.fuller@example.com',
     login: {
       uuid: '03eef2ff-9afb-439e-bac2-a71311c46e02',
@@ -1993,7 +1645,7 @@ const results = [
       sha1: 'b7041ef24979978f2d20a88660344726abee3c50',
       sha256: '9b3b784d815a95bcb76ad411a4add0d98106817881a7ad80e87fe8d7c4a59cf6'
     },
-    cell: '(753)-785-1781',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/44.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/44.jpg',
@@ -2001,11 +1653,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'dale',
-      last: 'mendoza'
-    },
+    name: { title: 'mr', first: 'dale', last: 'mendoza' },
     email: 'dale.mendoza@example.com',
     login: {
       uuid: '296f2dcc-128f-4417-9b40-38ba68b0b4cc',
@@ -2016,7 +1664,7 @@ const results = [
       sha1: 'a5bf694f527097485fa7cab95ae71b35752683b1',
       sha256: 'dff049d978d71f629d437475f4d7398ca42503e8d0be747a966a4c746b169432'
     },
-    cell: '(630)-688-5029',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/44.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/44.jpg',
@@ -2024,11 +1672,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'ms',
-      first: 'cathy',
-      last: 'willis'
-    },
+    name: { title: 'ms', first: 'cathy', last: 'willis' },
     email: 'cathy.willis@example.com',
     login: {
       uuid: '01b4cbe2-1ddf-418e-b7a2-1291ac58c553',
@@ -2039,7 +1683,7 @@ const results = [
       sha1: 'e9d023bb44cff3ac2cda09828469d84ae15baed7',
       sha256: 'a1c32cb41f9edc6505925a560f074a60c0eb6e96314dc21e35a24e348390b66d'
     },
-    cell: '(515)-906-6593',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/64.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/64.jpg',
@@ -2047,11 +1691,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'douglas',
-      last: 'douglas'
-    },
+    name: { title: 'mr', first: 'douglas', last: 'douglas' },
     email: 'douglas.douglas@example.com',
     login: {
       uuid: 'd609e8e7-1b3a-45b0-8b0a-a647b340b2be',
@@ -2062,7 +1702,7 @@ const results = [
       sha1: 'ba8b596ab457364adecc1cc14780ff83f71612c7',
       sha256: 'af01788760603dd1b78e44e6bb78646ac3eb48b502cac3869d48a0456ae27e4c'
     },
-    cell: '(334)-429-9377',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/96.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/96.jpg',
@@ -2070,11 +1710,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'miss',
-      first: 'katrina',
-      last: 'morales'
-    },
+    name: { title: 'miss', first: 'katrina', last: 'morales' },
     email: 'katrina.morales@example.com',
     login: {
       uuid: 'cb374374-a3d2-47e0-a882-56ce2788d452',
@@ -2085,7 +1721,7 @@ const results = [
       sha1: '5fb24dcc211c4c3391a93414c35b905445e215f6',
       sha256: 'a5dacf72b88cebb858112915bcd5325aaa4c0bbcc5c821d11c7789c38909f366'
     },
-    cell: '(692)-241-5846',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/75.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/75.jpg',
@@ -2093,11 +1729,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'thomas',
-      last: 'curtis'
-    },
+    name: { title: 'mr', first: 'thomas', last: 'curtis' },
     email: 'thomas.curtis@example.com',
     login: {
       uuid: '8b4b7e65-5958-4814-ad92-5eb316f3d54c',
@@ -2108,7 +1740,7 @@ const results = [
       sha1: 'f819feecfa7c695b839f1435287a3b9c63c14902',
       sha256: '205f0b81f42c49dfdbf80e6e3e2650fc992c2cf96cb12ae19cf991282b23cf42'
     },
-    cell: '(693)-801-7520',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/5.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/5.jpg',
@@ -2116,11 +1748,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'ms',
-      first: 'tara',
-      last: 'obrien'
-    },
+    name: { title: 'ms', first: 'tara', last: 'obrien' },
     email: 'tara.obrien@example.com',
     login: {
       uuid: '43840e28-5ddb-4a87-aecd-5a0d19ad6a5d',
@@ -2131,7 +1759,7 @@ const results = [
       sha1: '3a726b733b1d3d163439e657f4a722a7373543a5',
       sha256: '6587a18cb03650ddcf54e02ae584436f3ce948f78643bb4060c63b5f15b6b9c1'
     },
-    cell: '(097)-150-1697',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/61.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/61.jpg',
@@ -2139,11 +1767,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mrs',
-      first: 'pauline',
-      last: 'collins'
-    },
+    name: { title: 'mrs', first: 'pauline', last: 'collins' },
     email: 'pauline.collins@example.com',
     login: {
       uuid: '46d38493-11b8-42c6-b923-b69dddeea5ff',
@@ -2154,7 +1778,7 @@ const results = [
       sha1: '47ad1861ce6416ae10c329b923bd2e5169bc9388',
       sha256: '2192c802373eb5dd86837da277570213ea0e3d8df73c68fc8dbba6423c09834c'
     },
-    cell: '(704)-342-6225',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/25.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/25.jpg',
@@ -2162,11 +1786,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'nelson',
-      last: 'wagner'
-    },
+    name: { title: 'mr', first: 'nelson', last: 'wagner' },
     email: 'nelson.wagner@example.com',
     login: {
       uuid: '21cb248a-358d-489d-85bd-41cf8bf79496',
@@ -2177,7 +1797,7 @@ const results = [
       sha1: 'fe0c159f1bd1364410e477dec25d6b165c3cf551',
       sha256: '89dc8fd4a78f8a14bd41cd5ba9cf5fd5e80c49fb47babca23e313ef1983aff40'
     },
-    cell: '(592)-715-4457',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/8.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/8.jpg',
@@ -2185,11 +1805,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'bruce',
-      last: 'parker'
-    },
+    name: { title: 'mr', first: 'bruce', last: 'parker' },
     email: 'bruce.parker@example.com',
     login: {
       uuid: '8e29a59d-cada-46ca-bde6-9a664920685b',
@@ -2200,7 +1816,7 @@ const results = [
       sha1: 'be058d98413cf6457d32652e9072a14251537cfa',
       sha256: '1169c952860854ed66d9309bee17a4fade5edcfb5863035bca2efd399948fcb3'
     },
-    cell: '(635)-521-8343',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/55.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/55.jpg',
@@ -2208,11 +1824,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mrs',
-      first: 'sharlene',
-      last: 'diaz'
-    },
+    name: { title: 'mrs', first: 'sharlene', last: 'diaz' },
     email: 'sharlene.diaz@example.com',
     login: {
       uuid: '97a86e6e-9003-4121-80b4-16a7e4e0f895',
@@ -2223,7 +1835,7 @@ const results = [
       sha1: '0e0d9c65108ff23070a71f1ea05bd321d7e32ab6',
       sha256: '52932607cb56c3d8204b8728dcd8e239212c7ba948761c0611716551f6cb5101'
     },
-    cell: '(921)-254-1728',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/73.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/73.jpg',
@@ -2231,11 +1843,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mrs',
-      first: 'joanne',
-      last: 'garza'
-    },
+    name: { title: 'mrs', first: 'joanne', last: 'garza' },
     email: 'joanne.garza@example.com',
     login: {
       uuid: '6837306c-a6a1-41f2-a8dd-97c342c87020',
@@ -2246,7 +1854,7 @@ const results = [
       sha1: '2da9e301ec115fdad1e5a9a379534b730227bff7',
       sha256: '9e6db2289a8583b7342af83b982ad1651122f83c744be1c86534ca57aea9b7aa'
     },
-    cell: '(281)-427-5294',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/69.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/69.jpg',
@@ -2254,11 +1862,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mrs',
-      first: 'ethel',
-      last: 'ward'
-    },
+    name: { title: 'mrs', first: 'ethel', last: 'ward' },
     email: 'ethel.ward@example.com',
     login: {
       uuid: '2c665b5d-9e5a-40bf-a724-f79b7b312f80',
@@ -2269,7 +1873,7 @@ const results = [
       sha1: '1a7d700158db4c8c544d2c8d958fdd6d8ee99819',
       sha256: '65ed45fbc20f78cfb0b4a9d596d372fa6a6a4d0a6708e4aa9b7c73d9c2ca2e0b'
     },
-    cell: '(374)-144-6749',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/women/15.jpg',
       medium: 'https://randomuser.me/api/portraits/med/women/15.jpg',
@@ -2277,11 +1881,7 @@ const results = [
     }
   },
   {
-    name: {
-      title: 'mr',
-      first: 'francis',
-      last: 'scott'
-    },
+    name: { title: 'mr', first: 'francis', last: 'scott' },
     email: 'francis.scott@example.com',
     login: {
       uuid: '22b9ebcd-b67c-4e7c-9ca4-e545971c9401',
@@ -2292,7 +1892,7 @@ const results = [
       sha1: '8a309c48101e9df59b027bc867d1c3e482049ee2',
       sha256: '2a2ca0b697938ca29dfc61746a7004acafc3ca07df0d459d2068c93c78957682'
     },
-    cell: '(743)-933-1105',
+    cell: '9206759418',
     picture: {
       large: 'https://randomuser.me/api/portraits/men/45.jpg',
       medium: 'https://randomuser.me/api/portraits/med/men/45.jpg',
