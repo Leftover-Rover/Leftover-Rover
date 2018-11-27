@@ -21,7 +21,7 @@ class Map extends React.Component {
     destination: '',
     centerLat: 41.8781,
     centerLng: -87.6298,
-    zoom: 14,
+    zoom: 13.4,
     status: ''
   }
 

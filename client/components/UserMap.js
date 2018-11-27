@@ -63,14 +63,20 @@ export default class UserMap extends React.Component {
           .addTo(this.map)
       })
     }
-    this.map.flyTo({
-      center: [this.props.centerLng, this.props.centerLat],
-      zoom: this.props.zoom
-    })
-    if (this.props.origin.length) {
+
+    if (this.props.origin.length && !this.props.completed) {
       this.directions.setOrigin(origin)
       this.directions.setDestination(destination)
-      this.map.fitBounds([origin, destination], { padding: 20 })
+      this.map.fitBounds([origin, destination], { padding: 100 })
+    } else {
+      this.map.flyTo({
+        center: [this.props.centerLng, this.props.centerLat],
+        zoom: this.props.zoom
+      })
+    }
+    if (this.props.completed) {
+      console.log('Should remove route')
+      this.directions.removeRoutes()
     }
   }
 
