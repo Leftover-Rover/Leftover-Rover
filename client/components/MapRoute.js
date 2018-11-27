@@ -1,7 +1,12 @@
 /* eslint-disable complexity */
 import React from 'react'
 import { connect } from 'react-redux'
-import { postOrder, getMyLocation, updateOrderToCancelled } from '../store'
+import {
+  postOrder,
+  getMyLocation,
+  updateOrderToCancelled,
+  updateOrderToEmpty
+} from '../store'
 import UserMap from './UserMap'
 import { Button, Grid } from 'semantic-ui-react'
 import { EventEmitter } from 'events'
@@ -14,7 +19,7 @@ class Map extends React.Component {
     destination: '',
     centerLat: 41.8781,
     centerLng: -87.6298,
-    zoom: 14
+    zoom: 13.4
   }
 
   componentDidMount() {
@@ -28,7 +33,7 @@ class Map extends React.Component {
     )
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps) {
     if (!this.props.order.status && this.props.myLocation.lat) {
       this.markers = [[this.props.myLocation.lng, this.props.myLocation.lat]]
       if (
@@ -40,6 +45,36 @@ class Map extends React.Component {
           centerLng: this.props.myLocation.lng
         })
       }
+    }
+    if (prevProps.order !== this.props.order) {
+      if (this.props.order.status === 'ToPickup') {
+        this.setState({
+          origin: [
+            this.props.order.startLocationLng,
+            this.props.order.startLocationLat
+          ],
+          destination: [
+            this.props.order.pickupLocationLng,
+            this.props.order.pickupLocationLat
+          ]
+        })
+      }
+      if (this.props.order.status === 'ToDropOff') {
+        this.setState({
+          origin: [
+            this.props.order.pickupLocationLng,
+            this.props.order.pickupLocationLat
+          ],
+          destination: [
+            this.props.order.deliveryLocationLng,
+            this.props.order.deliveryLocationLat
+          ]
+        })
+      }
+    }
+    if (this.props.order.status === 'Completed') {
+      this.props.updateOrderToEmpty()
+      this.setState({ origin: '', destination: '' })
     }
   }
 
@@ -80,7 +115,6 @@ class Map extends React.Component {
     const orderToPickup = this.props.order.status === 'ToPickup'
     const orderToDropOff = this.props.order.status === 'ToDropOff'
     const orderCompleted = this.props.order.status === 'Completed'
-
     return (
       <React.Fragment>
         <Grid textAlign="center" style={{ height: '85vh' }}>
@@ -92,6 +126,7 @@ class Map extends React.Component {
             <UserMap
               {...this.state}
               markers={this.markers}
+              completed={orderCompleted}
               style={{ width: '100%' }}
             />
           </Grid.Row>
@@ -200,7 +235,8 @@ class Map extends React.Component {
 const mapDispatch = {
   postOrder,
   getMyLocation,
-  updateOrderToCancelled
+  updateOrderToCancelled,
+  updateOrderToEmpty
 }
 
 const mapState = state => {
