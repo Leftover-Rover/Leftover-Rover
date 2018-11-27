@@ -35,6 +35,12 @@ router.put('/:orderId', isUser, async (req, res, next) => {
       }),
       order.setDriver(req.user.driver)
     ])
+
+    const orderWithDriver = await Order.findById(req.params.orderId, {
+      include: [{ model: Driver }, { model: User }]
+    })
+
+    console.log('drivers order', orderWithDriver)
     routeRequested.emit('roverAccepted', order)
     const otherDrivers = req.body.drivers.filter(driver => {
       return driver.id !== req.user.driver.id
@@ -108,13 +114,17 @@ router.post('/', isUser, async (req, res, next) => {
       }
       const order = await Order.create(orderData)
 
+      const orderWithUser = await Order.findById(order.id, {
+        include: [{ model: User }]
+      })
+
       driverList.forEach(driver => {
         driver.update({ isAvailable: false })
       })
 
-      routeRequested.emit('routeRequested', order, driverList)
+      routeRequested.emit('routeRequested', orderWithUser, driverList)
 
-      res.json(order)
+      res.json(orderWithUser)
     }
   } catch (err) {
     next(err)
