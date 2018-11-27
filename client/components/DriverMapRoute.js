@@ -21,7 +21,8 @@ class Map extends React.Component {
     destination: '',
     centerLat: 41.8781,
     centerLng: -87.6298,
-    zoom: 14
+    zoom: 14,
+    status: ''
   }
 
   componentDidMount() {
@@ -107,7 +108,10 @@ class Map extends React.Component {
     )
     this.setState({
       origin: '',
-      destination: ''
+      destination: '',
+      status: 'completed',
+      centerLat: this.props.myLocation.lat,
+      centerLng: this.props.myLocation.lng
     })
   }
 
@@ -117,6 +121,7 @@ class Map extends React.Component {
     await this.props.updateDriver(this.props.driverId, {
       isAvailable: true
     })
+    this.setState({ status: '' })
   }
 
   render() {

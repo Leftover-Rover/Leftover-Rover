@@ -67,11 +67,15 @@ export default class DriverMap extends React.Component {
       this.directions.setOrigin(origin)
       this.directions.setDestination(destination)
       this.map.fitBounds([origin, destination])
+    } else {
+      this.map.flyTo({
+        center: [this.props.centerLng, this.props.centerLat],
+        zoom: this.props.zoom
+      })
     }
-    this.map.flyTo({
-      center: [this.props.centerLng, this.props.centerLat],
-      zoom: this.props.zoom
-    })
+    if (this.props.status === 'completed') {
+      this.directions.removeRoutes()
+    }
   }
 
   render() {
