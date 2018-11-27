@@ -37,11 +37,11 @@ router.put('/:orderId', isUser, async (req, res, next) => {
     ])
 
     const orderWithDriver = await Order.findById(req.params.orderId, {
-      include: [{ model: Driver }, { model: User }]
+      include: [User, { model: Driver, include: User}]
     })
 
-    console.log('drivers order', orderWithDriver)
-    routeRequested.emit('roverAccepted', order)
+
+    routeRequested.emit('roverAccepted', orderWithDriver)
     const otherDrivers = req.body.drivers.filter(driver => {
       return driver.id !== req.user.driver.id
     })
