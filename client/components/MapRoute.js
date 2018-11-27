@@ -5,7 +5,8 @@ import {
   postOrder,
   getMyLocation,
   updateOrderToCancelled,
-  updateOrderToEmpty
+  updateOrderToEmpty,
+  fetchDriverLocation
 } from '../store'
 import UserMap from './UserMap'
 import { Button, Grid } from 'semantic-ui-react'
@@ -24,7 +25,7 @@ class Map extends React.Component {
 
   componentDidMount() {
     const options = {
-      timeout: 30000
+      timeout: 3000
     }
     this.watch = navigator.geolocation.watchPosition(
       this.props.getMyLocation,
@@ -75,6 +76,21 @@ class Map extends React.Component {
     if (this.props.order.status === 'Completed') {
       this.props.updateOrderToEmpty()
       this.setState({ origin: '', destination: '' })
+    }
+
+    if (
+      this.props.order.status === 'ToPickup' ||
+      this.props.order.status === 'ToDropOff'
+    ) {
+      if (!this.fetchDriver) {
+        this.fetchDriver = true
+        setTimeout(() => {
+          this.fetchDriver = false
+          this.props.fetchDriverLocation(this.props.order.driverId)
+          const { lng, lat } = this.props.driverLocation
+          if (lng && lat) this.handleRoute([lng, lat], this.state.destination)
+        }, 2000)
+      }
     }
   }
 
@@ -236,7 +252,8 @@ const mapDispatch = {
   postOrder,
   getMyLocation,
   updateOrderToCancelled,
-  updateOrderToEmpty
+  updateOrderToEmpty,
+  fetchDriverLocation
 }
 
 const mapState = state => {
@@ -245,7 +262,8 @@ const mapState = state => {
     myLocation: state.myLocation,
     user: state.user,
     driver: state.user.driver,
-    actionItem: state.actionItem
+    actionItem: state.actionItem,
+    driverLocation: state.driverLocation
   }
 }
 

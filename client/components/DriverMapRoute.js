@@ -42,7 +42,7 @@ class Map extends React.Component {
     )
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps) {
     if (!this.props.order.status && this.props.myLocation.lat) {
       this.markers = [[this.props.myLocation.lng, this.props.myLocation.lat]]
       if (
@@ -54,6 +54,22 @@ class Map extends React.Component {
           centerLng: this.props.myLocation.lng
         })
       }
+    }
+    const { lat, lng } = prevProps.myLocation
+    const { status } = this.props.order
+    if (
+      (status === 'ToPickup' && lat !== this.props.myLocation.lat) ||
+      (status === 'ToPickup' && lng !== this.props.myLocation.lng) ||
+      (status === 'ToDropOff' && lat !== this.props.myLocation.lat) ||
+      (status === 'ToDropOff' && lng !== this.props.myLocation.lng)
+    ) {
+      this.setState({
+        origin: [this.props.myLocation.lng, this.props.myLocation.lat]
+      })
+      this.handleRoute(
+        [this.props.myLocation.lng, this.props.myLocation.lat],
+        this.state.destination
+      )
     }
   }
 
