@@ -16,7 +16,7 @@ async function seed() {
       name: 'driver person',
       email: 'driver@driver.com',
       password: '123',
-      phoneNumber: '1234567892',
+      phoneNumber: '9206759418',
       defaultDeliveryLat: 41.92943,
       defaultDeliveryLng: -87.708246
     }),
@@ -24,7 +24,7 @@ async function seed() {
       name: 'classic customer',
       email: 'customer@customer.com',
       password: '123',
-      phoneNumber: '1234567893',
+      phoneNumber: '9206759418',
       defaultDeliveryLat: 41.952363,
       defaultDeliveryLng: -87.652167
     }),
@@ -32,7 +32,7 @@ async function seed() {
       name: 'admin cody',
       email: 'cody@email.com',
       password: '123',
-      phoneNumber: '1234567891',
+      phoneNumber: '9206759418',
       defaultDeliveryLat: 41.896044,
       defaultDeliveryLng: -87.677849,
       isAdmin: true
@@ -41,7 +41,7 @@ async function seed() {
       name: 'murph mcgee',
       email: 'murphy@email.com',
       password: '123',
-      phoneNumber: '1234567890',
+      phoneNumber: '9206759418',
       defaultDeliveryLat: 41.952363,
       defaultDeliveryLng: -87.652167
     }),
@@ -49,7 +49,7 @@ async function seed() {
       name: 'Daniel Eimer',
       email: 'daniel@email.com',
       password: '123',
-      phoneNumber: '1234562890',
+      phoneNumber: '9206759418',
       defaultDeliveryLat: 41.95232,
       defaultDeliveryLng: -87.65218
     })
