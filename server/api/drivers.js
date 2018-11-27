@@ -15,3 +15,17 @@ router.put('/:driverId', isUser, async (req, res, next) => {
     next(err)
   }
 })
+
+router.get('/:driverId', isUser, async (req, res, next) => {
+  try {
+    const { currentLocationLng, currentLocationLat } = await Driver.findById(
+      req.params.driverId,
+      {
+        attributes: ['currentLocationLat', 'currentLocationLng']
+      }
+    )
+    res.json([currentLocationLng, currentLocationLat])
+  } catch (err) {
+    next(err)
+  }
+})
