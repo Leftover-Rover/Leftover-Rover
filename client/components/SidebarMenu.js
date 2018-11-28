@@ -31,7 +31,8 @@ export class SidebarMenu extends Component {
         <Label
           as="a"
           basic
-          size="large"
+          circular
+          size="huge"
           onClick={() => {
             this.setState({ visible: true })
           }}
@@ -41,17 +42,7 @@ export class SidebarMenu extends Component {
             justifyItems: 'center'
           }}
         >
-          <Icon
-            name="sidebar"
-            size="large"
-            style={{
-              textAlign: 'center',
-              justifyContent: 'center',
-              justifyItems: 'center',
-              margin: '1px',
-              padding: '1px'
-            }}
-          />
+          <Icon name="paw" size="large" fitted />
         </Label>
         <Sidebar
           as={Menu}
