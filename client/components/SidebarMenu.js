@@ -9,14 +9,12 @@ export class SidebarMenu extends Component {
   state = { visible: false }
 
   handleToggle = () => {
-    console.log('toggling!')
     this.setState(state => ({ visible: !state.visible }))
   }
 
   render() {
     const { visible } = this.state
     const { handleClick, isAdmin } = this.props
-    console.log(visible)
 
     return (
       <div
@@ -65,6 +63,9 @@ export class SidebarMenu extends Component {
           visible={visible}
           style={{ fontSize: '1.75rem' }}
         >
+          <Menu.Item name="me" active={true}>
+            Hi {this.props.user.name}!
+          </Menu.Item>
           <Menu.Item href="/me">Home</Menu.Item>
           {isAdmin ? (
             <Menu.Item href="/admin">Admin Dashboard</Menu.Item>
@@ -76,7 +77,6 @@ export class SidebarMenu extends Component {
           {this.props.driver ? (
             <Menu.Item
               onClick={() => {
-                console.log('hiding!')
                 this.setState({ visible: false })
               }}
             >
@@ -85,13 +85,7 @@ export class SidebarMenu extends Component {
           ) : (
             <Menu.Item href="/signup-to-drive">Become A Rover</Menu.Item>
           )}
-          <Menu.Item
-            as={Link}
-            to="/#"
-            name="logout"
-            onClick={handleClick}
-            position="right"
-          >
+          <Menu.Item as={Link} to="/#" name="logout" onClick={handleClick}>
             Logout
           </Menu.Item>
         </Sidebar>
