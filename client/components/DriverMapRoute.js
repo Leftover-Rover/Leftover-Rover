@@ -108,14 +108,9 @@ class Map extends React.Component {
 
   changeToDropOff = () => {
     this.props.updateOrderToDropOff(this.props.order.id)
-    const {
-      pickupLocationLng,
-      pickupLocationLat,
-      deliveryLocationLng,
-      deliveryLocationLat
-    } = this.props.order
+    const { deliveryLocationLng, deliveryLocationLat } = this.props.order
 
-    const newOrigin = [pickupLocationLng, pickupLocationLat]
+    const newOrigin = [this.props.myLocation.lng, this.props.myLocation.lat]
     const newDest = [deliveryLocationLng, deliveryLocationLat]
     this.handleRoute(newOrigin, newDest)
   }
