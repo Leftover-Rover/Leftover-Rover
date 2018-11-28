@@ -60,7 +60,7 @@ export class SidebarMenu extends Component {
           animation="overlay"
           icon="labeled"
           inverted
-          // onHide={this.handleToggle}
+          onHide={() => this.setState({ visible: false })}
           vertical
           visible={visible}
           style={{ fontSize: '1.75rem' }}
@@ -85,7 +85,13 @@ export class SidebarMenu extends Component {
           ) : (
             <Menu.Item href="/signup-to-drive">Become A Rover</Menu.Item>
           )}
-          <Menu.Item as={Link} to="/#" name="logout" onClick={handleClick}>
+          <Menu.Item
+            as={Link}
+            to="/#"
+            name="logout"
+            onClick={handleClick}
+            position="right"
+          >
             Logout
           </Menu.Item>
         </Sidebar>
@@ -98,7 +104,8 @@ const mapState = state => {
   return {
     isLoggedIn: !!state.user.id,
     driver: state.user.driver,
-    isAdmin: state.user.isAdmin
+    isAdmin: state.user.isAdmin,
+    user: state.user
   }
 }
 
