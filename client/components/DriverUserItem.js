@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, Item, Segment, Grid } from 'semantic-ui-react'
+import { Image, Item, Segment, Grid, List } from 'semantic-ui-react'
 
 const DriverUserItem = props => {
   const phoneNumber = `${props.user.phoneNumber.slice(
@@ -28,18 +28,20 @@ const DriverUserItem = props => {
         <Grid.Column>
           <Item.Group>
             <Item>
-              {/* {props.user.imageUrl ? (
-            <Item.Image size="mini" src={props.user.imageUrl} />
-          ) : (
-            <Item.Image
-              size="mini"
-              src="https://image.flaticon.com/icons/svg/194/194630.svg"
-            />
-          )} */}
-
               <Item.Content>
                 <Item.Header as="a">{props.user.name}</Item.Header>
-                <Item.Meta>{phoneNumber}</Item.Meta>
+                <Item.Description>
+                    <List>
+                      {props.driver &&
+                      props.driver.user.phoneNumber === null ? (
+                        <div />
+                      ) : (
+                        <List.Item>
+                          <a href={`tel:${props.user.phoneNumber}`}>{phoneNumber}</a>
+                        </List.Item>
+                      )}
+                    </List>
+                  </Item.Description>
               </Item.Content>
             </Item>
           </Item.Group>

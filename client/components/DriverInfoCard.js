@@ -33,7 +33,7 @@ export const DriverInfoCard = props => {
           <Grid.Column>
             <Image
               style={{
-                width: '90%'
+                width: '80%'
               }}
               circular
               src={

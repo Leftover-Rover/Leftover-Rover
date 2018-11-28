@@ -164,7 +164,7 @@ class Map extends React.Component {
             }}
           >
             {!this.props.actionItem &&
-              !orderExists && <h1>Lookin' for a Rover request</h1>}
+              !orderExists && <h1>Lookin' For A Rover request</h1>}
 
             {this.props.actionItem &&
               !orderExists && (
