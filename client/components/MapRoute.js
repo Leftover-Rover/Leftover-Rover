@@ -140,7 +140,7 @@ class Map extends React.Component {
         <Grid textAlign="center" style={{ height: '85vh' }}>
           <Grid.Row
             style={{
-              height: '80%'
+              height: '70%'
             }}
           >
             <UserMap
@@ -152,7 +152,7 @@ class Map extends React.Component {
           </Grid.Row>
           <Grid.Row
             style={{
-              height: '20%'
+              height: '30%'
             }}
           >
             {/* We will need to add conditionals here for different control bar, or handle it similarly to UserMap */}
@@ -224,7 +224,21 @@ class Map extends React.Component {
                 <DriverInfoCard driver={this.props.order.driver} />
               </div>
             )}
-            {orderToDropOff && <h1>Your Rover Is Going To Drop Off!</h1>}
+            {orderToDropOff && (
+              console.log('this.props after driver starts orderToDropoff', this.props),
+              <div
+                style={{
+                  width: '90%',
+                  textAlign: 'center',
+                  alignContent: 'center',
+                  justifyContent: 'center',
+                  alignItems: 'center'
+                }}
+              >
+                <h1>Rover En Route To Drop Off!</h1>
+                <DriverInfoCard driver={this.props.order.driver} />
+              </div>
+            )}
             {orderCompleted && (
               <div>
                 <h1>Your Leftovers Have Been Dropped Off!</h1>{' '}
