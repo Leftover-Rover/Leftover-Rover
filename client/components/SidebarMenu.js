@@ -8,7 +8,9 @@ import DriverSwitch from './DriverSwitch'
 export class SidebarMenu extends Component {
   state = { visible: false }
 
-  handleToggle = () => this.setState(state => ({ visible: !state.visible }))
+  handleToggle = () => {
+    this.setState(state => ({ visible: !state.visible }))
+  }
 
   render() {
     const { visible } = this.state
@@ -31,7 +33,9 @@ export class SidebarMenu extends Component {
           basic
           circular
           size="huge"
-          onClick={this.handleToggle}
+          onClick={() => {
+            this.setState({ visible: true })
+          }}
           style={{
             textAlign: 'center',
             justifyContent: 'center',
@@ -45,11 +49,14 @@ export class SidebarMenu extends Component {
           animation="overlay"
           icon="labeled"
           inverted
-          onHide={this.handleToggle}
+          onHide={() => this.setState({ visible: false })}
           vertical
           visible={visible}
           style={{ fontSize: '1.75rem' }}
         >
+          <Menu.Item name="me" active={true}>
+            Hi {this.props.user.name}!
+          </Menu.Item>
           <Menu.Item href="/me">Home</Menu.Item>
           {isAdmin ? (
             <Menu.Item href="/admin">Admin Dashboard</Menu.Item>
@@ -59,7 +66,11 @@ export class SidebarMenu extends Component {
           <Menu.Item href="/me/profile">My Profile</Menu.Item>
           <Menu.Item href="/me/order-history">My Order History</Menu.Item>
           {this.props.driver ? (
-            <Menu.Item>
+            <Menu.Item
+              onClick={() => {
+                this.setState({ visible: false })
+              }}
+            >
               <DriverSwitch />
             </Menu.Item>
           ) : (
@@ -78,7 +89,8 @@ const mapState = state => {
   return {
     isLoggedIn: !!state.user.id,
     driver: state.user.driver,
-    isAdmin: state.user.isAdmin
+    isAdmin: state.user.isAdmin,
+    user: state.user
   }
 }
 
