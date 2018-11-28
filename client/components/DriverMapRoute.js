@@ -130,7 +130,8 @@ class Map extends React.Component {
       destination: '',
       status: 'completed',
       centerLat: this.props.myLocation.lat,
-      centerLng: this.props.myLocation.lng
+      centerLng: this.props.myLocation.lng,
+      user: {}
     })
   }
 
