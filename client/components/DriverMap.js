@@ -58,7 +58,9 @@ export default class DriverMap extends React.Component {
     }
     if (Array.isArray(this.props.markers) && this.props.markers.length) {
       this.props.markers.forEach((marker, index) => {
-        this[`marker${index}`] = new mapboxgl.Marker()
+        this[`marker${index}`] = new mapboxgl.Marker({
+          element: document.createElement(index ? `markerUser` : 'markerDriver')
+        })
           .setLngLat(marker)
           .addTo(this.map)
       })

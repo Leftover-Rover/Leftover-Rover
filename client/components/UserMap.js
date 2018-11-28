@@ -58,8 +58,11 @@ export default class UserMap extends React.Component {
       ++markerIndex
     }
     if (Array.isArray(this.props.markers) && this.props.markers.length) {
+      const temp = this.props.markers.length > 1 ? 'markerDriver' : 'markerUser'
       this.props.markers.forEach((marker, index) => {
-        this[`marker${index}`] = new mapboxgl.Marker()
+        this[`marker${index}`] = new mapboxgl.Marker({
+          element: document.createElement(index ? 'markerUser' : `${temp}`)
+        })
           .setLngLat(marker)
           .addTo(this.map)
       })
