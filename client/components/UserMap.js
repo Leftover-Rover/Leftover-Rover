@@ -45,6 +45,7 @@ export default class UserMap extends React.Component {
     )
   }
 
+  // eslint-disable-next-line complexity
   componentDidUpdate = () => {
     const { origin, destination } = this.props
     this.map.on('load', () => {
@@ -64,11 +65,16 @@ export default class UserMap extends React.Component {
       })
     }
 
-    if (this.props.origin.length && !this.props.completed) {
+    if (
+      this.props.origin.length &&
+      !this.props.completed &&
+      this.props.origin[0] &&
+      this.props.destination[0]
+    ) {
       this.directions.setOrigin(origin)
       this.directions.setDestination(destination)
       this.map.fitBounds([origin, destination], { padding: 100 })
-    } else {
+    } else if (this.props.centerLat && this.props.centerLng) {
       this.map.flyTo({
         center: [this.props.centerLng, this.props.centerLat],
         zoom: this.props.zoom
