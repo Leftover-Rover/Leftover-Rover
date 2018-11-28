@@ -87,9 +87,12 @@ class Map extends React.Component {
         this.fetchDriver = true
         setTimeout(() => {
           this.fetchDriver = false
-          this.props.fetchDriverLocation(this.props.order.driverId)
-          const { lng, lat } = this.props.driverLocation
-          if (lng && lat) this.handleRoute([lng, lat], this.state.destination)
+          const { driverId } = this.props.order
+          if (driverId) {
+            this.props.fetchDriverLocation(driverId)
+            const { lng, lat } = this.props.driverLocation
+            if (lng && lat) this.handleRoute([lng, lat], this.state.destination)
+          }
         }, 2000)
       }
     }
