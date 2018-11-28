@@ -145,8 +145,6 @@ class Map extends React.Component {
     const ToDropOff = this.props.order.status === 'ToDropOff'
     const completed = this.props.order.status === 'Completed'
 
-    console.log(this.state.user)
-
     return (
       <React.Fragment>
         <Grid textAlign="center" style={{ height: '85vh' }}>

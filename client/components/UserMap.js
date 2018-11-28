@@ -84,7 +84,6 @@ export default class UserMap extends React.Component {
       })
     }
     if (this.props.completed) {
-      console.log('Should remove route')
       this.directions.removeRoutes()
     }
   }

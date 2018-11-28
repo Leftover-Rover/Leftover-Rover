@@ -102,8 +102,6 @@ export class UpdateUserProfile extends Component {
                       name="email"
                       required
                       type="email"
-                      // placeholder={this.state.email}
-                      // value={this.props.user.email}
                       value={this.state.email}
                       onChange={e => this.setState({ email: e.target.value })}
                     />

@@ -225,7 +225,6 @@ class Map extends React.Component {
               </div>
             )}
             {orderToDropOff && (
-              console.log('this.props after driver starts orderToDropoff', this.props),
               <div
                 style={{
                   width: '90%',
