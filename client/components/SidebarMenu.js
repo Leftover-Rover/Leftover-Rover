@@ -8,11 +8,15 @@ import DriverSwitch from './DriverSwitch'
 export class SidebarMenu extends Component {
   state = { visible: false }
 
-  handleToggle = () => this.setState(state => ({ visible: !state.visible }))
+  handleToggle = () => {
+    console.log('toggling!')
+    this.setState(state => ({ visible: !state.visible }))
+  }
 
   render() {
     const { visible } = this.state
     const { handleClick, isAdmin } = this.props
+    console.log(visible)
 
     return (
       <div
@@ -30,7 +34,9 @@ export class SidebarMenu extends Component {
           as="a"
           basic
           size="large"
-          onClick={this.handleToggle}
+          onClick={() => {
+            this.setState({ visible: true })
+          }}
           style={{
             textAlign: 'center',
             justifyContent: 'center',
@@ -54,7 +60,7 @@ export class SidebarMenu extends Component {
           animation="overlay"
           icon="labeled"
           inverted
-          onHide={this.handleToggle}
+          // onHide={this.handleToggle}
           vertical
           visible={visible}
           style={{ fontSize: '1.75rem' }}
@@ -68,7 +74,12 @@ export class SidebarMenu extends Component {
           <Menu.Item href="/me/profile">My Profile</Menu.Item>
           <Menu.Item href="/me/order-history">My Order History</Menu.Item>
           {this.props.driver ? (
-            <Menu.Item>
+            <Menu.Item
+              onClick={() => {
+                console.log('hiding!')
+                this.setState({ visible: false })
+              }}
+            >
               <DriverSwitch />
             </Menu.Item>
           ) : (
