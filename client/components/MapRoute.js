@@ -26,7 +26,8 @@ class Map extends React.Component {
 
   componentDidMount() {
     const options = {
-      timeout: 3000
+      timeout: 3000,
+      enableHighAccuracy: true
     }
     this.watch = navigator.geolocation.watchPosition(
       this.props.getMyLocation,
@@ -224,21 +225,25 @@ class Map extends React.Component {
                 <DriverInfoCard driver={this.props.order.driver} />
               </div>
             )}
-            {orderToDropOff && (
-              console.log('this.props after driver starts orderToDropoff', this.props),
-              <div
-                style={{
-                  width: '90%',
-                  textAlign: 'center',
-                  alignContent: 'center',
-                  justifyContent: 'center',
-                  alignItems: 'center'
-                }}
-              >
-                <h1>Rover En Route To Drop Off!</h1>
-                <DriverInfoCard driver={this.props.order.driver} />
-              </div>
-            )}
+            {orderToDropOff &&
+              (console.log(
+                'this.props after driver starts orderToDropoff',
+                this.props
+              ),
+              (
+                <div
+                  style={{
+                    width: '90%',
+                    textAlign: 'center',
+                    alignContent: 'center',
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                  }}
+                >
+                  <h1>Rover En Route To Drop Off!</h1>
+                  <DriverInfoCard driver={this.props.order.driver} />
+                </div>
+              ))}
             {orderCompleted && (
               <div>
                 <h1>Your Leftovers Have Been Dropped Off!</h1>{' '}
