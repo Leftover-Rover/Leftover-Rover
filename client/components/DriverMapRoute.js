@@ -40,7 +40,7 @@ class Map extends React.Component {
           currentLocationLng: pos.coords.longitude
         })
       },
-      err => console.log(err),
+      err => console.error(err),
       options
     )
   }

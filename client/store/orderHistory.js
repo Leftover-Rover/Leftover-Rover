@@ -12,7 +12,7 @@ export const fetchAllOrders = user => async dispatch => {
     const orders = await axios.get(`/api/users/${user.id}/orders`)
     dispatch(setOrders(orders.data))
   } catch (error) {
-    console.log(error)
+    console.error(error)
   }
 }
 

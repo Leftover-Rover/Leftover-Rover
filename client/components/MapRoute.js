@@ -31,7 +31,7 @@ class Map extends React.Component {
     }
     this.watch = navigator.geolocation.watchPosition(
       this.props.getMyLocation,
-      err => console.log(err),
+      err => console.error(err),
       options
     )
   }

@@ -132,7 +132,7 @@ export const driverAcceptOrder = (id, driverList) => async dispatch => {
       console.error(error)
     }
   } catch (error) {
-    console.log(error)
+    console.error(error)
   }
 }
 
