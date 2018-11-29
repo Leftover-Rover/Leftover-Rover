@@ -57,7 +57,7 @@ router.put('/:orderId', isUser, async (req, res, next) => {
 
     res.json(order)
   } catch (error) {
-    console.log(error)
+    console.error(error)
   }
 })
 
@@ -78,7 +78,7 @@ router.put('/', isUser, async (req, res, next) => {
     req.session.orderId = order.id
     res.json(order)
   } catch (error) {
-    console.log(error)
+    console.error(error)
   }
 })
 
@@ -135,7 +135,6 @@ router.post('/', isUser, async (req, res, next) => {
 
 router.get('/:userId', (req, res, next) => {
   if (!req.session.userId) {
-    console.log('here')
     return next()
   } else {
     Order.findOne({
