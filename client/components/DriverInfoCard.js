@@ -2,7 +2,6 @@ import React from 'react'
 import { Image, Segment, Item, Grid, List } from 'semantic-ui-react'
 
 export const DriverInfoCard = props => {
-  console.log('PROPS IN DRIVER INFO CARD:', props)
 
   const driverDisplayPhoneNumber = `${props.driver.user.phoneNumber.slice(
     0,

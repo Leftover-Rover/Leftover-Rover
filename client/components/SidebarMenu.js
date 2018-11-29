@@ -66,6 +66,7 @@ export class SidebarMenu extends Component {
           <Menu.Item href="/me/profile">My Profile</Menu.Item>
           <Menu.Item href="/me/order-history">My Order History</Menu.Item>
           {this.props.driver ? (
+            <>
             <Menu.Item
               onClick={() => {
                 this.setState({ visible: false })
@@ -73,12 +74,15 @@ export class SidebarMenu extends Component {
             >
               <DriverSwitch />
             </Menu.Item>
-          ) : (
-            <Menu.Item href="/signup-to-drive">Become A Rover</Menu.Item>
-          )}
-          <Menu.Item as={Link} to="/#" name="logout" onClick={handleClick}>
+            <Menu.Item as={Link} to="/#" name="logout" onClick={handleClick}>
             Logout
           </Menu.Item>
+          </>
+          ) : (
+            <Menu.Item as={Link} to="/#" name="logout" onClick={handleClick}>
+            Logout
+          </Menu.Item>
+          )}
         </Sidebar>
       </div>
     )

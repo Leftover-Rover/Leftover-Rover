@@ -100,21 +100,25 @@ class OrdersList extends Component {
                           {String(order.pickupLocationLng).slice(0, 6)}
                         </Table.Cell>
                       )}
-                      <Table.Cell textAlign="center">
-                        {`${order.driver.user.name
-                          .slice(0, 1)
-                          .toUpperCase()}${order.driver.user.name.slice(
-                          1,
-                          order.driver.user.name.indexOf(' ')
-                        )} ${order.driver.user.name
-                          .slice(
-                            order.driver.user.name.indexOf(' ') + 1,
+                      {order.driver !== null && order.driver.user !== null ? (
+                        <Table.Cell textAlign="center">
+                          {`${order.driver.user.name
+                            .slice(0, 1)
+                            .toUpperCase()}${order.driver.user.name.slice(
+                            1,
+                            order.driver.user.name.indexOf(' ')
+                          )} ${order.driver.user.name
+                            .slice(
+                              order.driver.user.name.indexOf(' ') + 1,
+                              order.driver.user.name.indexOf(' ') + 2
+                            )
+                            .toUpperCase()}${order.driver.user.name.slice(
                             order.driver.user.name.indexOf(' ') + 2
-                          )
-                          .toUpperCase()}${order.driver.user.name.slice(
-                          order.driver.user.name.indexOf(' ') + 2
-                        )}`}
-                      </Table.Cell>
+                          )}`}
+                        </Table.Cell>
+                      ) : (
+                        <Table.Cell textAlign="center">N/A</Table.Cell>
+                      )}
                       {order.deliveryTime === null ||
                       order.deliveryTime === undefined ? (
                         <Table.Cell textAlign="center">N/A</Table.Cell>
@@ -136,17 +140,30 @@ class OrdersList extends Component {
       )
     } else {
       return (
-        <div
-          style={{
-            display: 'flex',
-            alignContent: 'center',
-            justifyContent: 'center',
-            padding: '1%',
-            margin: '1%'
-          }}
-        >
-          <Loader active inline="centered" />
-        </div>
+        <>
+          <div
+            style={{
+              display: 'flex',
+              alignContent: 'center',
+              justifyContent: 'center',
+              textAlign: 'center',
+              paddingTop: '5%',
+              marginTop: '5%'
+            }}
+          >
+            <h1>Searching For Order History Data</h1>
+            <div
+            style={{
+              display: 'flex',
+              alignContent: 'center',
+              justifyContent: 'center',
+              textAlign: 'center'
+            }}
+          >
+              <Loader active inline="centered" />
+            </div>
+          </div>
+        </>
       )
     }
   }
