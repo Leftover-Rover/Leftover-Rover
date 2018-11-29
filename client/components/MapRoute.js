@@ -26,7 +26,8 @@ class Map extends React.Component {
 
   componentDidMount() {
     const options = {
-      timeout: 3000
+      timeout: 3000,
+      enableHighAccuracy: true
     }
     this.watch = navigator.geolocation.watchPosition(
       this.props.getMyLocation,

@@ -30,15 +30,17 @@ const OrderTable = props => {
               </Header>
             </Table.Cell>
             <Table.Cell>
-              <Header as="h4" image>
-                <Image src={order.driver.user.imageUrl} rounded size="mini" />
-                <Header.Content>
-                  {order.driver.user.name}
-                  <Header.Subheader>
-                    Driver since {order.driver.user.createdAt.slice(0, 10)}
-                  </Header.Subheader>
-                </Header.Content>
-              </Header>
+              {!!order.driver && (
+                <Header as="h4" image>
+                  <Image src={order.driver.user.imageUrl} rounded size="mini" />
+                  <Header.Content>
+                    {order.driver.user.name}
+                    <Header.Subheader>
+                      Driver since {order.driver.user.createdAt.slice(0, 10)}
+                    </Header.Subheader>
+                  </Header.Content>
+                </Header>
+              )}
             </Table.Cell>
             <Table.Cell>{order.status}</Table.Cell>
             <Table.Cell>
