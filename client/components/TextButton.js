@@ -54,5 +54,3 @@ const mapState = state => {
 }
 
 export default connect(mapState, mapDispatch)(TextButton)
-
-// export default TextButton

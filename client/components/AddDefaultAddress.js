@@ -55,9 +55,6 @@ export class AddDefaultAddress extends Component {
       .catch(err => console.error(err))
 
     await this.props.addDefaultDropoff(this.props.user, newAddress)
-
-    // ** NOTE **
-    // Not sure how we want to handle confirmation on the front-end, we can push/redirect the user to a new page or use a pop-up confirmation window
   }
 
   componentDidUpdate = prevProps => {
