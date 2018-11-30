@@ -76,6 +76,30 @@ const AuthForm = props => {
             GOOGLE{' '}
           </Button>
           <div />
+          <p>{'\n'}</p>
+          <Button
+            size="small"
+            color="black"
+            href="https://github.com/Leftover-Rover/Leftover-Rover"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'flex',
+              textAlign: 'center',
+              justifyContent: 'center',
+              justifyItems: 'center',
+              flexDirection: 'row',
+              margin: 'auto',
+              padding: 'auto'
+            }}
+          >
+            <Icon
+              name="github"
+              style={{ float: 'left', position: 'relative' }}
+            />{' '}
+            SEE OUR CODE{' '}
+          </Button>
+          <div />
         </Segment>
       </Grid.Column>
     </Grid>
